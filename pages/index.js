@@ -25,7 +25,7 @@ export default function Home() {
             <br></br>
             <div className={utilStyles.userButtons}>
             <Link href="/login">
-              <a> <MyButton name={'Login'}/> </a>
+              <a> <MyButton home={false} name={'Login'}/> </a>
             </Link>
             <br></br>
             <Link href="/register">
