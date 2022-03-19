@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 
-export default function Login() {
+export default function Login(home) {
   return (
     <>
       <Head>
@@ -13,6 +13,14 @@ export default function Login() {
           <a>Back to home</a>
         </Link>
       </h2>
+      {!home && (
+        <div className={styles.backToHome}>
+          <Link href="/">
+            <a>← Back to home</a>
+          </Link>
+        </div>
+      )}
     </>
+    
   )
 }
