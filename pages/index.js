@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import MyButton from '../components/MyButton'
-import { Container } from '@chakra-ui/react'
 
 
 export default function Home() {
