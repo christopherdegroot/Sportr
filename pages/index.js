@@ -12,9 +12,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Link href="/login">
-            <a>Login</a>
+          <Link href="/login">
+            <a>Login </a>
           </Link>
+          |
+          <Link href="/register">
+            <a> Register</a>
+          </Link>
+
+
 
       <main className={styles.main}>
         <h1 className={styles.title}>
