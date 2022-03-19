@@ -27,11 +27,11 @@ export default function Home() {
             <br></br>
             <div className={utilStyles.userButtons}>
             <Link href="/login">
-              <a> <MyButton /> </a>
+              <a> <MyButton>placerholder</MyButton> </a>
             </Link>
             <br></br>
             <Link href="/register">
-              <a> Register</a>
+              <a> <MyButton></MyButton></a>
             </Link>
             </div>
         </Layout>
