@@ -1,0 +1,56 @@
+.loginHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  resize: vertical;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+  padding-left: 3rem;
+}
+
+.form {
+  display: flex;
+  margin-bottom: 1em;
+  flex-direction: column;
+  justify-content: space-between;
+  resize: vertical;
+}
+
+.input,
+.textarea {
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1px 6px;
+  resize: vertical;
+}
+
+.input-wrap {
+  position: relative;
+}
+.input-wrap .input {
+  resize: vertical;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.width-machine {
+  padding: 0 1rem;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: vertical;
+  min-height: 40px;
+  line-height: 20px;
+}
+
+.textarea[contenteditable]:empty::before {
+  content: "Bio";
+  color: gray;
+}
