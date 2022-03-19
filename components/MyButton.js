@@ -4,6 +4,6 @@ export default function MyButton(props) {
 
   return (
   <button className={styles.MyButton}>
-    Login
+    {props.name}
   </button>
   )}

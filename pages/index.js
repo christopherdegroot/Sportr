@@ -21,17 +21,15 @@ export default function Home() {
               </p>
              
             </section>
-            <Link href="/posts/first-post">
-              <a> First Post</a>
-            </Link>
+      
             <br></br>
             <div className={utilStyles.userButtons}>
             <Link href="/login">
-              <a> <MyButton>placerholder</MyButton> </a>
+              <a> <MyButton name={'Login'}/> </a>
             </Link>
             <br></br>
             <Link href="/register">
-              <a> <MyButton></MyButton></a>
+              <a> <MyButton name={'Register'}/></a>
             </Link>
             </div>
         </Layout>
