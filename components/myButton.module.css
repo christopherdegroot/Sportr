@@ -1,14 +1,14 @@
 .MyButton {
+  font-size: 12pt;
   border-radius: 1rem;
   border: 0;
-  font-size: 1.5rem;
   height: 2rem;
   line-height: 1.2rem;
   margin-right: 1rem;
   width: 8rem;
   border-width: 2px;
   border-style: solid;
-  border-color: white;
-  color: white;
+  border-color: black;
+  color: black;
   background-color: transparent;
 }

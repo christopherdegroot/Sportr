@@ -2,6 +2,7 @@
 // Also alters global styles
 import '../styles/globals.css'
 
+
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
