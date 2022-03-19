@@ -1,31 +1,23 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { Container, Flex, VStack } from '@chakra-ui/react'
+import Cart from '../../components/cart'
+import Register from '../../components/Register'
 
 export default function Userhome() {
   return (
     <>
     <Container maxW="container.xl" p={0}>
       <Flex h='100vh' py={20}>
-        <VStack 
-        w="full" 
-        h="full" 
-        p={10} 
-        spacing={10} 
-        alignItems="flex-start" 
-        >
+        <Cart >
 
-        </VStack>
-        <VStack 
-        w="full" 
-        h="full" 
-        p={10} 
-        spacing={10} 
-        alignItems="flex-start" 
-        bg="gray.50"
-        >
+        </Cart>
+        <Register >
+          
+        </Register>
+        <Cart >
 
-        </VStack>
+        </Cart>
       </Flex>
     </Container>  
     </>
