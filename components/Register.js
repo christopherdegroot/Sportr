@@ -31,19 +31,19 @@ const Details = () => {
         <GridItem colSpan={2}>
           <FormControl>
             <FormLabel>Email </FormLabel>
-            <Input placeholder="Email" />
+            <Input type="email" placeholder="Email" />
           </FormControl>
-        </GridItem>
+        </GridItem>s
         <GridItem colSpan={2}>
           <FormControl>
             <FormLabel>Password </FormLabel>
-            <Input placeholder="Password" />
+            <Input type="password" placeholder="Password" />
           </FormControl>
         </GridItem>
         <GridItem colSpan={2}>
           <FormControl>
             <FormLabel>Confirm Password </FormLabel>
-            <Input placeholder="Password" />
+            <Input type="password" placeholder="Password" />
           </FormControl>
         </GridItem>
         <GridItem colSpan={2}>
@@ -77,7 +77,7 @@ const Details = () => {
         </GridItem>
         <GridItem>
           <Link href='/profile'>
-          <Button w="full" size="lg">Sign up</Button>
+          <Button colorScheme='blue' w="full" size="lg">Sign up</Button>
           </Link>
         </GridItem>
       </SimpleGrid>
