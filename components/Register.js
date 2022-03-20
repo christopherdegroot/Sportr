@@ -33,7 +33,7 @@ const Details = () => {
             <FormLabel>Email </FormLabel>
             <Input type="email" placeholder="Email" />
           </FormControl>
-        </GridItem>s
+        </GridItem>
         <GridItem colSpan={2}>
           <FormControl>
             <FormLabel>Password </FormLabel>
