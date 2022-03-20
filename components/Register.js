@@ -1,19 +1,21 @@
 import Link from "next/link";
-import { Checkbox, Button, Select, FormControl, FormLabel, Input, VStack, Heading, Text, SimpleGrid, GridItem } from "@chakra-ui/react";
+import { Container, useDisclosure, Collapse, Box, ExpandingTextarea, Textarea, Checkbox, Button, Select, FormControl, FormLabel, Input, VStack, Heading, Text, SimpleGrid, GridItem } from "@chakra-ui/react";
+import Sportcheckbox from "./Sportcheckbox";
 
 const Details = () => {
+  const { isOpen, onToggle } = useDisclosure()
   return (
+    <Container maxW='container.md'>
     <VStack 
       w="full" 
       h="full" 
       p={10} 
       spacing={10} 
-      alignItems="flex-start" 
       bg="gray.50"
     >
       <VStack spacing={3} alignItems='flex-start'>
       <Heading size="2xl"> Please Register </Heading>
-      <Text> If you already have an account, click here to log in </Text>
+      <Text> If you already have an account, click <Link href="/">here</Link> to log in </Text>
       </VStack>
       <SimpleGrid columns={1} rowGap={6} w='full'>
       <GridItem colSpan={2}>
@@ -49,31 +51,27 @@ const Details = () => {
         <GridItem colSpan={2}>
           <FormControl>
             <FormLabel>Tell Us About Yourself </FormLabel>
-            <Input placeholder="Bio" />
-          </FormControl>
-        </GridItem>
-        <GridItem colSpan={2}>
-          <FormControl>
-            <FormLabel>What sport do you want to play?</FormLabel>
-            <Select>
-              <option value="SpikeBall">Spike Ball</option>
-              <option value="DiscGolf">Disc Golf</option>
-              <option value="Tennis">Tennis</option>
-              <option value="Basketball">Basketball</option>
-              <option value="BeachVolleyball">Beach Volleyball</option>
-            </Select>
+            <Textarea resize="none" h="7em" placeholder="Bio" />
           </FormControl>
         </GridItem>
         <GridItem colSpan={2}>
           {/* checkbox component has an on user changed event that we can use to reflect on the users choice */}
-          <FormLabel>What sports are you interested in?</FormLabel>
-          <VStack alignItems='flex-start'>
-          <Checkbox>Spike Ball</Checkbox>
-          <Checkbox colSpan={2} value="DiscGolf">Disc Golf</Checkbox>
-          <Checkbox value="Tennis">Tennis</Checkbox>
-          <Checkbox value="Basketball">Basketball</Checkbox>
-          <Checkbox value="BeachVolleyball">Beach Volleyball</Checkbox>
-          </VStack>
+          <Button onClick={onToggle}>What sports are you interested in?</Button>
+            <Collapse in={isOpen} animateOpacity >
+              <Box
+                p='40px'
+                color='white'
+                mt='4'
+                bg='teal.500'
+                rounded='md'
+                shadow='md'
+              >
+                 <Sportcheckbox>
+                </Sportcheckbox>
+              </Box>
+            </Collapse>
+
+         
         </GridItem>
         <GridItem>
           <Link href='/profile'>
@@ -82,6 +80,7 @@ const Details = () => {
         </GridItem>
       </SimpleGrid>
     </VStack>
+    </Container>
   )
 }
 
