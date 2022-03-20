@@ -14,10 +14,15 @@ import {
   Text,
   SimpleGrid,
   GridItem,
-  isLoading
+  isLoading,
+  InputGroup,
+  InputRightElement,
 } from "@chakra-ui/react";
+import React from "react";
 
 const LoginModule = (props) => {
+  const [show, setShow] = React.useState(false)
+  const handleClick = () => setShow(!show)
   const onClose = props.onClose;
   return (
     <>
@@ -31,13 +36,27 @@ const LoginModule = (props) => {
             <GridItem colSpan={2}>
               <FormControl>
                 <FormLabel>Email</FormLabel>
-                <Input type="email" placeholder="Email Address" />
+                <Input 
+                focusBorderColor="teal.300"
+                type="email" placeholder="Email Address" />
               </FormControl>
             </GridItem>
             <GridItem colSpan={2}>
               <FormControl>
                 <FormLabel>Password</FormLabel>
-                <Input marginBottom='1.5em' type="password" placeholder="Password" />
+                <InputGroup size='md'>
+                <Input
+                  focusBorderColor="teal.300"
+                  pr='4.5rem'
+                  type={show ? 'text' : 'password'}
+                  placeholder='Enter password'
+                />
+                <InputRightElement width='4.5rem'>
+                  <Button focusBorderColor="teal.300" variant="outline" color="white" colorScheme={'blackAlpha'} h='1.5rem' w='2rem' fontSize='12px' onClick={handleClick}>
+                    {show ? 'Hide' : 'Show'}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
               </FormControl>
             </GridItem>
           </SimpleGrid>
