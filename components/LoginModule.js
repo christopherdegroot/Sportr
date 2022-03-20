@@ -14,6 +14,7 @@ import {
   Text,
   SimpleGrid,
   GridItem,
+  isLoading
 } from "@chakra-ui/react";
 
 const LoginModule = (props) => {
@@ -41,7 +42,7 @@ const LoginModule = (props) => {
             </GridItem>
           </SimpleGrid>
           <Link href="/profile">
-            <Button w="9em" type="submit" name={"Submit"} variant="outline">
+            <Button w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha">
               Submit
             </Button>
           </Link>
