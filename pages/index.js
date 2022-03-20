@@ -4,13 +4,14 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
-import MyButton from '../components/MyButton'
-
+import { Slide, useDisclosure, ChakraProvider, Box, Button, Fade, VStack } from "@chakra-ui/react";
+import LoginModule from '../components/LoginModule'
 
 export default function Home() {
+  const { isOpen, onClose, onToggle } = useDisclosure()
   return (
     <>
-  
+    <ChakraProvider>
     <Layout home>
             <Head>
               <title>{siteTitle}</title>
@@ -25,16 +26,33 @@ export default function Home() {
       
             <br></br>
             <div className={utilStyles.userButtons}>
-            <Link href="/login">
-              <a> <MyButton home={false} name={'Login'}/> </a>
-            </Link>
-            <br></br>
+              <VStack>
             <Link href="/register">
-              <a> <MyButton name={'Register'}/></a>
+              <Button w='9em' name={'Register'}>Register</Button> 
             </Link>
+            <Box p={4} >
+              <Button w='9em' onClick={onToggle} >Login</Button>
+              <Slide direction='bottom' in={isOpen}>
+                <Box
+                  p='40px'
+                  color="white"
+                  mt='4'
+                  bg='teal'
+                  rounded='md'
+                  shadow="md"
+                  >
+                  <LoginModule onClick={onClose} onClose={onClose}>
+                  </LoginModule>
+                </Box>
+              </Slide>
+            </Box>
+
+
+
+            </VStack>
             </div>
         </Layout>
-       
+        </ChakraProvider>
         
         </>
   )
