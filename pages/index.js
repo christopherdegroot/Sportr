@@ -38,7 +38,7 @@ export default function Home() {
                   p='40px'
                   color="white"
                   mt='4'
-                  bg='teal'
+                  bg='teal.500'
                   rounded='md'
                   shadow="md"
                   >
