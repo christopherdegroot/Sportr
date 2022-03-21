@@ -22,7 +22,8 @@ import {
   Text,
   SimpleGrid,
   GridItem,
-  Img
+  Img,
+  Image
 } from "@chakra-ui/react";
 import Sportcheckbox from "./Sportcheckbox";
 import RangeSlider from "./RangeSlider";
@@ -36,15 +37,15 @@ const Details = (props) => {
 
   return (
     <Container maxW="container.md">
-      <VStack w="full" h="full" p={10} spacing={10} bg="gray.50">
+      <VStack w="full" h="full" p={5} spacing={10} bg="gray.50">
 
-        <VStack spacing={3} align="center">
+        <VStack spacing={5} align="center">
           <Heading size="2xl"> Edit Profile </Heading>
-          <Img  borderRadius='full'
-                boxSize='150px'
+          <Image  borderRadius='full'
+                boxSize='200px'
                 src={profile_image_url}
                 alt={name}
-                fit='none'
+                fit='cover'
                 justifySelf='center'
                 />
         </VStack>
