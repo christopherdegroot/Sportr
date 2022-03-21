@@ -23,7 +23,9 @@ import {
   SimpleGrid,
   GridItem,
   Img,
-  Image
+  Image,
+  Center,
+  CheckboxGroup
 } from "@chakra-ui/react";
 import Sportcheckbox from "./Sportcheckbox";
 import RangeSlider from "./RangeSlider";
@@ -72,12 +74,34 @@ const Details = (props) => {
               <Input type="email" placeholder={email} />
             </FormControl>
           </GridItem>
+          {/* Range */}
+          <GridItem colSpan={2}>
+            <FormLabel>Select Range</FormLabel>
+            <RangeSlider defaultValue={km_range} /> {/* onChangeEnd={} */}
+          </GridItem>
+          {/* Prefrences */}
+          <GridItem>
+            <VStack alignItems="flex-start">
+            <FormLabel>Preferences</FormLabel>
+              <CheckboxGroup colSpan={2}>
+              <SimpleGrid columns={1} rowGap={2} w='full'>
+                <Checkbox value="gender">Same Gender</Checkbox>
+                <Checkbox value="similar_age">Similar Age</Checkbox>
+                </SimpleGrid>
+              </CheckboxGroup>
+            </VStack>
+          </GridItem>
+
           {/* Sports */}
           <GridItem colSpan={2}>
             {/* checkbox component has an on user changed event that we can use to reflect on the users choice */}
-            <Button onClick={onToggle}>
-              What sports are you interested in?
-            </Button>
+            <Center>
+              <Button onClick={onToggle} justify='center'>
+                Change Your Sports
+              </Button>
+            </Center>
+
+
             <Collapse in={isOpen} animateOpacity>
               <Box
                 p="40px"
@@ -91,14 +115,8 @@ const Details = (props) => {
               </Box>
             </Collapse>
           </GridItem>
-          {/* Range */}
-          <GridItem>
-            <FormLabel>Select Range</FormLabel>
-            <RangeSlider defaultValue={km_range} /> {/* onChangeEnd={} */}
-          </GridItem>
-          <br></br>
           {/* Confirm (Would like replace with saving as you change it) */}
-          <GridItem>
+          <GridItem colSpan={2}>
             <Link href="/profile">
               <Button colorScheme="blue" w="full" size="lg">
                 Confirm
