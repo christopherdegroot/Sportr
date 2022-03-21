@@ -60,20 +60,6 @@ const Details = (props) => {
               <Textarea resize="none" h="7em" placeholder="Bio" />
             </FormControl>
           </GridItem>
-          {/* Name */}
-          <GridItem colSpan={2}>
-            <FormControl>
-              <FormLabel>Name</FormLabel>
-              <Input placeholder={name} />
-            </FormControl>
-          </GridItem>
-          {/* Email */}
-          <GridItem colSpan={2}>
-            <FormControl>
-              <FormLabel>Email</FormLabel>
-              <Input type="email" placeholder={email} />
-            </FormControl>
-          </GridItem>
           {/* Range */}
           <GridItem colSpan={2}>
             <FormLabel>Select Range</FormLabel>
@@ -95,25 +81,45 @@ const Details = (props) => {
           {/* Sports */}
           <GridItem colSpan={2}>
             {/* checkbox component has an on user changed event that we can use to reflect on the users choice */}
-            <Center>
-              <Button onClick={onToggle} justify='center'>
-                Change Your Sports
-              </Button>
-            </Center>
+            <FormLabel>Sports</FormLabel>
 
-
-            <Collapse in={isOpen} animateOpacity>
-              <Box
-                p="40px"
-                color="white"
-                mt="4"
-                bg="teal.500"
-                rounded="md"
-                shadow="md"
-              >
-                <Sportcheckbox></Sportcheckbox>
-              </Box>
-            </Collapse>
+            <VStack alignItems="flex-start">
+              <CheckboxGroup colSpan={2}>
+              <SimpleGrid columns={1} rowGap={2} w='full'>
+                <Checkbox value="badminton">Badminton</Checkbox>
+                <Checkbox value="baseball">Baseball</Checkbox>
+                <Checkbox value="basketball">Basketball</Checkbox>
+                <Checkbox value="beachvolleyball">Beach Volleyball</Checkbox>
+                <Checkbox value="DiscGolf">Disc Golf</Checkbox>
+                <Checkbox value="canoeingkayaking">Canoeing/Kayaking</Checkbox>
+                <Checkbox value="curling">Curling</Checkbox>
+                <Checkbox value="cycling">Cycling</Checkbox>
+                <Checkbox value="football">Football</Checkbox>
+                <Checkbox value="golf">Golf</Checkbox>
+                <Checkbox value="hiking">Hiking</Checkbox>
+                <Checkbox value="iceclimbing">Ice Climbing</Checkbox>
+                <Checkbox value="lacrosse">Lacrosse</Checkbox>
+                <Checkbox value="pickleball">Pickleball</Checkbox>
+                <Checkbox value="racquetball">Racquetball</Checkbox>
+                <Checkbox value="rockclimbing">Rock Climbing</Checkbox>
+                <Checkbox value="rowing">Rowing</Checkbox>
+                <Checkbox value="rugby">Rugby</Checkbox>
+                <Checkbox value="running">Running</Checkbox>
+                <Checkbox value="sailing">Sailing</Checkbox>
+                <Checkbox value="skiing">Skiing</Checkbox>
+                <Checkbox value="soccer">Soccer</Checkbox>
+                <Checkbox value="spikeball">Spike Ball</Checkbox>
+                <Checkbox value="squash">Squash</Checkbox>
+                <Checkbox value="swimming">Swimming</Checkbox>
+                <Checkbox value="tabletennis">Table Tennis</Checkbox>
+                <Checkbox value="tennis">Tennis</Checkbox>
+                <Checkbox value="trailrunning">Trail Running</Checkbox>
+                <Checkbox value="ultimatefrisbee">Ultimate Frisbee</Checkbox>
+                <Checkbox value="volleyball">Volleyball</Checkbox>
+                <Checkbox value="yoga">Yoga</Checkbox>
+                </SimpleGrid>
+              </CheckboxGroup>
+            </VStack>
           </GridItem>
           {/* Confirm (Would like replace with saving as you change it) */}
           <GridItem colSpan={2}>
