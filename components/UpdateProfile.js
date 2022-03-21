@@ -101,7 +101,7 @@ const Details = (props) => {
           <GridItem>
             <Link href="/profile">
               <Button colorScheme="blue" w="full" size="lg">
-                Sign up
+                Confirm
               </Button>
             </Link>
           </GridItem>
