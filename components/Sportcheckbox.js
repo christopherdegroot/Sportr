@@ -24,7 +24,7 @@ const Sportcheckbox = () => {
   return (
     <VStack alignItems="flex-start">
       <CheckboxGroup colSpan={2}>
-      <SimpleGrid columns={3} rowGap={6} w='full'>
+      <SimpleGrid columns={1} rowGap={2} w='full'>
         <Checkbox value="badminton">Badminton</Checkbox>
         <Checkbox value="baseball">Baseball</Checkbox>
         <Checkbox value="basketball">Basketball</Checkbox>
