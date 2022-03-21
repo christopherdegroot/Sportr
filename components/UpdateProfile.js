@@ -39,7 +39,7 @@ const Details = () => {
       <VStack w="full" h="full" p={10} spacing={10} bg="gray.50">
         <VStack spacing={3} alignItems="flex-start">
           <Heading size="2xl"> Edit Info </Heading>
-          <Img > </Img>
+
         </VStack>
         <SimpleGrid columns={1} rowGap={6} w="full">
           <GridItem colSpan={2}>
@@ -50,7 +50,7 @@ const Details = () => {
           </GridItem>
           <GridItem colSpan={2}>
             <FormControl>
-              <FormLabel>Last Name </FormLabel>
+              <FormLabel>Last Name </FormLabel> 
               <Input placeholder="Last Name" />
             </FormControl>
           </GridItem>
