@@ -5,10 +5,6 @@ import {
   SliderFilledTrack,
   SliderThumb,
   SliderMark,
-  RangeSlider,
-  RangeSliderTrack,
-  RangeSliderFilledTrack,
-  RangeSliderThumb,
   Container,
   useDisclosure,
   Collapse,
@@ -29,12 +25,13 @@ import {
   Img
 } from "@chakra-ui/react";
 import Sportcheckbox from "./Sportcheckbox";
+import RangeSlider from "./RangeSlider";
 import { useState } from "react";
 
 const Details = (props) => {
   const {id, email, name, passsword, bio, profile_image_url, gender, birthdate, sports, km_range} = props.user
   const { isOpen, onToggle } = useDisclosure();
-  const [sliderValue, setSliderValue] = useState(km_range)
+
   
 
   return (
@@ -93,27 +90,7 @@ const Details = (props) => {
           {/* Range */}
           <GridItem>
             <FormLabel>Select Range</FormLabel>
-
-            <Slider aria-label='slider-ex-6' defaultValue={sliderValue} onChange={(val) => setSliderValue(val)} onChangeEnd={(val) => console.log('Update KM Range')} >
-              <SliderMark value={25} mt='2' ml='-2.5' fontSize='sm'>
-                25km
-              </SliderMark>
-              <SliderMark value={50} mt='2' ml='-2.5' fontSize='sm'>
-                50km
-              </SliderMark>
-              <SliderMark value={75} mt='2' ml='-2.5' fontSize='sm'>
-                75km
-              </SliderMark>
-
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb boxSize={6}>
-                {sliderValue}
-              </SliderThumb>
-
-            </Slider>
-
+            <RangeSlider defaultValue={km_range} /> {/* onChangeEnd={} */}
           </GridItem>
           <br></br>
           {/* Confirm (Would like replace with saving as you change it) */}
