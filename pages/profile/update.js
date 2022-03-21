@@ -13,7 +13,7 @@ const Login = (props) => {
     name:"Noah V",
     password:"haha",
     bio:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris purus nisl, faucibus nec laoreet ultricies, fringilla et dolor. Pellentesque id odio vehicula, mollis nibh in, congue tortor. Etiam pellentesque sem.",
-    profile_imgae_url:"https://www.boredpanda.com/blog/wp-content/uploads/2021/08/funny-monkeys-56-612393fdd1081__700.jpg",
+    profile_image_url:"https://www.boredpanda.com/blog/wp-content/uploads/2021/08/funny-monkeys-56-612393fdd1081__700.jpg",
     gender:"male",
     birthdate:'1999-12-31',
     sports: ['basketball', 'soccer', 'running', 'spikeball'],
