@@ -37,15 +37,18 @@ const Details = (props) => {
   return (
     <Container maxW="container.md">
       <VStack w="full" h="full" p={10} spacing={10} bg="gray.50">
-        <VStack spacing={3} alignItems="flex-start">
-          <Heading size="2xl"> Edit Info </Heading>
+
+        <VStack spacing={3} align="center">
+          <Heading size="2xl"> Edit Profile </Heading>
           <Img  borderRadius='full'
                 boxSize='150px'
                 src={profile_image_url}
                 alt={name}
                 fit='none'
+                justifySelf='center'
                 />
         </VStack>
+
         <SimpleGrid columns={1} rowGap={6} w="full">
           {/* About Me */}
           <GridItem colSpan={2}>
@@ -102,6 +105,7 @@ const Details = (props) => {
             </Link>
           </GridItem>
         </SimpleGrid>
+
       </VStack>
     </Container>
   );
