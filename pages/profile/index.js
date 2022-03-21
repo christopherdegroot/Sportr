@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { Container, Flex, VStack } from '@chakra-ui/react'
-import Cart from '../../components/cart'
-import Details from '../../components/details'
 import styles from '../../styles/login-header.module.css'
+import SportEvent from '../../components/SportEvent'
 
 
 export default function Userhome(props) {
@@ -11,12 +10,9 @@ export default function Userhome(props) {
     <>
     <Container maxW="container.xl" p={0}>
       <Flex h='100vh' py={20}>
-      <Cart >
+      <SportEvent>
         
-      </Cart>
-      <Details >
-        
-      </Details>
+      </SportEvent>
       </Flex>
     </Container>
     <div>
