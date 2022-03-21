@@ -60,7 +60,7 @@ const LoginModule = (props) => {
               </FormControl>
             </GridItem>
           </SimpleGrid>
-          <Link href="/profile">
+          <Link href="/eventfeed">
             <Button w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha">
               Submit
             </Button>

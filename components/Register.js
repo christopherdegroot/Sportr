@@ -131,7 +131,7 @@ const Details = () => {
           </GridItem>
           <br></br>
           <GridItem>
-            <Link href="/profile">
+            <Link href="/eventfeed">
               <Button colorScheme="blue" w="full" size="lg">
                 Sign up
               </Button>
