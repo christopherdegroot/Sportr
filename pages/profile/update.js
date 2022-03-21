@@ -7,7 +7,7 @@ import { Checkbox, Button, Select, FormControl, FormLabel, Input, VStack, Headin
 
 const Login = (props) => {
 
-  userObject = {
+  const userObject = {
     id:4,
     email:"noahthedev@hotmail.com",
     name:"Noah V",
@@ -22,7 +22,7 @@ const Login = (props) => {
 
   return (
     <>
-    <UpdateProfile>
+    <UpdateProfile user={userObject}>
       
     </UpdateProfile>
     </>
