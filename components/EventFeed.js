@@ -29,6 +29,7 @@ export default function EventFeed(props) {
     title: "Basketball at Moody Park",
     description: "Looking for more for a pickup game at the Moody Park courts",
     new: false,
+    startsToday: true
   };
 
   const event3 = {
@@ -39,6 +40,7 @@ export default function EventFeed(props) {
     title: "Attention beach volleyballers",
     description: "I'll bring the net and balls, you bring the stoke!",
     new: false,
+    ownership: true,
   };
 
   const { isOpen, onClose, onToggle } = useDisclosure();
@@ -46,33 +48,32 @@ export default function EventFeed(props) {
   return (
     <>
       <Container maxW="container.md">
-        <Box rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
+        <Box pt={10}>
           <VStack
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
             w="full"
             h="full"
-            p={10}
-            spacing={10}
+            spacing={5}
           >
-            {props.findEvents && (<Box>
+            {props.findEvents && (<>
               <SportEvent findEvents={true} onClose={onClose} event={event1}></SportEvent>
               <SportEvent findEvents={true} onClose={onClose} event={event2}></SportEvent>
               <SportEvent findEvents={true} onClose={onClose} event={event3}></SportEvent>
-            </Box>)}
-            {props.profileEvents && (<Box>
+            </>)}
+            {props.profileEvents && (<>
               <SportEvent profileEvents={true} onClose={onClose} event={event1}></SportEvent>
               <SportEvent profileEvents={true} onClose={onClose} event={event2}></SportEvent>
               <SportEvent profileEvents={true} onClose={onClose} event={event3}></SportEvent>
-            </Box>)}
+            </>)}
           </VStack>
         </Box>
         <Box>
           {!props.home && (
             <Box className={styles.backToHome}>
               <Link href="/">
-                <a>← Back to home</a>
+                ← Back to home
               </Link>
             </Box>
           )}
