@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Box, Container, Flex, VStack } from '@chakra-ui/react'
 import EventFeed from '../../components/EventFeed'
 import styles from '../../styles/login-header.module.css'
+import NavigationBar from '../../components/NavigationBar'
 
 
 export default function Userhome(props) {
@@ -15,6 +16,7 @@ export default function Userhome(props) {
       </EventFeed>
       </Flex>
     </Container>
+    <NavigationBar/>
    
     </>
   )
