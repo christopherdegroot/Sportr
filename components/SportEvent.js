@@ -17,9 +17,8 @@ import React from "react";
 
 function SportEvent(props) {
   const onClose = props.onClose;
-  console.log('props onclose', onClose)
+  console.log('props onclose', props.findEvents)
   const [show, setShow] = React.useState(true)
-
   return (
     <>
      {show && (<Box
@@ -35,12 +34,16 @@ function SportEvent(props) {
 
         <Box  p="6">
           <Box display="flex" alignItems="baseline">
-            { props.event.new === true && (<Badge mr={1} borderRadius="full" px="2" colorScheme="teal">
+            { props.event.new === true && props.findEvents === true && (<Badge mr={1} borderRadius="full" px="2" colorScheme="teal">
               New
             </Badge>)}
-            { props.event.spotsRemaining <= 2 && (<Badge mr={1} borderRadius="full" px="2" colorScheme="red">
-              Almost Full
+            { props.event.spotsRemaining <= 2 && (<Badge mr={1} borderRadius="full" px="2" colorScheme="green">
+              Your Event
             </Badge>)}
+            {props.profileEvents ===  true && (<Badge mr={1} borderRadius="full" px="2" colorScheme="yellow">
+              Starts today
+            </Badge>)}
+
             <Box
               color="gray.500"
               fontWeight="semibold"
@@ -67,14 +70,23 @@ function SportEvent(props) {
             {props.event.description}
           </Box>
         </Box>
-        <Box display="flex" alignItems="center" justifyContent="flex-end">
+        {props.findEvents ===  true && (<Box display="flex" alignItems="center" justifyContent="flex-end">
           <Button onClick={()=>{setShow(false)}} colorScheme="red" m={2} marginBottom="4">
             Swipe Left
           </Button>
           <Button onClick={()=>{setShow(false)}} colorScheme="green" m={2} marginRight="4" marginBottom="4">
             Swipe Right
           </Button>
-        </Box>
+        </Box>)}
+        {props.profileEvents ===  true && (<Box display="flex" alignItems="center" justifyContent="flex-end">
+          <Button onClick={()=>{}}  colorScheme="teal" m={2} marginBottom="4">
+            View Event
+          </Button>
+          <Button onClick={()=>{setShow(false)}} variant={"outline"} m={2} marginRight="4" marginBottom="4">
+            Cancel Event
+          </Button>
+        </Box>)}
+
       </Box>)}
     </>
   );

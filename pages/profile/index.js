@@ -76,7 +76,7 @@ export default function Userhome(props) {
       </Container>
       <Container maxW="container.xl" p={0}>
         <Flex h="100vh" py={3}>
-          <EventFeed></EventFeed>
+          <EventFeed profileEvents={true} ></EventFeed>
         </Flex>
       </Container>
     </>
