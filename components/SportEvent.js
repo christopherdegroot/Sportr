@@ -12,6 +12,10 @@ import {
   Container,
   VStack,
   Heading,
+  CheckIcon,
+  ButtonGroup,
+  IconButton,
+  EmailIcon
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -75,18 +79,19 @@ function SportEvent(props) {
         {props.findEvents ===  true && (<Box display="flex" alignItems="center" justifyContent="flex-end">
           
           <Button onClick={()=>{setShow(false)}} colorScheme="red" m={2} marginBottom="4">
-            Swipe Left
+          Accept
           </Button>
           <Button onClick={()=>{setShow(false)}} colorScheme="green" m={2} marginRight="4" marginBottom="4">
-            Swipe Right
-          </Button>
+          Reject
+          </Button>    
         </Box>)}
-        {props.profileEvents ===  true && (<Box display="flex" alignItems="center" justifyContent="space-between">
+        
+        {props.profileEvents ===  true && (<Box display="flex" alignItems="center" justifyContent="flex-end">
           <Button onClick={()=>{}}  colorScheme="teal" m={2} marginBottom="4">
-            View Event
+            Details
           </Button>
           <Button onClick={()=>{setShow(false)}} variant={"outline"} m={2} marginRight="4" marginBottom="4">
-            Cancel Event
+            Cancel
           </Button>
         </Box>)}
         </Box>
