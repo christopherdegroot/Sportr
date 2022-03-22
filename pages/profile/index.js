@@ -29,8 +29,7 @@ export default function Userhome(props) {
   return (
     <>
       {/* Profile Preview */}
-      <Container mt='6vh'>
-        <Box borderWidth="1px" overflow="hidden">
+        <Box mt='6vh' borderWidth="1px" overflow="hidden">
             <VStack
               w="full"
               flexDirection={"column"}
@@ -46,12 +45,10 @@ export default function Userhome(props) {
                 />
               <HStack>
                 <Heading pl={5} orientation='vertical'>{name}, {Math.floor((Date.now()-Date.parse(birthdate))/3.154e+10)}</Heading>
-                
                 <Icon as={MdVerified} w={6} h={6} color='blue.500'></Icon>
               </HStack>
           </VStack>
         </Box>
-      </Container>
       <NavigationBar/>
     </>
   );
