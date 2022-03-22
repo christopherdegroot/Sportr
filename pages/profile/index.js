@@ -76,12 +76,6 @@ export default function Userhome(props) {
           </VStack>
         </Box>
       </Container>
-      {/* Events Container */}
-      <Container maxW="container.xl" p={0}>
-        <Flex h="100vh" py={3}>
-          <EventFeed></EventFeed>
-        </Flex>
-      </Container>
       <NavigationBar/>
     </>
   );
