@@ -9,9 +9,9 @@ import NavigationBar from '../../components/NavigationBar'
 export default function Userhome(props) {
   return (
     <>
-    <Container maxW="container.xl" p={0}>
+    <Container backgroundColor={'rgb(247, 247, 247)'} maxW="container.xl" p={0}>
       <Flex h='100vh' py={20}>
-      <EventFeed>
+      <EventFeed findEvents={true}>
 
       </EventFeed>
       </Flex>
