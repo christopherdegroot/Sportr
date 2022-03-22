@@ -23,7 +23,7 @@ export default function Userhome(props) {
 
   return (
     <>
-      <Container backgroundColor={'rgb(247, 247, 247)'} pt='10' maxW="container.md">
+      <Container backgroundColor={'rgb(247, 247, 247)'} pt='5' maxW="container.md">
       <Box>
       </Box>
         <Box backgroundColor={'white'} rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
@@ -33,12 +33,13 @@ export default function Userhome(props) {
             alignItems="flex-start"
             w="full"
             h="full"
-            p={10}
+            px={10}
+            pt={5}
           >
             <VStack
               w="full"
-              flexDirection={"row"}
-              justifyContent={"flex-start"}
+              flexDirection={"column"}
+              justifyContent={"center"}
             >
               <Image
                 mb={1}
@@ -47,22 +48,24 @@ export default function Userhome(props) {
                 src="https://bit.ly/dan-abramov"
                 alt="Dan Abramov"
               />
-              <Heading pl={5}>Danasdasd Abraasddasdasdmov</Heading>
-              <Text pt={'2'} fontSize="2xl">,27</Text>
+              <VStack flexDirection={'row'} alignItems='flex-end'>
+                <Text fontWeight={'semibold'} fontSize={'3xl'}>Dan</Text>
+                <Text pl={2} pb={1}  fontSize={'lg'}>27</Text>
+              </VStack>
             </VStack>
-            <Text fontSize="xl">
+            <Text textAlign={'center'} fontSize="md">
               I am a software developer working on React. I like playing
               spikeball, tennis, and volleyball. I am looking for new friends to
               play these sports with in Vancouver as I just moved here.
             </Text>
           </VStack>
-          <VStack flexDirection={"row"} justifyContent={"flex-end"}>
+          <VStack pt={5} flexDirection={"row"} justifyContent={"flex-end"}>
             <Box flexDirection={'column'} justifyContent={'flex-end'} pr={5} pb={5}>
-              <Button onClick={onToggle}  colorScheme="teal" variant={'outline'}>Update</Button>
+              <Button onClick={onToggle} colorScheme="teal" variant={'outline'}>Update</Button>
               <Collapse in={isOpen} animateOpacity>
                 <Box
-                  p='40px'
                   mt='4'
+                  pb='4'
                   rounded='md'
                   shadow="md"
                   >
