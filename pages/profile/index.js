@@ -17,12 +17,14 @@ import EventFeed from "../../components/EventFeed";
 import styles from "../../styles/login-header.module.css";
 import LoginModule from "../../components/LoginModule";
 import RegisterModule from "../../components/RegisterModule";
+import NavigationBar from "../../components/NavigationBar";
 
 export default function Userhome(props) {
   const { isOpen, onClose, onToggle } = useDisclosure()
 
   return (
     <>
+      {/* Profile Preview */}
       <Container pt='10' maxW="container.md">
       <Box>
       </Box>
@@ -74,11 +76,13 @@ export default function Userhome(props) {
           </VStack>
         </Box>
       </Container>
+      {/* Events Container */}
       <Container maxW="container.xl" p={0}>
         <Flex h="100vh" py={3}>
           <EventFeed></EventFeed>
         </Flex>
       </Container>
+      <NavigationBar/>
     </>
   );
 }
