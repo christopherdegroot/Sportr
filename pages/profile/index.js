@@ -24,12 +24,7 @@ export default function Userhome(props) {
 
   return (
     <>
-<<<<<<< HEAD
-      {/* Profile Preview */}
-      <Container pt='10' maxW="container.md">
-=======
       <Container backgroundColor={'rgb(247, 247, 247)'} pt='5' maxW="container.md">
->>>>>>> chakra
       <Box>
       </Box>
         <Box backgroundColor={'white'} rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
@@ -83,16 +78,9 @@ export default function Userhome(props) {
           </VStack>
         </Box>
       </Container>
-<<<<<<< HEAD
-      {/* Events Container */}
-      <Container maxW="container.xl" p={0}>
-        <Flex h="100vh" py={3}>
-          <EventFeed></EventFeed>
-=======
       <Container backgroundColor={'blue'} maxW="container.xl" p={0}>
         <Flex backgroundColor={'rgb(247, 247, 247)'} h="100vh" py={3}>
           <EventFeed profileEvents={true} ></EventFeed>
->>>>>>> chakra
         </Flex>
       </Container>
       <NavigationBar/>
