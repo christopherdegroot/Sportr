@@ -9,11 +9,18 @@ import {
   Container,
   Flex,
   VStack,
+  Slide,
+  useDisclosure,
+  Collapse
 } from "@chakra-ui/react";
 import EventFeed from "../../components/EventFeed";
 import styles from "../../styles/login-header.module.css";
+import LoginModule from "../../components/LoginModule";
+import RegisterModule from "../../components/RegisterModule";
 
 export default function Userhome(props) {
+  const { isOpen, onClose, onToggle } = useDisclosure()
+
   return (
     <>
       <Container pt='10' maxW="container.md">
@@ -50,8 +57,19 @@ export default function Userhome(props) {
             </Text>
           </VStack>
           <VStack flexDirection={"row"} justifyContent={"flex-end"}>
-            <Box pr={5} pb={5}>
-              <Button  colorScheme="teal" variant={'outline'}>  Update </Button>
+            <Box flexDirection={'column'} justifyContent={'flex-end'} pr={5} pb={5}>
+              <Button onClick={onToggle}  colorScheme="teal" variant={'outline'}>Update</Button>
+              <Collapse in={isOpen} animateOpacity>
+                <Box
+                  p='40px'
+                  mt='4'
+                  rounded='md'
+                  shadow="md"
+                  >
+                  <RegisterModule onClose={onClose}>
+                  </RegisterModule>
+                </Box>
+              </Collapse>
             </Box>
           </VStack>
         </Box>
