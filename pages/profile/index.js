@@ -29,7 +29,7 @@ export default function Userhome(props) {
   return (
     <>
       {/* Profile Preview */}
-      <Container mt='4vh'>
+      <Container mt='6vh'>
         <Box borderWidth="1px" overflow="hidden">
             <VStack
               w="full"
