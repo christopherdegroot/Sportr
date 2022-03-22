@@ -56,11 +56,16 @@ export default function EventFeed(props) {
             p={10}
             spacing={10}
           >
-            <SportEvent onClose={onClose} event={event1}></SportEvent>
-
-            <SportEvent onClose={onClose} event={event2}></SportEvent>
-
-            <SportEvent onClose={onClose} event={event3}></SportEvent>
+            {props.findEvents && (<Box>
+              <SportEvent findEvents={true} onClose={onClose} event={event1}></SportEvent>
+              <SportEvent findEvents={true} onClose={onClose} event={event2}></SportEvent>
+              <SportEvent findEvents={true} onClose={onClose} event={event3}></SportEvent>
+            </Box>)}
+            {props.profileEvents && (<Box>
+              <SportEvent profileEvents={true} onClose={onClose} event={event1}></SportEvent>
+              <SportEvent profileEvents={true} onClose={onClose} event={event2}></SportEvent>
+              <SportEvent profileEvents={true} onClose={onClose} event={event3}></SportEvent>
+            </Box>)}
           </VStack>
         </Box>
         <Box>
