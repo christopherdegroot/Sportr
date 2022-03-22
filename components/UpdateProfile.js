@@ -69,7 +69,7 @@ const Details = (props) => {
           <GridItem>
             <VStack alignItems="flex-start">
             <FormLabel>Preferences</FormLabel>
-              <CheckboxGroup colSpan={2}>
+              <CheckboxGroup colSpan={2} defaultValue={['gender','similar_age']}> {/* Once matching prefrences are added to the ERD update this line to use the userObject */}
               <SimpleGrid columns={1} rowGap={2} w='full'>
                 <Checkbox value="gender" >Same Gender</Checkbox>
                 <Checkbox value="similar_age" >Similar Age</Checkbox>
