@@ -41,7 +41,7 @@ export default function Layout({ children, home }) {
         ) : (
           <>
             <Link href="/">
-              <a>
+              
                 <Image
                   priority
                   src="/images/Sportr-Logo.jpg"
@@ -50,7 +50,7 @@ export default function Layout({ children, home }) {
                   width={800}
                   alt={name}
                 />
-              </a>
+              
             </Link>
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
@@ -64,7 +64,7 @@ export default function Layout({ children, home }) {
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
-            <a>← Back to home</a>
+            ← Back to home
           </Link>
         </div>
       )}
