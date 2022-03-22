@@ -23,10 +23,10 @@ export default function Userhome(props) {
 
   return (
     <>
-      <Container pt='10' maxW="container.md">
+      <Container backgroundColor={'rgb(247, 247, 247)'} pt='10' maxW="container.md">
       <Box>
       </Box>
-        <Box rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
+        <Box backgroundColor={'white'} rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
           <VStack
             flexDirection="column"
             justifyContent="flex-start"
@@ -74,8 +74,8 @@ export default function Userhome(props) {
           </VStack>
         </Box>
       </Container>
-      <Container maxW="container.xl" p={0}>
-        <Flex h="100vh" py={3}>
+      <Container backgroundColor={'blue'} maxW="container.xl" p={0}>
+        <Flex backgroundColor={'rgb(247, 247, 247)'} h="100vh" py={3}>
           <EventFeed profileEvents={true} ></EventFeed>
         </Flex>
       </Container>
