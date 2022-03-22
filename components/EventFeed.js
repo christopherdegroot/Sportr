@@ -1,6 +1,5 @@
 import {
   useDisclosure,
-  Link,
   SimpleGrid,
   Box,
   Container,
@@ -9,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import SportEvent from "./SportEvent";
 import styles from "./layout.module.css";
+import Link from 'next/link';
 
 export default function EventFeed(props) {
   const event1 = {
@@ -72,7 +72,7 @@ export default function EventFeed(props) {
         <Box>
           {!props.home && (
             <Box className={styles.backToHome}>
-              <Link href="/">
+              <Link  href="/">
                 ← Back to home
               </Link>
             </Box>

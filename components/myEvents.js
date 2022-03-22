@@ -1,6 +1,5 @@
 import {
   useDisclosure,
-  Link,
   SimpleGrid,
   Box,
   Container,
@@ -9,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import SportEvent from "./SportEvent";
 import styles from "./layout.module.css";
+import Link from 'next/link';
 
 export default function EventFeed(props) {
   const event1 = {
