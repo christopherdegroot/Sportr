@@ -7,8 +7,9 @@ import {
   VStack,
   HStack,
   Icon,
+  Button
 } from "@chakra-ui/react";
-import { MdVerified } from "react-icons/md";
+import { MdVerified, MdSettings, MdPerson, MdLogout } from "react-icons/md";
 import NavigationBar from "../../components/NavigationBar";
 
 export default function Userhome(props) {
@@ -29,26 +30,39 @@ export default function Userhome(props) {
   return (
     <>
       {/* Profile Preview */}
-        <Box mt='6vh' borderWidth="1px" overflow="hidden">
-            <VStack
-              w="full"
-              flexDirection={"column"}
-              justifyContent={"flex-start"}
-            >
-              <Image
-                mb={1}
-                borderRadius="full"
-                boxSize="150px"
-                src={profile_image_url}
-                alt="Dan Abramov"
-                fit='cover'
-                />
-              <HStack>
-                <Heading pl={5} orientation='vertical'>{name}, {Math.floor((Date.now()-Date.parse(birthdate))/3.154e+10)}</Heading>
-                <Icon as={MdVerified} w={6} h={6} color='blue.500'></Icon>
-              </HStack>
-          </VStack>
-        </Box>
+      <Box mt='6vh' borderWidth="1px" overflow="hidden">
+          <VStack
+            w="full"
+            flexDirection={"column"}
+            justifyContent={"flex-start"}
+          >
+            <Image
+              mb={1}
+              borderRadius="full"
+              boxSize="150px"
+              src={profile_image_url}
+              alt="Dan Abramov"
+              fit='cover'
+              />
+            <HStack>
+              <Heading pl={5} orientation='vertical'>{name}, {Math.floor((Date.now()-Date.parse(birthdate))/3.154e+10)}</Heading>
+              <Icon as={MdVerified} w={6} h={6} color='blue.500'></Icon>
+            </HStack>
+        </VStack>
+      </Box>
+      {/* Profile Buttons */}
+      <Box mt='2vh' borderWidth="1px" overflow="hidden">
+          <VStack
+            w="full"
+            flexDirection={"column"}
+            justifyContent={"flex-start"}
+          >
+            <Button leftIcon={<MdSettings/>} colorScheme='blue' size='lg' width='50vw'>Settings</Button>
+            <Button leftIcon={<MdPerson/>} colorScheme='blue' size='lg' width='50vw'>Edit Profile</Button>
+            <Button leftIcon={<MdLogout/>} colorScheme='blue' size='lg' width='50vw'>Logout</Button>
+        </VStack>
+      </Box>
+
       <NavigationBar/>
     </>
   );
