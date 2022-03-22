@@ -25,8 +25,11 @@ import {
   Image,
   Center,
   CheckboxGroup,
-  Checkbox
+  Checkbox,
+  IconButton,
+
 } from "@chakra-ui/react";
+import { EditIcon } from '@chakra-ui/icons'
 import Sportcheckbox from "./Sportcheckbox";
 import RangeSlider from "./RangeSlider";
 import { useState } from "react";
@@ -44,12 +47,16 @@ const Details = (props) => {
         <VStack spacing={5} align="center">
           <Heading size="2xl"> Edit Profile </Heading>
           <Image  borderRadius='full'
-                boxSize='200px'
-                src={profile_image_url}
-                alt={name}
-                fit='cover'
-                justifySelf='center'
-                />
+                  boxSize='200px'
+                  src={profile_image_url}
+                  alt={name}
+                  fit='cover'
+                  justifySelf='center'
+          />
+          {/* Change Profile Image button */}
+          <Box pos="relative" top="-75" left="75">
+            <IconButton aria-label="Update Profile Image" icon={<EditIcon/>} isLoading={false} colorScheme={"blue"}/>
+          </Box>
         </VStack>
 
         <SimpleGrid columns={1} rowGap={6} w="full">
