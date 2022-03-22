@@ -47,8 +47,8 @@ export default function Userhome(props) {
                 src="https://bit.ly/dan-abramov"
                 alt="Dan Abramov"
               />
-              <Heading pl={5}>Dan Abramov</Heading>
-              <Text pt={'2'} fontSize="2xl">, 27</Text>
+              <Heading pl={5}>Danasdasd Abraasddasdasdmov</Heading>
+              <Text pt={'2'} fontSize="2xl">,27</Text>
             </VStack>
             <Text fontSize="xl">
               I am a software developer working on React. I like playing
