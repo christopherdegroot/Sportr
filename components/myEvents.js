@@ -29,6 +29,7 @@ export default function EventFeed(props) {
     title: "Basketball at Moody Park",
     description: "Looking for more for a pickup game at the Moody Park courts",
     new: false,
+    date: 'March 29',
   };
 
   const event3 = {
@@ -67,7 +68,7 @@ export default function EventFeed(props) {
           {!props.home && (
             <Box className={styles.backToHome}>
               <Link href="/">
-                <a>← Back to home</a>
+                ← Back to home
               </Link>
             </Box>
           )}
