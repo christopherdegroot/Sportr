@@ -26,6 +26,9 @@ import {
   Text,
   SimpleGrid,
   GridItem,
+  CheckboxGroup,
+  Grid,
+  Stack
 } from "@chakra-ui/react";
 import Sportcheckbox from "./Sportcheckbox";
 import { useState } from "react";
@@ -121,7 +124,7 @@ const Details = () => {
           <GridItem colSpan={2}>
           </GridItem>
           <GridItem colSpan={2}>
-            <FormLabel>Select Range</FormLabel>
+            <FormLabel pb={4} >Select Range</FormLabel>
             <Slider aria-label='slider-ex-6' onChange={(val) => setSliderValue(val)}>
               <SliderMark value={25} mt='1' ml='-2.5' fontSize='sm'>
                 25km
@@ -149,9 +152,16 @@ const Details = () => {
               <SliderThumb />
             </Slider>
           </GridItem>
-          <br></br>
+          <GridItem></GridItem>
           <GridItem colSpan={2}>
-            <Link href="/eventfeed">
+            <Text pb='3' fontSize={'lg'}>Any Preferences?</Text>
+          <Stack spacing={5} direction='row'>
+            <Checkbox>Events with my gender</Checkbox>
+            <Checkbox>Events with my age group</Checkbox>
+          </Stack>
+          </GridItem>
+          <GridItem colSpan={2}>
+            <Link href="/profile">
               <Button colorScheme="blue" w="full" size="lg">
                 Sign up
               </Button>
