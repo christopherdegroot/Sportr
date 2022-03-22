@@ -4,6 +4,7 @@ import styles from '../../styles/login-header.module.css'
 import UpdateProfile from '../../components/UpdateProfile'
 
 import { Checkbox, Button, Select, FormControl, FormLabel, Input, VStack, Heading, Text, SimpleGrid, GridItem } from "@chakra-ui/react";
+import NavigationBar from '../../components/NavigationBar';
 
 const Login = (props) => {
 
@@ -25,6 +26,7 @@ const Login = (props) => {
     <UpdateProfile user={userObject}>
       
     </UpdateProfile>
+    <NavigationBar/>
     </>
   )
   
