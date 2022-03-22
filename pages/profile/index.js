@@ -62,7 +62,12 @@ export default function Userhome(props) {
             <Button leftIcon={<MdLogout/>} colorScheme='blue' size='lg' width='50vw'>Logout</Button>
         </VStack>
       </Box>
+      {/* Profile Stats */}
+      <Box mt='2vh' borderWidth="1px" overflow="hidden">
+        <HStack justify='space-around'>
 
+        </HStack>
+      </Box>
       <NavigationBar/>
     </>
   );
