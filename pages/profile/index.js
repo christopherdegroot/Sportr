@@ -1,3 +1,4 @@
+import NextLink from "next/link"
 import {
   Text,
   Image,
@@ -7,7 +8,8 @@ import {
   VStack,
   HStack,
   Icon,
-  Button
+  Button,
+  Link
 } from "@chakra-ui/react";
 import { MdVerified, MdSettings, MdPerson, MdLogout } from "react-icons/md";
 import NavigationBar from "../../components/NavigationBar";
@@ -58,15 +60,14 @@ export default function Userhome(props) {
             justifyContent={"flex-start"}
           >
             <Button leftIcon={<MdSettings/>} colorScheme='blue' size='lg' width='50vw'>Settings</Button>
-            <Button leftIcon={<MdPerson/>} colorScheme='blue' size='lg' width='50vw'>Edit Profile</Button>
+            <NextLink href='/profile/update' passHref>
+              <Button leftIcon={<MdPerson/>} colorScheme='blue' size='lg' width='50vw'>Edit Profile</Button>
+            </NextLink>
             <Button leftIcon={<MdLogout/>} colorScheme='blue' size='lg' width='50vw'>Logout</Button>
         </VStack>
       </Box>
       {/* Profile Stats */}
       <Box mt='2vh' borderWidth="1px" overflow="hidden">
-        <HStack justify='space-around'>
-
-        </HStack>
       </Box>
       <NavigationBar/>
     </>
