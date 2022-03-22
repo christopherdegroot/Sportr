@@ -5,7 +5,10 @@ import {
   Box,
   Container,
   VStack,
+  HStack,
+  Icon,
 } from "@chakra-ui/react";
+import { MdVerified } from "react-icons/md";
 import NavigationBar from "../../components/NavigationBar";
 
 export default function Userhome(props) {
@@ -26,18 +29,8 @@ export default function Userhome(props) {
   return (
     <>
       {/* Profile Preview */}
-      <Container pt='10' mb='100' maxW="container.md">
-      <Box>
-      </Box>
-        <Box rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
-          <VStack
-            flexDirection="column"
-            justify="flex-start"
-            align="flex-start"
-            w="full"
-            h="full"
-            p={10}
-          >
+      <Container mt='4vh'>
+        <Box borderWidth="1px" overflow="hidden">
             <VStack
               w="full"
               flexDirection={"column"}
@@ -47,12 +40,15 @@ export default function Userhome(props) {
                 mb={1}
                 borderRadius="full"
                 boxSize="150px"
-                src="https://bit.ly/dan-abramov"
+                src={profile_image_url}
                 alt="Dan Abramov"
-              />
-              <Heading pl={5}>{name}</Heading>
-            </VStack>
-            <Text fontSize="xl" align='center'>{bio}</Text>
+                fit='cover'
+                />
+              <HStack>
+                <Heading pl={5} orientation='vertical'>{name}, {Math.floor((Date.now()-Date.parse(birthdate))/3.154e+10)}</Heading>
+                
+                <Icon as={MdVerified} w={6} h={6} color='blue.500'></Icon>
+              </HStack>
           </VStack>
         </Box>
       </Container>
