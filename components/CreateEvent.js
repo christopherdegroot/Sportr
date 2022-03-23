@@ -42,7 +42,7 @@ const Details = () => {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
-    <Container maxW="container.md">
+    <Container pb={20} maxW="container.md">
       <VStack w="full" h="full" p={10} spacing={10} >
         <VStack spacing={3} alignItems="flex-start">
           <Heading size="2xl"> Create Event </Heading>
