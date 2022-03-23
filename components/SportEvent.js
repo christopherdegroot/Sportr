@@ -42,7 +42,7 @@ function SportEvent(props) {
               Your Event
             </Badge>)}
             { props.event.spotsRemaining <= 2 && (<Badge mr={1} borderRadius="full" px="2" colorScheme="red">
-              Almost Full!
+              Almost Full
             </Badge>)}
             {props.event.startsToday === true && (<Badge mr={1} borderRadius="full" px="2" colorScheme="yellow">
               Today
