@@ -42,24 +42,12 @@ const Details = (props) => {
 
   return (
     <Container maxW="container.md">
-      <VStack w="full" h="full" p={2} spacing={10} bg="gray.50">
-
-        <VStack spacing={5} align="center">
-          <Heading size="2xl"> Edit Profile </Heading>
-          <Image  borderRadius='full'
-                  boxSize='200px'
-                  src={profile_image_url}
-                  alt={name}
-                  fit='cover'
-                  justifySelf='center'
-          />
-          {/* Change Profile Image button */}
-          <Box pos="relative" top="-75" left="75">
-            <IconButton aria-label="Update Profile Image" icon={<EditIcon/>} isLoading={false} colorScheme={"blue"}/>
-          </Box>
-        </VStack>
+      <VStack w="full" h="full" p={2} spacing={10} >
 
         <SimpleGrid columns={1} rowGap={6} w="full">
+          <GridItem colSpan={2}>
+            <Button variant={'outline'} colorScheme={'teal'} w={'full'}>Update Profile Photo</Button>
+          </GridItem>
           {/* About Me */}
           <GridItem colSpan={2}>
             <FormControl>
@@ -130,11 +118,7 @@ const Details = (props) => {
           </GridItem>
           {/* Confirm (Would like replace with saving as you change it) */}
           <GridItem colSpan={2}>
-            <Link href="/profile">
-              <Button colorScheme="blue" w="full" size="lg">
-                Confirm
-              </Button>
-            </Link>
+          
           </GridItem>
         </SimpleGrid>
 
