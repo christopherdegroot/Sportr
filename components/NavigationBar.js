@@ -16,7 +16,9 @@ const NavigationBar = () => {
           <Link href='/eventfeed' passHref>
             <IconButton aria-label='Event Feed' icon={<FaSearch size="22"/>} size="lg" color='#008080' variant='ghost' />
           </Link>
+          <Link href='/create-event'>
           <IconButton aria-label='Your Events' icon={<BsFillCalendarPlusFill size="25" />} size="lg" color='#008080' variant='ghost' />
+          </Link>
           <Link href="/profile" passHref>
           <IconButton aria-label='Profile' icon={<MdPerson size="35" />} size="lg" color='#008080' variant='ghost' />
           </Link>
