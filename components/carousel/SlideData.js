@@ -1,0 +1,22 @@
+export const SlideData = [
+  {
+    image:
+      "https://crs4rec.com/wp-content/uploads/2018/09/moody-park-gallery-014.jpg?x65263"
+  },
+  {
+    image:
+      "https://i.imgur.com/PZ59UV5.png"
+  },
+  {
+    image:
+      "https://604now.com/wp-content/uploads/2015/06/english-bay-beach-1280x720.jpg"
+  },
+  {
+    image:
+      "https://udisc-parse.s3.amazonaws.com/765a22b7e3e35fe42ce428ebac2ad1d7_m_4tEhdmmTDdf2p6rPXoadoh3zrqrC.jpg"
+  },
+  {
+    image:
+      "https://runvan.org/wp-content/uploads/2020/07/41-2019-BMOVancouverHalfMarathon-115-41-HalfShirts-MayliesLang-RUNVAN%C2%AE.jpg"
+  }
+];

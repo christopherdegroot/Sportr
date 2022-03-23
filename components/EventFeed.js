@@ -12,7 +12,7 @@ import Link from 'next/link';
 
 export default function EventFeed(props) {
   const event1 = {
-    imageUrl: "https://pbs.twimg.com/media/CpMM9Z3UAAA_RPg.jpg",
+    imageUrl: "https://i.imgur.com/PZ59UV5.png",
     signedUp: 3,
     spotsRemaining: 2,
     title: "Spikeball at Jericho",
