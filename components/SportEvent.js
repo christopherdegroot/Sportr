@@ -79,10 +79,10 @@ function SportEvent(props) {
         {props.findEvents ===  true && (<Box display="flex" alignItems="center" justifyContent="flex-end">
           
           <Button onClick={()=>{setShow(false)}} colorScheme="red" m={2} marginBottom="4">
-          Accept
+          Reject
           </Button>
           <Button onClick={()=>{setShow(false)}} colorScheme="green" m={2} marginRight="4" marginBottom="4">
-          Reject
+          Accept
           </Button>    
         </Box>)}
         
