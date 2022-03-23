@@ -33,13 +33,13 @@ import {
 import Sportcheckbox from "./Sportcheckbox";
 import { useState } from "react";
 
-const Details = () => {
+const Details = (props) => {
   const { isOpen, onToggle } = useDisclosure();
   const [sliderValue, setSliderValue] = useState(50)
 
   return (
     <Container maxW="container.md">
-      <VStack w="full" h="full" p={10} spacing={10} bg="gray.50">
+      <VStack w="full" h="full" p={10} spacing={10} >
         <VStack spacing={3} alignItems="flex-start">
           <Heading size="2xl"> Please Register </Heading>
           <Text>
@@ -160,13 +160,13 @@ const Details = () => {
             <Checkbox>Events with my age group</Checkbox>
           </Stack>
           </GridItem>
-          <GridItem colSpan={2}>
+          {props.registerPage && (<GridItem colSpan={2}>
             <Link href="/profile">
               <Button colorScheme="blue" w="full" size="lg">
                 Sign up
               </Button>
             </Link>
-          </GridItem>
+          </GridItem>)}
         </SimpleGrid>
       </VStack>
     </Container>
