@@ -43,6 +43,30 @@ export default function EventFeed(props) {
     ownership: true,
   };
 
+  const event4 = {
+    imageUrl:
+      "https://udisc-parse.s3.amazonaws.com/765a22b7e3e35fe42ce428ebac2ad1d7_m_4tEhdmmTDdf2p6rPXoadoh3zrqrC.jpg",
+    signedUp: 1,
+    spotsRemaining: 2,
+    title: "Disc Golf at Raptor's Knoll",
+    description: "Looking for 3 more to fill out the card",
+    new: false,
+    ownership: false,
+  };
+
+  const event5 = {
+    imageUrl:
+      "https://runvan.org/wp-content/uploads/2020/07/41-2019-BMOVancouverHalfMarathon-115-41-HalfShirts-MayliesLang-RUNVAN%C2%AE.jpg",
+    signedUp: 2,
+    spotsRemaining: 2,
+    title: "Girls running club",
+    description: "Looking for some girls to form a weekly running crew in Vancouver",
+    new: false,
+    ownership: true,
+  };
+
+
+
   const { isOpen, onClose, onToggle } = useDisclosure();
 
   return (
@@ -63,8 +87,8 @@ export default function EventFeed(props) {
               <SportEvent findEvents={true} onClose={onClose} event={event3}></SportEvent>
             </>)}
             {props.profileEvents && (<>
-              <SportEvent profileEvents={true} onClose={onClose} event={event1}></SportEvent>
-              <SportEvent profileEvents={true} onClose={onClose} event={event2}></SportEvent>
+              <SportEvent profileEvents={true} onClose={onClose} event={event4}></SportEvent>
+              <SportEvent profileEvents={true} onClose={onClose} event={event5}></SportEvent>
               <SportEvent profileEvents={true} onClose={onClose} event={event3}></SportEvent>
             </>)}
           </VStack>
