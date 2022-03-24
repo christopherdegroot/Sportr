@@ -26,42 +26,26 @@ export default function Home() {
   const { isOpen, onClose, onToggle } = useDisclosure();
   return (
     <>
-    <ChakraProvider>
-    <Layout home>
-            <Head>
-              <title>{siteTitle}</title>
-            </Head>
-            <section className={utilStyles.headingMd}>
-              <p>Finding it hard to find people to play sports with? All your spike-ball mates are busy? Sportr is an app to find pick-up style sports games. Want to play ball hockey in the neighborhood again? Want to find a pickup basketball match? Want to find a ladies yoga group? Sportr is your answer. </p>
-                <br></br>
-                <p>
-              With Sportr you can set distance limits and sport types to be notified of events starting near you. You can create events: input the sport you want to an event for, date, and set other preferences. We&apos;ll take care of the rest and find others interested in your activity and let the community join you!
-              </p>
-             
-            </section>
-      
-            <br></br>
-            <div className={utilStyles.userButtons}>
-              <VStack>
-            <Link href="/register">
-              <Button w='9em' name={'Register'}>Register</Button> 
-            </Link>
-            <Box p={4} >
-              <Button w='9em' onClick={onToggle} >Login</Button>
-              <Slide direction='bottom' in={isOpen}>
-                <Box
-                  p='40px'
-                  color="white"
-                  mt='4'
-                  bg='teal.500'
-                  rounded='md'
-                  shadow="md"
-                  >
-                  <LoginModule onClose={onClose}>
-                  </LoginModule>
-                </Box>
-              </Slide>
-            </Box>
+      <VStack
+        justifyContent={"space-between"}
+        minH={"844"}
+        bgGradient={"linear-gradient( #e66465, #9198e5)"}
+      >
+        <Head>
+          <link rel="icon" href="/images/template (2).png" />
+          <meta
+            name="description"
+            content="Learn how to build a personal website using Next.js"
+          />
+          <meta
+            property="og:image"
+            content={`https://og-image.vercel.app/${encodeURI(
+              siteTitle
+            )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+          />
+          <meta name="og:title" content={siteTitle} />
+          <meta name="twitter:card" content="summary_large_image" />
+        </Head>
 
         <Head>
           <title>{siteTitle}</title>
@@ -109,8 +93,6 @@ export default function Home() {
           </Box>
         </VStack>
       </VStack>
-      </Layout>
-      </ChakraProvider>
     </>
   );
 }
