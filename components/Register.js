@@ -28,7 +28,8 @@ import {
   GridItem,
   CheckboxGroup,
   Grid,
-  Stack
+  Stack,
+  useToast 
 } from "@chakra-ui/react";
 import Sportcheckbox from "./Sportcheckbox";
 import { useState } from "react";
@@ -36,6 +37,8 @@ import { useState } from "react";
 const Details = (props) => {
   const { isOpen, onToggle } = useDisclosure();
   const [sliderValue, setSliderValue] = useState(50)
+  const toast = useToast()
+
 
   return (
     <Container maxW="container.md">
@@ -49,13 +52,13 @@ const Details = (props) => {
           </Text>
         </VStack>
         <SimpleGrid columns={2} rowGap={6} w="full">
-          <GridItem colSpan={1}>
+          <GridItem colSpan={2}>
             <FormControl>
               <FormLabel>First Name </FormLabel>
               <Input placeholder="First Name" />
             </FormControl>
           </GridItem>
-          <GridItem colSpan={1}>
+          <GridItem colSpan={2}>
             <FormControl>
               <FormLabel>Last Name </FormLabel>
               <Input placeholder="Last Name" />
@@ -85,14 +88,14 @@ const Details = (props) => {
               <Textarea resize="none" h="7em" placeholder="Bio"/>
             </FormControl>
           </GridItem>
-          <GridItem colSpan={1}>
+          <GridItem colSpan={2}>
           <FormControl>
               <FormLabel>What is your age?</FormLabel>
               <Input type="number" placeholder="Age"/>
 
             </FormControl>
           </GridItem>
-          <GridItem colSpan={1}>
+          <GridItem colSpan={2}>
           <FormControl>
               <FormLabel>What is your gender?</FormLabel>
               <Select placeholder="Gender">
@@ -105,8 +108,8 @@ const Details = (props) => {
           
           <GridItem colSpan={2}>
             {/* checkbox component has an on user changed event that we can use to reflect on the users choice */}
-            <Button onClick={onToggle}>
-              What sports are you interested in?
+            <Button w={'100%'} colorScheme={'teal'} onClick={onToggle}>
+              What sports interest you?
             </Button>
             <Collapse colSpan={2} in={isOpen} animateOpacity>
               <Box
@@ -124,30 +127,22 @@ const Details = (props) => {
           <GridItem colSpan={2}>
           </GridItem>
           <GridItem colSpan={2}>
-            <FormLabel pb={4} >Select Range</FormLabel>
+            <FormLabel pb={5} >Select Range</FormLabel>
             <Slider aria-label='slider-ex-6' onChange={(val) => setSliderValue(val)}>
-              <SliderMark value={25} mt='1' ml='-2.5' fontSize='sm'>
-                25km
-              </SliderMark>
-              <SliderMark value={50} mt='1' ml='-2.5' fontSize='sm'>
-                50km
-              </SliderMark>
-              <SliderMark value={75} mt='1' ml='-2.5' fontSize='sm'>
-                75km
-              </SliderMark>
               <SliderMark
+                rounded={'md'} 
                 value={sliderValue}
                 textAlign='center'
-                bg='blue.500'
+                bg='teal.500'
                 color='white'
                 mt='-10'
-                ml='-5'
+                ml='-7'
                 w='14'
               >
                 {sliderValue}km
               </SliderMark>
               <SliderTrack>
-                <SliderFilledTrack />
+                <SliderFilledTrack bg='teal.500' />
               </SliderTrack>
               <SliderThumb />
             </Slider>
@@ -162,9 +157,18 @@ const Details = (props) => {
           </GridItem>
           {props.registerPage && (<GridItem colSpan={2}>
             <Link href="/profile">
-              <Button colorScheme="blue" w="full" size="lg">
+              <Button colorScheme="teal" w="full" size="lg" onClick={() =>
+                toast({
+                  title: 'Account created.',
+                  description: "Your account has been successfully created.",
+                  status: 'success',
+                  duration: 3000,
+                  isClosable: true,
+                })}
+>
                 Sign up
               </Button>
+              
             </Link>
           </GridItem>)}
         </SimpleGrid>
