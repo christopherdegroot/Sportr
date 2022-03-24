@@ -17,6 +17,14 @@ import {
   IconButton,
   EmailIcon,
   Text,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  useDisclosure,
+  AlertDialogCloseButton
 } from "@chakra-ui/react";
 import React from "react";
 import { HiChevronDoubleDown } from "react-icons/hi";
@@ -25,8 +33,10 @@ import ImageSliderCustom from './carousel/ImageSlider'
 import { SlideData } from "./carousel/SlideData";
 
 function SportEvent(props) {
-  const onClose = props.onClose;
   const [show, setShow] = React.useState(true);
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const cancelRef = React.useRef()
+
   return (
     <>
       {show && (
@@ -138,9 +148,7 @@ function SportEvent(props) {
                   Details
                 </Button>
                 <Button
-                  onClick={() => {
-                    setShow(false);
-                  }}
+                  onClick={onOpen}
                   variant={"outline"}
                   m={2}
                   marginRight="4"
@@ -148,6 +156,34 @@ function SportEvent(props) {
                 >
                   Cancel
                 </Button>
+                <AlertDialog
+                  motionPreset='slideInBottom'
+                  leastDestructiveRef={cancelRef}
+                  onClose={onClose}
+                  isOpen={isOpen}
+                  isCentered
+                  w='80%'
+                >
+                  <AlertDialogOverlay />
+
+                  <AlertDialogContent w='80%'>
+                    <AlertDialogHeader>Discard Event?</AlertDialogHeader>
+                    <AlertDialogCloseButton />
+                    <AlertDialogBody>
+                      Are you sure you want to delete this event?
+                    </AlertDialogBody>
+                    <AlertDialogFooter>
+                      <Button colorScheme='red'   onClick={() => {
+                    setShow(false);
+                  }}>
+                        Yes
+                      </Button>
+                      <Button ml={3} ref={cancelRef} onClick={onClose}>
+                        No
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
               </Box>
             )}
           </Box>
