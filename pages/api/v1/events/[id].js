@@ -1,4 +1,5 @@
 const db = require('../../../../db/db')
+const chalk = require('chalk')
 
 export default async function handler(req, res) {
   const { id } = req.query

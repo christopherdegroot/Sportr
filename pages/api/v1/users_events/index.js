@@ -1,4 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+const db = require('../../../../db/db')
+const chalk = require('chalk')
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
