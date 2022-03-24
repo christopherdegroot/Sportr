@@ -36,8 +36,12 @@ import Attendees from "./Attendees";
 
 function SportEvent(props) {
   const [show, setShow] = React.useState(true);
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
+  const { isOpenCancel, isOpen, onOpen, onClose, onToggle } = useDisclosure()
   const cancelRef = React.useRef()
+  let showAttendees = false;
+  const showAttendeesFunction = function (tf) {
+    showAttendees = tf
+  }
 
   return (
     <>
@@ -78,7 +82,7 @@ function SportEvent(props) {
               <Heading fontWeight="semibold" fontSize={"sm"}>
                 FRI APR 8, 8:00 PM
               </Heading>
-              <Attendees onToggle={onToggle} event={props.event}></Attendees>
+              <Attendees event={props.event}></Attendees>
               <Box
                 mt="2"
                 fontWeight="semibold"
@@ -131,17 +135,11 @@ function SportEvent(props) {
 
             {props.profileEvents === true && (
               <Box display="flex" alignItems="center" justifyContent="flex-end">
-                <Button
-                  onClick={() => {}}
-                  colorScheme="teal"
-                  m={2}
-                  marginBottom="4"
-                >
-                  Details
-                </Button>
+               
                 <Button
                   onClick={onOpen}
-                  variant={"outline"}
+                  variant={"solid"}
+                  colorScheme="teal"
                   m={2}
                   marginRight="4"
                   marginBottom="4"
