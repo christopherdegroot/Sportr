@@ -44,3 +44,7 @@ img {
   font-family: sans-serif;
   text-align: center;
 }
+
+*:focus {
+  box-shadow :none !important;
+}
