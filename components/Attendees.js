@@ -1,6 +1,7 @@
 // test doc for chakra
 
 import { Collapse, Box, Button, VStack, Heading, useDisclosure } from "@chakra-ui/react";
+import AttendeeList from "./AttendeeList";
 
 const Attendees = (props) => {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
@@ -21,15 +22,15 @@ const Attendees = (props) => {
       <Collapse in={isOpen} animateOpacity>
         <Box
           p="40px"
-          color="white"
+          color="black"
           mt="4"
-          bg="teal.500"
-          opacity={"40%"}
+          bg="gray.100"
           rounded="md"
           shadow="md"
           mr={2}
         >
-          Hello
+          Chris De Groot
+          Noah Vandenberg
         </Box>
       </Collapse>
     </>
