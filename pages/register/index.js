@@ -8,7 +8,7 @@ import { Checkbox, Button, Select, FormControl, FormLabel, Input, VStack, Headin
 const Login = (props) => {
   return (
     <>
-    <Register>
+    <Register registerPage={true}>
       
     </Register>
     <VStack flexDirection='row' paddingBottom='3em'>

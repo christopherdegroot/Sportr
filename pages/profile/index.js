@@ -18,16 +18,30 @@ import styles from "../../styles/login-header.module.css";
 import LoginModule from "../../components/LoginModule";
 import RegisterModule from "../../components/RegisterModule";
 import NavigationBar from "../../components/NavigationBar";
+import UpdateProfile from "../../components/UpdateProfile"
 
 export default function Userhome(props) {
   const { isOpen, onClose, onToggle } = useDisclosure()
+
+  const userObject = {
+    id:4,
+    email:"noahthedev@hotmail.com",
+    name:"Noah V",
+    password:"haha",
+    bio:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris purus nisl, faucibus nec laoreet ultricies, fringilla et dolor. Pellentesque id odio vehicula, mollis nibh in, congue tortor. Etiam pellentesque sem.",
+    profile_image_url:"https://www.boredpanda.com/blog/wp-content/uploads/2021/08/funny-monkeys-56-612393fdd1081__700.jpg",
+    gender:"male",
+    birthdate:'1999-12-31',
+    sports: ['basketball', 'soccer', 'running', 'spikeball'],
+    km_range:10
+  }
 
   return (
     <>
       <Container backgroundColor={'rgb(247, 247, 247)'} pt='5' maxW="container.md">
       <Box>
       </Box>
-        <Box backgroundColor={'white'} rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
+        <VStack justifyContent={'space-between'} minH={'730'} backgroundColor={'white'} rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
           <VStack
             flexDirection="column"
             justifyContent="flex-start"
@@ -35,7 +49,7 @@ export default function Userhome(props) {
             w="full"
             h="full"
             px={10}
-            pt={5}
+            pt={10}
           >
             <VStack
               w="full"
@@ -60,29 +74,27 @@ export default function Userhome(props) {
               play these sports with in Vancouver as I just moved here.
             </Text>
           </VStack>
-          <VStack pt={5} flexDirection={"row"} justifyContent={"flex-end"}>
-            <Box flexDirection={'column'} justifyContent={'flex-end'} pr={5} pb={5}>
-              <Button onClick={onToggle} colorScheme="teal" variant={'outline'}>Update</Button>
-              <Collapse in={isOpen} animateOpacity>
-                <Box
+          <VStack pt={5} justifyContent={'center'} >
+            <VStack flexDirection={'column'} alignContent={'flex-end'} justifyContent={'center'} pb={5}>
+              <Collapse ml={200} in={isOpen} animateOpacity>
+                <Box justifyContent={'center'}
                   mt='4'
                   pb='4'
                   rounded='md'
                   shadow="md"
                   >
-                  <RegisterModule onClose={onClose}>
-                  </RegisterModule>
+                  <UpdateProfile onClose={onClose} user={userObject}></UpdateProfile>
+                  <VStack>
+                    <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>
+                  </VStack>
                 </Box>
               </Collapse>
-            </Box>
+              <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>
+            </VStack>
           </VStack>
-        </Box>
+        </VStack>
       </Container>
-      <Container backgroundColor={'blue'} maxW="container.xl" p={0}>
-        <Flex backgroundColor={'rgb(247, 247, 247)'} h="100vh" py={3}>
-          <EventFeed profileEvents={true} ></EventFeed>
-        </Flex>
-      </Container>
+      
       <NavigationBar/>
     </>
   );
