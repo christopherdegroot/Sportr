@@ -26,7 +26,6 @@ export default function Home() {
   const { isOpen, onClose, onToggle } = useDisclosure();
   return (
     <>
-<<<<<<< HEAD
     <ChakraProvider>
     <Layout home>
             <Head>
@@ -63,28 +62,6 @@ export default function Home() {
                 </Box>
               </Slide>
             </Box>
-=======
-      <VStack
-        justifyContent={"space-between"}
-        minH={"844"}
-        bgGradient={"linear-gradient( #e66465, #9198e5)"}
-      >
-        <Head>
-          <link rel="icon" href="/images/template (2).png" />
-          <meta
-            name="description"
-            content="Learn how to build a personal website using Next.js"
-          />
-          <meta
-            property="og:image"
-            content={`https://og-image.vercel.app/${encodeURI(
-              siteTitle
-            )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-          />
-          <meta name="og:title" content={siteTitle} />
-          <meta name="twitter:card" content="summary_large_image" />
-        </Head>
->>>>>>> 17179a4d81b5401be0adf080bbd9fb99f0013aea
 
         <Head>
           <title>{siteTitle}</title>
@@ -132,6 +109,8 @@ export default function Home() {
           </Box>
         </VStack>
       </VStack>
+      </Layout>
+      </ChakraProvider>
     </>
   );
 }
