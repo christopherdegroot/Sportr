@@ -67,14 +67,12 @@ const Details = () => {
             </FormControl>
             <GridItem mt='6' colSpan={2}>
               <FormLabel>Date</FormLabel>
-              <div class="date-picker">
               <DatePicker 
                 showTimeSelect
                 dateFormat="Pp"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
-              </div>
             </GridItem>
           </GridItem>
           <GridItem colSpan={2}>
@@ -143,9 +141,9 @@ const Details = () => {
                   </ModalBody>
 
                   <ModalFooter>
-                            <Button colorScheme={'teal'} onClick={onClose}>
-                              Understood
-                            </Button>
+                    <Button colorScheme={'teal'} onClick={onClose}>
+                      I Understand
+                    </Button>
                   </ModalFooter>
                 </ModalContent>
               </Modal>
@@ -156,7 +154,7 @@ const Details = () => {
             </Stack>
           </GridItem>
           <GridItem colSpan={2}>
-            <Link href="/profile">
+            <Link href="/eventfeed">
               <Button colorScheme="teal" w="full" size="lg" onClick={() =>
                       toast({
                         title: 'Event created.',
@@ -164,6 +162,7 @@ const Details = () => {
                         status: 'success',
                         duration: 3000,
                         isClosable: true,
+                        position: 'top'
                       })
                     }
               >
