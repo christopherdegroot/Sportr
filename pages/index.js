@@ -20,7 +20,7 @@ export default function Home() {
               <p>Finding it hard to find people to play sports with? All your spike-ball mates are busy? Sportr is an app to find pick-up style sports games. Want to play ball hockey in the neighborhood again? Want to find a pickup basketball match? Want to find a ladies yoga group? Sportr is your answer. </p>
                 <br></br>
                 <p>
-              With Sportr you can set distance limits and sport types to be notified of events starting near you. You can create events: input the sport you want to an event for, date, and set other preferences. We'll take care of the rest and find others interested in your activity and let the community join you!
+              With Sportr you can set distance limits and sport types to be notified of events starting near you. You can create events: input the sport you want to an event for, date, and set other preferences. We&apos;ll take care of the rest and find others interested in your activity and let the community join you!
               </p>
              
             </section>
