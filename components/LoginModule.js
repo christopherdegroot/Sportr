@@ -35,7 +35,6 @@ const LoginModule = (props) => {
           <SimpleGrid columns={1} rowGap={2} w="full">
             <GridItem colSpan={2}>
               <FormControl>
-                <FormLabel>Email</FormLabel>
                 <Input 
                 focusBorderColor="teal.300"
                 type="email" placeholder="Email Address" />
@@ -43,7 +42,6 @@ const LoginModule = (props) => {
             </GridItem>
             <GridItem colSpan={2}>
               <FormControl>
-                <FormLabel>Password</FormLabel>
                 <InputGroup size='md'>
                 <Input
                   focusBorderColor="teal.300"
@@ -52,7 +50,7 @@ const LoginModule = (props) => {
                   placeholder='Enter password'
                 />
                 <InputRightElement width='4.5rem'>
-                  <Button focusBorderColor="teal.300" variant="outline" color="white" colorScheme={'blackAlpha'} h='1.5rem' w='2rem' fontSize='12px' onClick={handleClick}>
+                  <Button focusBorderColor="teal.300" variant="link" color="white" colorScheme={'blackAlpha'} h='1.5rem' w='1rem' fontSize='12px' onClick={handleClick}>
                     {show ? 'Hide' : 'Show'}
                   </Button>
                 </InputRightElement>
@@ -61,7 +59,7 @@ const LoginModule = (props) => {
             </GridItem>
           </SimpleGrid>
           <Link href="/eventfeed">
-            <Button w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha">
+            <Button  w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha">
               Submit
             </Button>
           </Link>
