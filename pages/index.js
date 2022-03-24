@@ -57,26 +57,26 @@ export default function Home() {
               width={30}
               height={60}
             />
-            <Heading pb={1}>Sportr</Heading>
+            <Heading color={'black'} pb={1}>Sportr</Heading>
           </HStack>
           <VStack>
-            <Text mb={3} fontWeight={"bold"} px={7} textAlign={"center"}>
+            <Text color={'black'} mb={3} fontWeight={"bold"} px={7} textAlign={"center"}>
               Sportr is an app to find pick-up <br></br> style sports games{" "}
             </Text>
-            <Text fontWeight={"semibold"} px={7} textAlign={"center"}>
+            <Text color={'black'} fontWeight={"semibold"} px={7} textAlign={"center"}>
               Find the sports you want to play happening near you
             </Text>
           </VStack>
         </VStack>
         <VStack>
           <Link href="/register">
-            <Button w="15em" name={"Register"}>
-              Register
+            <Button fontWeight={'thin'} variant={'outline'} colorScheme={'black'} color={'black'} w="15em" name={"Register"}>
+              REGISTER
             </Button>
           </Link>
           <Box p={5} pb={10}>
-            <Button w="15em" onClick={onToggle}>
-              Login
+            <Button fontWeight={'thin'} variant={'outline'} colorScheme={'black'} color={'black'} w="15em" onClick={onToggle}>
+              SIGN IN
             </Button>
             <Slide direction="bottom" in={isOpen}>
               <Box
