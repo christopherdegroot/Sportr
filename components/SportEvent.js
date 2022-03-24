@@ -24,17 +24,19 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   useDisclosure,
-  AlertDialogCloseButton
+  AlertDialogCloseButton,
+  Collapse
 } from "@chakra-ui/react";
 import React from "react";
 import { HiChevronDoubleDown } from "react-icons/hi";
 import { BsCalendarEvent, BsFillCalendarPlusFill, BsFillCalendarDayFill } from 'react-icons/bs'
 import ImageSliderCustom from './carousel/ImageSlider'
 import { SlideData } from "./carousel/SlideData";
+import Attendees from "./Attendees";
 
 function SportEvent(props) {
   const [show, setShow] = React.useState(true);
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
   const cancelRef = React.useRef()
 
   return (
@@ -76,17 +78,7 @@ function SportEvent(props) {
               <Heading fontWeight="semibold" fontSize={"sm"}>
                 FRI APR 8, 8:00 PM
               </Heading>
-              <Box
-                color="gray.500"
-                fontWeight="semibold"
-                letterSpacing="wide"
-                fontSize="xs"
-                textTransform="uppercase"
-              >
-                {props.event.signedUp} signed up &bull;{" "}
-                {props.event.spotsRemaining} spots remaining
-              </Box>
-
+              <Attendees onToggle={onToggle} event={props.event}></Attendees>
               <Box
                 mt="2"
                 fontWeight="semibold"
