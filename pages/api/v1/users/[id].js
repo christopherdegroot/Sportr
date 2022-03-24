@@ -3,7 +3,6 @@ const chalk = require('chalk')
 
 export default async function handler(req, res) {
   const { id } = req.query
-  res.status(200).json(req.query)
   if (req.method === 'GET') {
     try {
       const query = {
