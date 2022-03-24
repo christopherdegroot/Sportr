@@ -1,29 +1,55 @@
 import React from "react";
 import classNames from "classnames";
-
+import {
+  Button,
+  PhoneIcon,
+  AddIcon,
+  WarningIcon,
+  Icon,
+  Badge,
+  StarIcon,
+  Image,
+  Box,
+  SimpleGrid,
+  Container,
+  VStack,
+  Heading,
+  CheckIcon,
+  ButtonGroup,
+  IconButton,
+  EmailIcon,
+  Text,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  useDisclosure,
+  AlertDialogCloseButton,
+  Collapse,
+  Flex,
+  Avatar,
+  HStack,
+} from "@chakra-ui/react";
 
 // InterviewerListItem component
 export default function InterviewerListItem(props) {
-  const {avatar, name, selected} = props;
-
-  const listClass = classNames({
-    "interviewers__item":props,
-    "interviewers__item--selected": props.selected
-  })
-
-
+  const { avatar, name, selected, bio, owner } = props;
   return (
-    <li 
-      className={listClass}
-      onClick={props.setInterviewer}
-    >
-      <img
-        className="interviewers__item-image"
-        src={avatar}
-        alt={name}
-      />
-        {selected && name}
-     </li>
-  )
+    <Flex pt={5}>
+      <Avatar size={'sm'} src={avatar} />
+      <Box flexDirection={'column'} ml="3">
+          <Text fontWeight="bold">
+            {name}
+            {owner && <Badge ml="1" colorScheme="green">
+              owner
+            </Badge>}
+          </Text>
+        <Text fontSize="sm">
+          {bio}
+        </Text>
+      </Box>
+    </Flex>
+  );
 }
-
