@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     try {
       const query = {
         text: 'SELECT * FROM users WHERE id = $1;',
-        values: [req.params.id],
+        values: [req.query.id],
       };
       const dbResponse = await db.query(query);
       res.json(dbResponse.rows)
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       
       const query = {
         text: 'UPDATE users SET email=$1, name=$2, password=$3, bio=$4, profile_image_url=$5, gender=$6, birth_date=$7, sports=$8, km_range=$9 WHERE id=$10 RETURNING *;',
-        values: [email, name, password, bio, profile_image_url, gender, birth_date, sports, km_range, req.params.id],
+        values: [email, name, password, bio, profile_image_url, gender, birth_date, sports, km_range, req.query.id],
       };
       const dbResponse = await db.query(query);
       res.json(dbResponse.rows)
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
     try {
       const query = {
         text: 'DELETE FROM users WHERE id = $1 RETURNING *;',
-        values: [req.params.id],
+        values: [req.query.id],
       };
       const dbResponse = await db.query(query);
       res.json(dbResponse.rows)
