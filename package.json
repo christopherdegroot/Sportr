@@ -8,15 +8,24 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "db:reset": "knex migrate:rollback --all && knex migrate:latest && knex seed:run",
+    "db:migrate": "knex migrate:latest",
+    "db:seed": "knex seed:run",
+    "db:rollback": "knex migrate:rollback"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "@faker-js/faker": "^6.0.0",
+    "chalk": "^4.1.2",
+    "dotenv": "^8.6.0",
     "framer-motion": "^6.2.8",
+    "knex": "^1.0.4",
     "next": "12.1.0",
+    "pg": "^8.7.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1"
