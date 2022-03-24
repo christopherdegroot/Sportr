@@ -10,7 +10,7 @@ const NavigationBar = () => {
 
   return (
     <>
-    <Flex as="footer" position="fixed" bottom="0" w="100%">
+    <Flex zIndex={'9999'} as="footer" position="fixed" bottom="0" w="100%">
       <Box bg='#C7E0D6' w='100%' p={2} px={3}>
         <HStack justify="space-around">
           <Link href='/eventfeed' passHref>
