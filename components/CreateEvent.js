@@ -29,17 +29,29 @@ import {
   CheckboxGroup,
   Grid,
   Stack,
+  useToast,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  IconButton,
+  HStack
 } from "@chakra-ui/react";
 import Sportcheckbox from "./Sportcheckbox";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import { icons } from "react-icons";
+import {FcInfo} from 'react-icons/fc'
 
 const Details = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onOpen, onToggle, onClose } = useDisclosure();
   const [sliderValue, setSliderValue] = useState(50);
   const [startDate, setStartDate] = useState(new Date());
+  const toast = useToast()
 
   return (
     <Container pb={20} maxW="container.md">
@@ -68,7 +80,7 @@ const Details = () => {
           <GridItem colSpan={2}>
             <FormControl>
               <FormLabel>What sport would you like to play?</FormLabel>
-              <Select placeholder="Sport">
+              <Select placeholder="Select Sport">
               <option value="badminton">Badminton</option>
               <option value="baseball">Baseball</option>
               <option value="basketball">Basketball</option>
@@ -110,9 +122,34 @@ const Details = () => {
             </FormControl>
           </GridItem>
           <GridItem colSpan={2}>
+            <HStack>
             <Text pb="3" fontSize={"lg"}>
               Any Preferences?
             </Text>
+            <IconButton justifyContent={'flex-start'} icon={<FcInfo size="20" />} variant="ghost" pb="5" onClick={onOpen}>Open Modal</IconButton>
+              <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent w='90%' >
+                  <ModalHeader>Preferences</ModalHeader>
+                  <ModalCloseButton />
+                  <ModalBody>
+                    <Text>
+                      Please be considerate when choosing these options. We decided to include these options NOT to targetedly exclude any gender or age groups, but to allow the option to choose should it be preferred for your event where needed. Please consider leaving these preferences open to include all people whenever appropriate.
+                    </Text>
+                    <br></br>
+                    <Text>
+                      Depending on your selection, your event will only be shown to others in the community who are also your gender, or within your age group.
+                    </Text>
+                  </ModalBody>
+
+                  <ModalFooter>
+                            <Button colorScheme={'teal'} onClick={onClose}>
+                              Understood
+                            </Button>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
+              </HStack>
             <Stack spacing={5} direction="row">
               <Checkbox>Same gender</Checkbox>
               <Checkbox>Same age group</Checkbox>
@@ -120,7 +157,16 @@ const Details = () => {
           </GridItem>
           <GridItem colSpan={2}>
             <Link href="/profile">
-              <Button colorScheme="blue" w="full" size="lg">
+              <Button colorScheme="teal" w="full" size="lg" onClick={() =>
+                      toast({
+                        title: 'Event created.',
+                        description: "Your event is now visible to the community",
+                        status: 'success',
+                        duration: 3000,
+                        isClosable: true,
+                      })
+                    }
+              >
                 Create Event
               </Button>
             </Link>
