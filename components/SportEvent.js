@@ -49,8 +49,8 @@ function SportEvent(props) {
           overflow="hidden"
         >
           <ImageSliderCustom slides={SlideData} />
-          <Box pl="2">
-            <Box pl="1" pt={5} display="flex" alignItems="baseline">
+          <Box pt='3' pl="2">
+            <Box pl="1" display="flex" alignItems="baseline">
               {props.event.new === true && props.findEvents === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="teal">
                   New
