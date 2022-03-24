@@ -21,16 +21,19 @@ const Attendees = (props) => {
       </Button>
       <Collapse in={isOpen} animateOpacity>
         <Box
-          p="40px"
+          pl="20px"
+          pr="20px"
+          py="10px"
+          pb="25px"
           color="black"
           mt="4"
-          bg="gray.100"
+          bg="gray.50"
           rounded="md"
           shadow="md"
           mr={2}
+          onClick={onToggle}
         >
-          Chris De Groot
-          Noah Vandenberg
+          <AttendeeList></AttendeeList>
         </Box>
       </Collapse>
     </>
