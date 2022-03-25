@@ -114,6 +114,7 @@ function SportEvent(props) {
                   onClick={() => {
                     setShow(false);
                   }}
+                  variant={'outline'}
                   colorScheme="red"
                   m={2}
                   marginBottom="4"
@@ -124,7 +125,8 @@ function SportEvent(props) {
                   onClick={() => {
                     setShow(false);
                   }}
-                  colorScheme="green"
+                  variant={'outline'}
+                  colorScheme="teal"
                   m={2}
                   marginRight="4"
                   marginBottom="4"
