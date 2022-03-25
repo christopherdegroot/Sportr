@@ -76,7 +76,7 @@ export default function Userhome(props) {
           </VStack>
           <VStack pt={5} justifyContent={'center'} >
             <VStack flexDirection={'column'} alignContent={'flex-end'} justifyContent={'center'} pb={5}>
-              <Collapse ml={200} in={isOpen} animateOpacity>
+              <Collapse in={isOpen} animateOpacity>
                 <Box justifyContent={'center'}
                   mt='4'
                   pb='4'
