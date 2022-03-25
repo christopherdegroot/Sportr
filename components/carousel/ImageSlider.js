@@ -7,7 +7,7 @@ const ImageSlider = ({ slides }) => {
   return (
     <Carousel showThumbs={false} preventMovementUntilSwipeScrollTolerance={true} autoPlay={false} dynamicHeight={true} showIndicators={false} showStatus={false} infiniteLoop>
       {slides.map((slide) => {
-        return <Image src={slide.image} height="auto" width="800px" />;
+        return <Image src={slide.image} key={slide.key} height="auto" width="800px" />;
       })}
     </Carousel>
   );
