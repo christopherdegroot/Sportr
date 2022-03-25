@@ -80,7 +80,8 @@ function SportEvent(props) {
             </Box>
             <Box p="2">
               <Heading fontWeight="semibold" fontSize={"sm"}>
-                FRI APR 8, 8:00 PM
+              {props.event.date && Date.parse(props.event.date)}
+              {!props.event.date && "FRI APR 8, 8:00 PM"}
               </Heading>
               <Attendees event={props.event}></Attendees>
               <Box

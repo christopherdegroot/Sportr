@@ -11,6 +11,8 @@ import styles from "./layout.module.css";
 import Link from 'next/link';
 
 export default function EventFeed(props) {
+  let date = new Date(Date.now())
+
   const event1 = {
     imageUrl: "https://i.imgur.com/PZ59UV5.png",
     signedUp: 3,
@@ -19,6 +21,7 @@ export default function EventFeed(props) {
     description:
       "Summer is upon us! Let's get out there and play some spike ball people, looking for chill vibes, bring your friends.",
     new: true,
+    date: date
   };
 
   const event2 = {
@@ -63,6 +66,7 @@ export default function EventFeed(props) {
     description: "Looking for some girls to form a weekly running crew in Vancouver",
     new: false,
     ownership: true,
+    date: Date.now()
   };
 
 
