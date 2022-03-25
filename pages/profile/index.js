@@ -20,8 +20,22 @@ import RegisterModule from "../../components/RegisterModule";
 import NavigationBar from "../../components/NavigationBar";
 import UpdateProfile from "../../components/UpdateProfile"
 
-export default function Userhome(props) {
+
+import useSWR from 'swr'
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
+
+
+
+
+
+
+function Userhome(props) {
   const { isOpen, onClose, onToggle } = useDisclosure()
+
+  // Grab User Object From next/api
+  const { data, error } = useSWR('/api/v1/users/23', fetcher)
+  console.log(data)
 
   const userObject = {
     id:4,
@@ -64,7 +78,8 @@ export default function Userhome(props) {
                 alt="Dan Abramov"
               />
               <VStack flexDirection={'row'} alignItems='flex-end'>
-                <Text fontWeight={'semibold'} fontSize={'3xl'}>Dan</Text>
+                {/* Using the first name from the user object */}
+                <Text fontWeight={'semibold'} fontSize={'3xl'}>{data[0].name.split(' ')[0]}</Text>
                 <Text pl={2} pb={1}  fontSize={'lg'}>27</Text>
               </VStack>
             </VStack>
@@ -99,3 +114,5 @@ export default function Userhome(props) {
     </>
   );
 }
+
+export default Userhome
