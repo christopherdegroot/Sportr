@@ -49,7 +49,13 @@ const Details = (props) => {
     km_range,
   } = props.user;
   const { isOpen, onToggle } = useDisclosure();
-  const [sliderValue, setSliderValue] = useState(50);
+  const [sliderValue, setSliderValue] = useState(km_range);
+  let [bioValue, setBioValue] = useState(bio)
+
+  let handleInputChange = (e) => {
+    let inputValue = e.target.value
+    setBioValue(inputValue)
+  }
 
   return (
     <Container maxW="container.md">
@@ -64,7 +70,7 @@ const Details = (props) => {
           <GridItem colSpan={2}>
             <FormControl>
               <FormLabel>About Me</FormLabel>
-              <Textarea resize="none" h="7em" placeholder="Bio" />
+              <Textarea resize="none" h="7em" value={bioValue} onChange={handleInputChange} />
             </FormControl>
           </GridItem>
           {/* Range */}
@@ -75,6 +81,7 @@ const Details = (props) => {
                 w="90%"
                 aria-label="slider-ex-6"
                 onChange={(val) => setSliderValue(val)}
+                defaultValue={sliderValue}
               >
                 <SliderMark
                   rounded={"md"}

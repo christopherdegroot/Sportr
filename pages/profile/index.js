@@ -37,6 +37,9 @@ function Userhome(props) {
   const { data, error } = useSWR('/api/v1/users/23', fetcher)
   console.log(data)
 
+  if (error) return <div>Failed to load</div>
+  if (!data) return <div>Loading...</div>
+
   const userObject = {
     id:4,
     email:"noahthedev@hotmail.com",
@@ -47,7 +50,7 @@ function Userhome(props) {
     gender:"male",
     birthdate:'1999-12-31',
     sports: ['basketball', 'soccer', 'running', 'spikeball'],
-    km_range:10
+    km_range:29
   }
 
   return (
@@ -80,14 +83,11 @@ function Userhome(props) {
               <VStack flexDirection={'row'} alignItems='flex-end'>
                 {/* Using the first name from the user object */}
                 <Text fontWeight={'semibold'} fontSize={'3xl'}>{data[0].name.split(' ')[0]}</Text>
-                <Text pl={2} pb={1}  fontSize={'lg'}>27</Text>
+                {/* Birthdate from api */}
+                <Text pl={2} pb={1}  fontSize={'lg'}>{Math.floor((Date.now() - Date.parse(data[0].birth_date))/3.154e+10)}</Text>
               </VStack>
             </VStack>
-            <Text textAlign={'center'} fontSize="md">
-              I am a software developer working on React. I like playing
-              spikeball, tennis, and volleyball. I am looking for new friends to
-              play these sports with in Vancouver as I just moved here.
-            </Text>
+            <Text textAlign={'center'} fontSize="md">{data[0].bio}</Text>
           </VStack>
           <VStack pt={5} justifyContent={'center'} >
             <VStack flexDirection={'column'} alignContent={'flex-end'} justifyContent={'center'} pb={5}>
@@ -98,7 +98,7 @@ function Userhome(props) {
                   rounded='md'
                   shadow="md"
                   >
-                  <UpdateProfile onClose={onClose} user={userObject}></UpdateProfile>
+                  <UpdateProfile onClose={onClose} user={data[0]}></UpdateProfile>
                   <VStack>
                     <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>
                   </VStack>
