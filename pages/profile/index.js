@@ -35,7 +35,7 @@ function Userhome(props) {
 
   // Grab User Object From next/api
   const { data, error } = useSWR('/api/v1/users/23', fetcher)
-  console.log(data)
+  console.log('SWR Response:',data)
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
@@ -59,6 +59,7 @@ function Userhome(props) {
       <Box>
       </Box>
         <VStack justifyContent={'space-between'} minH={'730'} backgroundColor={'white'} rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
+          {/* Preview Box */}
           <VStack
             flexDirection="column"
             justifyContent="flex-start"
@@ -77,7 +78,8 @@ function Userhome(props) {
                 mb={1}
                 borderRadius="full"
                 boxSize="150px"
-                src="https://bit.ly/dan-abramov"
+                src={data[0].profile_image_url}
+                fit='cover'
                 alt="Dan Abramov"
               />
               <VStack flexDirection={'row'} alignItems='flex-end'>
@@ -89,6 +91,7 @@ function Userhome(props) {
             </VStack>
             <Text textAlign={'center'} fontSize="md">{data[0].bio}</Text>
           </VStack>
+          {/* Update Box */}
           <VStack pt={5} justifyContent={'center'} >
             <VStack flexDirection={'column'} alignContent={'flex-end'} justifyContent={'center'} pb={5}>
               <Collapse in={isOpen} animateOpacity>

@@ -47,6 +47,8 @@ const Details = (props) => {
     birthdate,
     sports,
     km_range,
+    same_gender,
+    similar_age,
   } = props.user;
   const { isOpen, onToggle } = useDisclosure();
   const [sliderValue, setSliderValue] = useState(km_range);
@@ -108,17 +110,12 @@ const Details = (props) => {
               <FormLabel>Update Preferences</FormLabel>
               <CheckboxGroup
                 colSpan={2}
-                defaultValue={["gender", "similar_age"]}
+                defaultValue={[same_gender ? "gender" : '', similar_age ? "similar_age" : '']}
               >
-                {" "}
                 {/* Once matching prefrences are added to the ERD update this line to use the userObject */}
                 <SimpleGrid columns={1} rowGap={2} w="full">
-                  <Checkbox value="gender">
-                    View same gender events only
-                  </Checkbox>
-                  <Checkbox value="similar_age">
-                    View similar age events only
-                  </Checkbox>
+                  <Checkbox value="gender">View same gender events only</Checkbox>
+                  <Checkbox value="similar_age">View similar age events only</Checkbox>
                 </SimpleGrid>
               </CheckboxGroup>
             </VStack>
@@ -137,9 +134,7 @@ const Details = (props) => {
                   <Checkbox value="basketball">Basketball</Checkbox>
                   <Checkbox value="beachvolleyball">Beach Volleyball</Checkbox>
                   <Checkbox value="DiscGolf">Disc Golf</Checkbox>
-                  <Checkbox value="canoeingkayaking">
-                    Canoeing/Kayaking
-                  </Checkbox>
+                  <Checkbox value="canoeingkayaking">Canoeing/Kayaking</Checkbox>
                   <Checkbox value="curling">Curling</Checkbox>
                   <Checkbox value="cycling">Cycling</Checkbox>
                   <Checkbox value="football">Football</Checkbox>
