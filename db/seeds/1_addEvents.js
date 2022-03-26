@@ -28,7 +28,7 @@
  
  exports.seed = async function(knex) {
    const fakeEvents = [];
-   const desiredFakeEvents = 250;
+   const desiredFakeEvents = 25;
    for (let i = 0; i < desiredFakeEvents; i++) {
      fakeEvents.push(createFakeEvent());
    }
