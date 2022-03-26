@@ -19,8 +19,12 @@ import LoginModule from "../../components/LoginModule";
 import RegisterModule from "../../components/RegisterModule";
 import NavigationBar from "../../components/NavigationBar";
 import UpdateProfile from "../../components/UpdateProfile"
+import useApplicationData from "../../hooks/useApplicationData";
 
 export default function Userhome(props) {
+  const { state } = useApplicationData()
+  console.log(state)
+  
   const { isOpen, onClose, onToggle } = useDisclosure()
 
   const userObject = {
