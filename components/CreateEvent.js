@@ -65,7 +65,7 @@ const Details = () => {
               <FormLabel>Event Name </FormLabel>
               <Input placeholder="First Name" />
               <FormLabel pt={4}>How many people can join?</FormLabel>
-              <Input placeholder="Amount" />
+              <Input placeholder="Group Size" />
             </FormControl>
             <GridItem mt="4" colSpan={2}>
               <FormLabel>Date</FormLabel>
