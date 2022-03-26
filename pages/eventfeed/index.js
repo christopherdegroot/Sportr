@@ -5,7 +5,7 @@ import EventFeed from '../../components/EventFeed'
 import styles from '../../styles/login-header.module.css'
 import NavigationBar from '../../components/NavigationBar'
 import EventToggleButton from '../../components/EventToggleButton'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
   
@@ -16,11 +16,39 @@ export default function Userhome(props) {
   const swapToggle = function(tf) {
     setLeftToggle(tf)
   }
+  const [data, setData] = useState(null)
+  const [isLoading, setLoading] = useState(false)
 
-  const { data, error } = useSWR('/api/v1/events/1', fetcher)
-  console.log(data)
-  if (error) return <div>Failed to load</div> 
-  if (!data) return <div>Loading...</div>
+
+  // const { data, error } = useSWR('/api/v1/events/1', fetcher)
+  // console.log(data)
+  // if (error) return <div>Failed to load</div> 
+  // if (!data) return <div>Loading...</div>
+
+  useEffect(() => {
+    setLoading(true)
+    fetch('api/v1/events/')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+        console.log('******************** logging data from useEffect', data)
+      })
+  }, [])
+
+  useEffect(() => {
+    setLoading(true)
+    fetch('api/v1/users/')
+      .then((res) => res.json())
+      .then((userData) => {
+        setData(userData)
+        setLoading(false)
+        console.log('############### logging data from useEffect', userData)
+      })
+  }, [])
+
+  if (isLoading) return <p>Loading...</p>
+  if (!data) return <p>No profile data</p>
 
 
   return (
