@@ -41,8 +41,7 @@ function AttendeeList(props) {
     />
   ));
 
-  console.log('in attendee list', props.data[0])
-  const ownerList = props.data.map((attendee) => (
+  const ownerList = props.eventsData.map((attendee) => (
     <InterviewerListItem
       key={attendee.id}
       {...attendee}
