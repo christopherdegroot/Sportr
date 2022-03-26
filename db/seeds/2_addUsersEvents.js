@@ -11,14 +11,14 @@
  // Create fake event
  const createFakeUsersEvents = () => {
   return {
-   user_id: Math.floor(Math.random() * 50) + 1,
-   event_id: Math.floor(Math.random() * 250) + 1,
+   user_id: Math.floor(Math.random() * 10) + 1,
+   event_id: Math.floor(Math.random() * 25) + 1,
   }
  };
  
  exports.seed = async function(knex) {
    const fakeUsersEvents = [];
-   const desiredFakeUsersEvents = 250;
+   const desiredFakeUsersEvents = 100;
    for (let i = 0; i < desiredFakeUsersEvents; i++) {
      fakeUsersEvents.push(createFakeUsersEvents());
    }

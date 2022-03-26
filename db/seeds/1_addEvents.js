@@ -15,7 +15,7 @@
    const placeType = faker.random.arrayElement(['Park', 'Beach', 'Mountain', 'Point', 'Street', 'Trail', 'Dog Park', 'School', 'Parking Lot', 'Playground', 'Arena', 'Dike']);
 
   return {
-    user_owner: Math.floor(Math.random() * 50) + 1, 
+    user_owner: Math.floor(Math.random() * 10) + 1, 
     title:  `${sport} at ${faker.address.cityName()} ${placeType}`,
     description: faker.lorem.words(15), 
     datetime: faker.date.between('2022-04-01T00:00:00.000Z', '2022-12-31T00:00:00.000Z'), 
@@ -28,7 +28,7 @@
  
  exports.seed = async function(knex) {
    const fakeEvents = [];
-   const desiredFakeEvents = 250;
+   const desiredFakeEvents = 25;
    for (let i = 0; i < desiredFakeEvents; i++) {
      fakeEvents.push(createFakeEvent());
    }
