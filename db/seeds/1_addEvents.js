@@ -11,7 +11,7 @@
  // Create fake event
  const createFakeEvent = () => {
   return {
-   user_owner: Math.floor(Math.random() * 50) + 1,
+   user_owner: Math.floor(Math.random() * 10) + 1,
    title: faker.lorem.words(2),
    description: faker.lorem.words(20),
   }
@@ -19,7 +19,7 @@
  
  exports.seed = async function(knex) {
    const fakeEvents = [];
-   const desiredFakeEvents = 250;
+   const desiredFakeEvents = 20;
    for (let i = 0; i < desiredFakeEvents; i++) {
      fakeEvents.push(createFakeEvent());
    }
