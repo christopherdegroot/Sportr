@@ -41,14 +41,14 @@ function AttendeeList(props) {
     />
   ));
 
-  const ownerList = owner.map((attendee) => (
+  console.log('in attendee list', props.data[0])
+  const ownerList = props.data.map((attendee) => (
     <InterviewerListItem
       key={attendee.id}
       {...attendee}
       selected={props.value === attendee.id}
     />
   ));
-
   return (
     <Box>{ownerList} <Divider height={3} ></Divider> <Text fontWeight={'hairline'} pt={2} fontSize={20}>Attendees:</Text>  {parsedAttendeeList}</Box>
   );

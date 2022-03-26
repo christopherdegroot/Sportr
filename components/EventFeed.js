@@ -13,6 +13,8 @@ import Link from 'next/link';
 export default function EventFeed(props) {
   let date = new Date(Date.now())
 
+  console.log('logging data in eventfeed', props.data)
+
   const event1 = {
     imageUrl: "https://i.imgur.com/PZ59UV5.png",
     signedUp: 3,
@@ -86,14 +88,14 @@ export default function EventFeed(props) {
             spacing={5}
           >
             {props.findEvents && (<>
-              <SportEvent findEvents={true} onClose={onClose} event={event1}></SportEvent>
-              <SportEvent findEvents={true} onClose={onClose} event={event2}></SportEvent>
-              <SportEvent findEvents={true} onClose={onClose} event={event3}></SportEvent>
+              <SportEvent data={props.data} findEvents={true} onClose={onClose} event={event1}></SportEvent>
+              <SportEvent data={props.data} findEvents={true} onClose={onClose} event={event2}></SportEvent>
+              <SportEvent data={props.data} findEvents={true} onClose={onClose} event={event3}></SportEvent>
             </>)}
             {props.profileEvents && (<>
-              <SportEvent profileEvents={true} onClose={onClose} event={event4}></SportEvent>
-              <SportEvent profileEvents={true} onClose={onClose} event={event5}></SportEvent>
-              <SportEvent profileEvents={true} onClose={onClose} event={event3}></SportEvent>
+              <SportEvent data={props.data} profileEvents={true} onClose={onClose} event={event4}></SportEvent>
+              <SportEvent data={props.data} profileEvents={true} onClose={onClose} event={event5}></SportEvent>
+              <SportEvent data={props.data} profileEvents={true} onClose={onClose} event={event3}></SportEvent>
             </>)}
           </VStack>
         </Box>

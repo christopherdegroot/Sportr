@@ -35,19 +35,19 @@ import {
 
 // InterviewerListItem component
 export default function InterviewerListItem(props) {
-  const { avatar, name, selected, bio, owner } = props;
+  const { avatar, title, selected, description, owner } = props;
   return (
     <Flex pt={5}>
       <Avatar size={'sm'} src={avatar} />
       <Box flexDirection={'column'} ml="3">
           <Text fontWeight="bold">
-            {name}
+            {title}
             {owner && <Badge ml="1" colorScheme="green">
               owner
             </Badge>}
           </Text>
         <Text fontSize="sm">
-          {bio}
+          {description}
         </Text>
       </Box>
     </Flex>

@@ -43,6 +43,8 @@ function SportEvent(props) {
     showAttendees = tf
   }
 
+  console.log('logigng data prop from sportevent component', props.data)
+
   return (
     <>
       {show && (
@@ -83,7 +85,7 @@ function SportEvent(props) {
               {props.event.date && Date.parse(props.event.date)}
               {!props.event.date && "FRI APR 8, 8:00 PM"}
               </Heading>
-              <Attendees event={props.event}></Attendees>
+              <Attendees event={props.data}></Attendees>
               <Box
                 mt="2"
                 fontWeight="semibold"

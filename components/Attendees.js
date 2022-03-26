@@ -5,6 +5,7 @@ import AttendeeList from "./AttendeeList";
 
 const Attendees = (props) => {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
+  console.log('logging props from attendees list', props.event[0].user_owner)
   return (
     <>
       <Button
@@ -16,7 +17,7 @@ const Attendees = (props) => {
         variant={"link"}
         onClick={onToggle}
       >
-        {props.event.signedUp} signed up &bull; {props.event.spotsRemaining}{" "}
+        {props.event[0].user_owner} signed up &bull; {props.event.spotsRemaining}{" "}
         spots remaining
       </Button>
       <Collapse in={isOpen} animateOpacity>
@@ -33,7 +34,7 @@ const Attendees = (props) => {
           mr={2}
           onClick={onToggle}
         >
-          <AttendeeList></AttendeeList>
+          <AttendeeList data={props.event}></AttendeeList>
         </Box>
       </Collapse>
     </>

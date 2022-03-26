@@ -6,12 +6,23 @@ import styles from '../../styles/login-header.module.css'
 import NavigationBar from '../../components/NavigationBar'
 import EventToggleButton from '../../components/EventToggleButton'
 import { useState } from 'react'
+import useSWR from 'swr'
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
+  
+
 
 export default function Userhome(props) {
   const [leftToggle, setLeftToggle] = useState(true)
   const swapToggle = function(tf) {
     setLeftToggle(tf)
   }
+
+  const { data, error } = useSWR('/api/v1/events/1', fetcher)
+  console.log(data)
+  if (error) return <div>Failed to load</div> 
+  if (!data) return <div>Loading...</div>
+
+
   return (
     <>
     <Container backgroundColor={'rgb(247, 247, 247)'} maxW="container.xl" p={0}>
@@ -29,9 +40,9 @@ export default function Userhome(props) {
           </ButtonGroup>)}
           </VStack>
         </>
-        {leftToggle && (<EventFeed findEvents={true}>
+        {leftToggle && (<EventFeed data={data} findEvents={true}>
       </EventFeed>)}
-      {!leftToggle && (<EventFeed profileEvents={true}>
+      {!leftToggle && (<EventFeed data={data} profileEvents={true}>
       </EventFeed>)}
 
       </Flex>
