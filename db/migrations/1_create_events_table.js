@@ -13,19 +13,31 @@
       .references('id').inTable('users')
       .onDelete('CASCADE');
     table
-      .datetime('datetime');
+      .datetime('datetime')
+      .notNullable();
     table
-      .string('title');
+      .string('title')
+      .notNullable();
     table
-      .string('description');
+      .string('description', [140])
+      .notNullable();
     table
-      .string('location');
+      .string('sport')
+      .notNullable();
     table
-      .string('sport');
+      .boolean('same_gender')
+      .defaultTo(false);
     table
-      .boolean('same_gender');
+      .boolean('similar_age')
+      .defaultTo(false);
     table
-      .boolean('similar_age');
+      .integer('capacity_limit');
+    table
+      .float('latitude', 14, 10)
+      .notNullable();
+    table
+      .float('longitude', 14, 10)
+      .notNullable();
   });
 };
 

@@ -15,11 +15,19 @@ const createFakeUser = () => {
   const last_name = faker.name.lastName();
   const name = `${first_name} ${last_name}`;
   const email = faker.internet.email(first_name,last_name);
+  const bio = faker.hacker.phrase()
+  const birth_date = faker.date.between('1970-01-01T00:00:00.000Z', '2005-01-01T00:00:00.000Z')
+  const gender = faker.random.arrayElement(['male','female'])
+  const profile_image_url = faker.image.avatar()
   return {
     email: email,
     name: name,
     // Passwords are being stored as a string for early development
-    password: 'password'
+    password: 'password',
+    bio: bio,
+    birth_date: birth_date,
+    gender: gender,
+    profile_image_url: profile_image_url
   };
 }
 
