@@ -17,8 +17,10 @@ if (process.env.DATABASE_URL) {
 }
 
 const db = new Pool(dbParams);
-db.connect(() => {
+console.log('logging db', db)
+db.connect((data) => {
   console.log('connected to database');
+  
 });
 
 module.exports = db;
