@@ -25,7 +25,7 @@ const createFakeUser = () => {
 
 exports.seed = async function(knex) {
   const fakeUsers = [];
-  const desiredFakeUsers = 50;
+  const desiredFakeUsers = 10;
   for (let i = 0; i < desiredFakeUsers; i++) {
     fakeUsers.push(createFakeUser());
   }
