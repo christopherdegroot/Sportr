@@ -16,23 +16,19 @@ export default function Userhome(props) {
   const swapToggle = function(tf) {
     setLeftToggle(tf)
   }
-  const [data, setData] = useState(null)
+  const [usersData, setUsersData] = useState(null)
+  const [eventsData, setEventsData] = useState(null)
+  const [users_eventsData, setUsersEventsData] = useState(null)
   const [isLoading, setLoading] = useState(false)
 
-
-  // const { data, error } = useSWR('/api/v1/events/1', fetcher)
-  // console.log(data)
-  // if (error) return <div>Failed to load</div> 
-  // if (!data) return <div>Loading...</div>
 
   useEffect(() => {
     setLoading(true)
     fetch('api/v1/events/')
       .then((res) => res.json())
-      .then((data) => {
-        setData(data)
+      .then((eventsData) => {
+        setEventsData(eventsData)
         setLoading(false)
-        console.log('******************** logging data from useEffect', data)
       })
   }, [])
 
@@ -40,16 +36,25 @@ export default function Userhome(props) {
     setLoading(true)
     fetch('api/v1/users/')
       .then((res) => res.json())
-      .then((userData) => {
-        setData(userData)
+      .then((usersData) => {
+        setUsersData(usersData)
         setLoading(false)
-        console.log('############### logging data from useEffect', userData)
+      })
+  }, [])
+
+  useEffect(() => {
+    setLoading(true)
+    fetch('api/v1/users_events/')
+      .then((res) => res.json())
+      .then((users_eventsData) => {
+        setUsersEventsData(users_eventsData)
+        setLoading(false)
       })
   }, [])
 
   if (isLoading) return <p>Loading...</p>
-  if (!data) return <p>No profile data</p>
-
+  if (!usersData) return <p>No profile data</p>
+  
 
   return (
     <>
@@ -68,9 +73,9 @@ export default function Userhome(props) {
           </ButtonGroup>)}
           </VStack>
         </>
-        {leftToggle && (<EventFeed data={data} findEvents={true}>
+        {leftToggle && (<EventFeed users_eventsData={users_eventsData} eventsData={eventsData} usersData={usersData} findEvents={true}>
       </EventFeed>)}
-      {!leftToggle && (<EventFeed data={data} profileEvents={true}>
+      {!leftToggle && (<EventFeed users_eventsData={users_eventsData} eventsData={eventsData} usersData={usersData} profileEvents={true}>
       </EventFeed>)}
 
       </Flex>
