@@ -43,7 +43,6 @@ function SportEvent(props) {
     showAttendees = tf
   }
 
-  console.log('logigng data prop from sportevent component', props.data)
 
   return (
     <>
@@ -79,13 +78,25 @@ function SportEvent(props) {
                   Today
                 </Badge>
               )}
+              </Box>
+              <Box pt='1' pl="1">
+              {props.eventsData.startsToday === true && (
+                <Badge mr={1} borderRadius="full" px="2" colorScheme="blue">
+                  Age Restricted
+                </Badge>
+              )}
+              {props.eventsData.startsToday === true && (
+                <Badge mr={1} borderRadius="full" px="2" colorScheme="orange">
+                  Gender Restricted
+                </Badge>
+              )}
             </Box>
             <Box p="2">
               <Heading fontWeight="semibold" fontSize={"sm"}>
               {props.event.date && Date.parse(props.event.date)}
               {!props.event.date && "FRI APR 8, 8:00 PM"}
               </Heading>
-              <Attendees event={props.data}></Attendees>
+              <Attendees users_eventsData={props.users_eventsData} eventsData={props.eventsData} usersData={props.usersData}></Attendees>
               <Box
                 mt="2"
                 fontWeight="semibold"
