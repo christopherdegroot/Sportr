@@ -68,7 +68,7 @@
         'table tennis': false,
         'tennis': false,
         'trail running': false,
-        'Ultimate Frisbee': false,
+        'ultimate frisbee': false,
         'volleyball': false,
         'yoga': false,
       })
