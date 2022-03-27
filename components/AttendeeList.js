@@ -4,34 +4,19 @@ import React from "react";
 import InterviewerListItem from "./AttendeeListItem";
 import {Box, Divider, Text} from "@chakra-ui/react";
 
+import useApplicationData from "../hooks/useApplicationData";
+import { getUsersForEvent } from "../helpers/selectors";
+
 // InterviewerList component
 function AttendeeList(props) {
 
-  let owner = [
-    {
-      id: 1,
-      name: "Marsha Powell",
-      avatar: "https://i.imgur.com/LpaY82x.png",
-      bio: "I am Marsha, and I am a lover of volleyball and any event that happens at the beach!",
-      owner: true
-    }
-  ]
+  const { state } = useApplicationData()
+  const attendees = getUsersForEvent(state, props.event.id)
+  console.log('attendees',attendees)
 
-  let attendees = [
-   {
-      id: 2,
-      name: "Jamie Pearson",
-      avatar: "https://i.imgur.com/Nmx0Qxo.png",
-      bio: "I am Jamie, and I love to play Spikeball, tennis, and golf in my free time"
-    },
-   {
-      id: 3,
-      name: "Mildred Nazir",
-      avatar: "https://i.imgur.com/T2WwVfS.png",
-      bio: "I am Mildred, I love playing baseball, tennis and hockey"
-    },
-  
-  ];
+  const ownerid = props.event.user_owner
+  const owner = state.users[ownerid]
+  console.log(`owner @ ${props.event.title}`, owner)
 
   const parsedAttendeeList = attendees.map((attendee) => (
     <InterviewerListItem
@@ -41,16 +26,15 @@ function AttendeeList(props) {
     />
   ));
 
-  const ownerList = owner.map((attendee) => (
-    <InterviewerListItem
-      key={attendee.id}
-      {...attendee}
-      selected={props.value === attendee.id}
-    />
-  ));
-
   return (
-    <Box>{ownerList} <Divider height={3} ></Divider> <Text fontWeight={'hairline'} pt={2} fontSize={20}>Attendees:</Text>  {parsedAttendeeList}</Box>
+    <Box>
+      <InterviewerListItem
+      {...owner}
+      />
+      <Divider height={3} ></Divider> 
+      <Text fontWeight={'hairline'} pt={2} fontSize={20}>Attendees:</Text>  
+      {parsedAttendeeList}
+    </Box>
   );
 }
 

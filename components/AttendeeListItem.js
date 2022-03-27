@@ -35,10 +35,10 @@ import {
 
 // InterviewerListItem component
 export default function InterviewerListItem(props) {
-  const { avatar, name, selected, bio, owner } = props;
+  const { profile_image_url, name, selected, bio, owner } = props;
   return (
     <Flex pt={5}>
-      <Avatar size={'sm'} src={avatar} />
+      <Avatar size={'sm'} src={profile_image_url} />
       <Box flexDirection={'column'} ml="3">
           <Text fontWeight="bold">
             {name}
