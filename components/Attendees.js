@@ -16,7 +16,7 @@ const Attendees = (props) => {
         variant={"link"}
         onClick={onToggle}
       >
-        {props.eventsData[0].user_owner} signed up &bull; {props.eventsData[0].user_owner}{" "}
+        {'2'} signed up &bull; {'2'}{" "}
         spots remaining
       </Button>
       <Collapse in={isOpen} animateOpacity>
