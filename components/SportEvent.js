@@ -33,6 +33,7 @@ import { BsCalendarEvent, BsFillCalendarPlusFill, BsFillCalendarDayFill } from '
 import ImageSliderCustom from './carousel/ImageSlider'
 import { SlideData } from "./carousel/SlideData";
 import Attendees from "./Attendees";
+import { getFormattedDateTime } from "../helpers/formatters";
 
 function SportEvent(props) {
   const [show, setShow] = React.useState(true);
@@ -80,8 +81,7 @@ function SportEvent(props) {
             </Box>
             <Box p="2">
               <Heading fontWeight="semibold" fontSize={"sm"}>
-              {props.event.date && Date.parse(props.event.date)}
-              {!props.event.date && "FRI APR 8, 8:00 PM"}
+              {getFormattedDateTime(props.event.datetime)}
               </Heading>
               <Attendees event={props.event}></Attendees>
               <Box
