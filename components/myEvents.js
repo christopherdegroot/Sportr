@@ -10,6 +10,10 @@ import SportEvent from "./SportEvent";
 import styles from "./layout.module.css";
 import Link from 'next/link';
 
+import useApplicationData from "../hooks/useApplicationData";
+import { getEventsForUser } from "../helpers/selectors";
+
+
 export default function EventFeed(props) {
   const event1 = {
     imageUrl: "https://pbs.twimg.com/media/CpMM9Z3UAAA_RPg.jpg",
@@ -42,6 +46,15 @@ export default function EventFeed(props) {
     new: false,
   };
 
+  const { state } = useApplicationData()
+  const myEvents = getEventsForUser(state, 4)
+
+  console.log('state',state);
+
+  const myEventsReact = myEvents.map(event => (
+    <SportEvent key={event.id} onClose={onClose} event={event} />
+  ));
+
   const { isOpen, onClose, onToggle } = useDisclosure();
 
   return (
@@ -62,6 +75,8 @@ export default function EventFeed(props) {
             <SportEvent onClose={onClose} event={event2}></SportEvent>
 
             <SportEvent onClose={onClose} event={event3}></SportEvent>
+
+            {/* {myEventsReact} */}
           </VStack>
         </Box>
         <Box>

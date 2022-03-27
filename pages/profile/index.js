@@ -19,11 +19,14 @@ import LoginModule from "../../components/LoginModule";
 import RegisterModule from "../../components/RegisterModule";
 import NavigationBar from "../../components/NavigationBar";
 import UpdateProfile from "../../components/UpdateProfile"
+
+
 import useApplicationData from "../../hooks/useApplicationData";
+import { getEventsForUser } from "../../helpers/selectors";
 
 export default function Userhome(props) {
-  const { state } = useApplicationData()
-  console.log(state)
+  const { state } = useApplicationData();
+  console.log('useApplicationData State:',state);
   
   const { isOpen, onClose, onToggle } = useDisclosure()
 
@@ -39,6 +42,8 @@ export default function Userhome(props) {
     sports: ['basketball', 'soccer', 'running', 'spikeball'],
     km_range:10
   }
+
+  console.log('getEventsForUser:', getEventsForUser(state, userObject.id));
 
   return (
     <>

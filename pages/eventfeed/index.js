@@ -7,6 +7,9 @@ import NavigationBar from '../../components/NavigationBar'
 import EventToggleButton from '../../components/EventToggleButton'
 import { useState } from 'react'
 
+import useApplicationData from '../../hooks/useApplicationData'
+import { getEventsForUser } from '../../helpers/selectors'
+
 export default function Userhome(props) {
   const [leftToggle, setLeftToggle] = useState(true)
   const swapToggle = function(tf) {

@@ -10,6 +10,9 @@ import SportEvent from "./SportEvent";
 import styles from "./layout.module.css";
 import Link from 'next/link';
 
+import useApplicationData from "../hooks/useApplicationData";
+import { getEventsForUser } from "../helpers/selectors";
+
 export default function EventFeed(props) {
   let date = new Date(Date.now())
 
@@ -69,7 +72,15 @@ export default function EventFeed(props) {
     date: Date.now()
   };
 
+  const { state } = useApplicationData()
+  const myEvents = getEventsForUser(state, 4) // User ID as seconds arg
 
+  const myEventsReact = myEvents.map(event => (
+    <SportEvent key={event.id} onClose={onClose} event={event} profileEvents={true}/>
+  ));
+  const allEventsReact = state.events.map(event => (
+    <SportEvent key={event.id} onClose={onClose} event={event} findEvents={true}/>
+  ));
 
   const { isOpen, onClose, onToggle } = useDisclosure();
 
@@ -86,14 +97,10 @@ export default function EventFeed(props) {
             spacing={5}
           >
             {props.findEvents && (<>
-              <SportEvent findEvents={true} onClose={onClose} event={event1}></SportEvent>
-              <SportEvent findEvents={true} onClose={onClose} event={event2}></SportEvent>
-              <SportEvent findEvents={true} onClose={onClose} event={event3}></SportEvent>
+              {allEventsReact}
             </>)}
             {props.profileEvents && (<>
-              <SportEvent profileEvents={true} onClose={onClose} event={event4}></SportEvent>
-              <SportEvent profileEvents={true} onClose={onClose} event={event5}></SportEvent>
-              <SportEvent profileEvents={true} onClose={onClose} event={event3}></SportEvent>
+              {myEventsReact}
             </>)}
           </VStack>
         </Box>
