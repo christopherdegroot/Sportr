@@ -43,7 +43,6 @@ function SportEvent(props) {
     showAttendees = tf
   }
 
-
   return (
     <>
       {show && (
@@ -80,12 +79,12 @@ function SportEvent(props) {
               )}
               </Box>
               <Box pt='1' pl="1">
-              {props.eventsData.startsToday === true && (
+              {props.eventsData === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="blue">
                   Age Restricted
                 </Badge>
               )}
-              {props.eventsData.startsToday === true && (
+              {props.eventsData === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="orange">
                   Gender Restricted
                 </Badge>
@@ -93,7 +92,7 @@ function SportEvent(props) {
             </Box>
             <Box p="2">
               <Heading fontWeight="semibold" fontSize={"sm"}>
-              {props.event.date && Date.parse(props.event.date)}
+              {props.eventsData && Date.parse(props.event.date)}
               {!props.event.date && "FRI APR 8, 8:00 PM"}
               </Heading>
               <Attendees users_eventsData={props.users_eventsData} eventsData={props.eventsData} usersData={props.usersData}></Attendees>
@@ -105,7 +104,7 @@ function SportEvent(props) {
                 lineHeight="tight"
                 isTruncated
               >
-                {props.event.title}
+                TITLE
               </Box>
               <Box
                 fontSize={"md"}

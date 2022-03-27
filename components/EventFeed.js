@@ -70,6 +70,29 @@ export default function EventFeed(props) {
     date: Date.now()
   };
 
+  const profileEventList = props.eventsData.map((event) => (
+    <SportEvent
+      event={event4}
+      onClose={onClose}
+      profileEvents={true}
+      key={event.id}
+      users_eventsData={props.users_eventsData}
+      eventsData={props.eventsData}
+      usersData={props.usersData}
+    />
+  ));
+
+  const findEventList = props.eventsData.map((event) => (
+    <SportEvent
+      event={event4}
+      onClose={onClose}
+      findEvents={true}
+      key={event.id}
+      users_eventsData={props.users_eventsData} 
+      eventsData={props.eventsData} 
+      usersData={props.usersData}
+    />
+  ));
 
 
   const { isOpen, onClose, onToggle } = useDisclosure();
@@ -87,14 +110,10 @@ export default function EventFeed(props) {
             spacing={5}
           >
             {props.findEvents && (<>
-              <SportEvent users_eventsData={props.users_eventsData} eventsData={props.eventsData} usersData={props.usersData} findEvents={true} onClose={onClose} event={event1}></SportEvent>
-              <SportEvent users_eventsData={props.users_eventsData} eventsData={props.eventsData} usersData={props.usersData} findEvents={true} onClose={onClose} event={event2}></SportEvent>
-              <SportEvent users_eventsData={props.users_eventsData} eventsData={props.eventsData} usersData={props.usersData} findEvents={true} onClose={onClose} event={event3}></SportEvent>
+            {profileEventList}
             </>)}
             {props.profileEvents && (<>
-              <SportEvent users_eventsData={props.users_eventsData} eventsData={props.eventsData} usersData={props.usersData} profileEvents={true} onClose={onClose} event={event4}></SportEvent>
-              <SportEvent users_eventsData={props.users_eventsData} eventsData={props.eventsData} usersData={props.usersData} profileEvents={true} onClose={onClose} event={event5}></SportEvent>
-              <SportEvent users_eventsData={props.users_eventsData} eventsData={props.eventsData} usersData={props.usersData} profileEvents={true} onClose={onClose} event={event3}></SportEvent>
+            {findEventList}
             </>)}
           </VStack>
         </Box>
