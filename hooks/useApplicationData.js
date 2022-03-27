@@ -4,7 +4,9 @@ import axios from "axios";
 export default function useApplicationData() {
   // Set Default State
   const [state, setState] = useState({
-
+    users: [],
+    events: [],
+    users_events: [],
   });
 
   // Get data from api
