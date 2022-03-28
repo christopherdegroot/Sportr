@@ -48,7 +48,7 @@ export default function useApplicationData() {
     const URL = `/api/v1/users_events`;
 
     return axios
-      .post(URL, {event_id: event_id, user_id: user_id})
+      .post(URL, {event_id: event_id, user_id: user_id, value: value})
       .then((response) => {
           console.log('eyy:', response)
 
