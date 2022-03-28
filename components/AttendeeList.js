@@ -12,11 +12,9 @@ function AttendeeList(props) {
 
   const { state } = useApplicationData()
   const attendees = getUsersForEvent(state, props.event.id)
-  console.log('attendees',attendees)
 
   const ownerid = props.event.user_owner
   const owner = state.users[ownerid]
-  console.log(`owner @ ${props.event.title}`, owner)
 
   const parsedAttendeeList = attendees.map((attendee) => (
     <InterviewerListItem

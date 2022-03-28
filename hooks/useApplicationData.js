@@ -30,12 +30,19 @@ export default function useApplicationData() {
   function createEvent(user_id, event) {
 
     const URL = `/api/v1/events`;
+
     return axios
-      .put(URL, { event })
-      .then(() => {
-        setState({ ...state })
-      });
+      .post(URL, event)
+      .then((response) => {
+
+        const events = {
+          ...state.events,
+          [response.data[0].id]: response.data[0],
+        };
+
+        setState({ ...state, events })
+      }); 
   }
 
-  return { state, createEvent};
+  return { state, createEvent };
 }

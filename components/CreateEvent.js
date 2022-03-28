@@ -47,11 +47,31 @@ import "react-datepicker/dist/react-datepicker.css";
 import { icons } from "react-icons";
 import { FcInfo } from "react-icons/fc";
 
+import useApplicationData from '../hooks/useApplicationData'
+
 const Details = () => {
+
+  const { state, createEvent } = useApplicationData()
+
   const { isOpen, onOpen, onToggle, onClose } = useDisclosure();
   const [sliderValue, setSliderValue] = useState(50);
-  const [startDate, setStartDate] = useState(new Date());
-  const toast = useToast();
+  const toast = useToast(); 
+  
+  
+  
+  const [titleValue, setTitleValue] = useState('');
+  const [eventDateValue, setEventDateValue] = useState(new Date());
+  const [sportValue, setSportValue] = useState('');
+  const [descriptionValue, setDescriptionValue] = useState('');
+  const [sameGenderValue, setSameGenderValue] = useState(false);
+  const [similarAgeValue, setSimilarAgeValue] = useState(false);
+
+  // Planning for when we add the form components for these
+  const [capacityLimitValue, setCapacityLimitValue] = useState('10');
+  const [longitudeValue, setLongitudeValue] = useState(' 49.273094');
+  const [latitudeValue, setLatitudeValue] = useState(' -122.63733');
+
+
 
   return (
     <Container pb={20} maxW="container.md">
@@ -61,24 +81,27 @@ const Details = () => {
         </VStack>
         <SimpleGrid columns={2} rowGap={6} w="full">
           <GridItem colSpan={2}>
+            {/* Event Name Input */}
             <FormControl>
               <FormLabel>Event Name </FormLabel>
-              <Input placeholder="First Name" />
+              <Input placeholder="Sport @ Planned Location" value={titleValue} onChange={(e) => setTitleValue(e.target.value)}/>
             </FormControl>
+            {/* Date Input */}
             <GridItem mt="6" colSpan={2}>
               <FormLabel>Date</FormLabel>
               <DatePicker
                 showTimeSelect
                 dateFormat="Pp"
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                selected={eventDateValue}
+                onChange={(date) => setEventDateValue(date)}
               />
             </GridItem>
           </GridItem>
           <GridItem colSpan={2}>
             <FormControl>
               <FormLabel>What sport would you like to play?</FormLabel>
-              <Select placeholder="Select Sport">
+              {/* Select the sport */}
+              <Select placeholder="Select Sport" value={sportValue} onChange={(e) => setSportValue(e.target.value)}>
                 <option value="badminton">Badminton</option>
                 <option value="baseball">Baseball</option>
                 <option value="basketball">Basketball</option>
@@ -115,8 +138,14 @@ const Details = () => {
           </GridItem>
           <GridItem colSpan={2}>
             <FormControl>
+              {/* Set Event Description */}
               <FormLabel>Event Description</FormLabel>
-              <Textarea resize="none" h="7em" placeholder="Description" />
+              <Textarea resize="none" 
+                        h="7em" 
+                        placeholder="Description" 
+                        value={descriptionValue} 
+                        onChange={(e) => setDescriptionValue(e.target.value)}
+                        />
             </FormControl>
           </GridItem>
           <GridItem colSpan={2}>
@@ -164,26 +193,47 @@ const Details = () => {
               </Modal>
             </HStack>
             <Stack spacing={5} direction="row">
-              <Checkbox>Same gender</Checkbox>
-              <Checkbox>Same age group</Checkbox>
+              {/* Set Same Gender Preference */}
+              <Checkbox 
+                isChecked={sameGenderValue} 
+                onChange={sameGenderValue ? () => setSameGenderValue(false) : () => setSameGenderValue(true)}
+              >Same gender</Checkbox>
+              {/* Set Similar Age Preference */}
+              <Checkbox
+                isChecked={similarAgeValue} 
+                onChange={similarAgeValue ? () => setSimilarAgeValue(false) : () => setSimilarAgeValue(true)}
+              >Same age group</Checkbox>
             </Stack>
           </GridItem>
           <GridItem colSpan={2}>
-            <Link href="/eventfeed">
+            <Link href="/eventfeed" passHref>
               <Button
                 colorScheme="teal"
                 w="full"
                 size="lg"
-                onClick={() =>
+                onClick={() => {
+                  createEvent(1, 
+                    {
+                      user_owner: '5', // SET AS LOGGED IN USER ID
+                      datetime: eventDateValue,
+                      title: titleValue,
+                      description: descriptionValue,
+                      sport: sportValue,
+                      same_gender: sameGenderValue,
+                      similar_age: similarAgeValue,
+                      capacity_limit: capacityLimitValue,
+                      latitude: latitudeValue,
+                      longitude: longitudeValue
+                    });
                   toast({
-                    title: "Event created.",
-                    description: "Your event is now visible to the community",
-                    status: "success",
-                    duration: 3000,
-                    isClosable: true,
-                    position: "top",
-                  })
-                }
+                      title: "Event created.",
+                      description: "Your event is now visible to the community",
+                      status: "success",
+                      duration: 3000,
+                      isClosable: true,
+                      position: "top",
+                    }); 
+                }}
               >
                 Create Event
               </Button>
