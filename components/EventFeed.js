@@ -11,12 +11,16 @@ import styles from "./layout.module.css";
 import Link from 'next/link';
 
 import useApplicationData from "../hooks/useApplicationData";
-import { getEventsForUser } from "../helpers/selectors";
+import { getEventsForUser, getPotentialEventsForUser } from "../helpers/selectors";
 
 export default function EventFeed(props) {
 
   const { state } = useApplicationData()
   const myEvents = getEventsForUser(state, 4) // User ID as seconds arg
+  const potentialEvents = getPotentialEventsForUser(state, 7)
+
+
+  console.log('state:', potentialEvents, state.events)
 
   const myEventsReact = myEvents.map(event => (
     <SportEvent key={event.id} onClose={onClose} event={event} profileEvents={true}/>
