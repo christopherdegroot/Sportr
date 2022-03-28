@@ -65,8 +65,6 @@ export function getPotentialEventsForUser(state, user_id) {
 
     const eventOwner = users.find(user => user.id == event.user_owner)
 
-    console.log('Gender Bender', eventOwner, user)
-
     // filter out events that are same gender and you are not the same gender as the event owner
     if (event.same_gender && user.gender !== eventOwner.gender) {
       return false
@@ -88,12 +86,27 @@ export function getPotentialEventsForUser(state, user_id) {
 
   // returns false when a user is outside a +/- 5 year age gap
   const similarAgeCheck = (event) => {
-    
+
+    const getUsersAge = (user) => Math.floor((Date.now() - Date.parse(user.birthdate))/3.154e+10)
+    const plusMinusFive = (x , y) => { (x - y) < 5 && (y - x)  > -5 && (x - y) > -5 && (y - x)  < 5 ? true : false}
+    const eventOwner = users.find(user => user.id == event.user_owner)
+    const userAge = getUsersAge(user)
+    const eventOwnerAge = getUsersAge(eventOwner)
+
+    if (event.similar_age && !plusMinusFive(userAge, eventOwnerAge)) {
+      return false
+    }
+
+    if (similar_age && !event.similar_age) {
+      return false
+    }
+
+    return true
   }
   
 
   // Filter out events that don't match a users preferences
-  const potentialEvents = users[0] ? events.filter( event => sameGenderCheck(event)) : [] //
+  const potentialEvents = users[0] ? events.filter( event => sameGenderCheck(event) && similarAgeCheck(event)) : [] //
 
 
 
