@@ -17,7 +17,7 @@ export default function EventFeed(props) {
 
   const { state } = useApplicationData()
   const myEvents = getEventsForUser(state, 1) // User ID as seconds arg
-  const potentialEvents = getPotentialEventsForUser(state, 7)
+  const potentialEvents = getPotentialEventsForUser(state, 1)
 
 
   console.log('state:', potentialEvents, state.events)

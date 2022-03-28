@@ -49,12 +49,23 @@ export function getPotentialEventsForUser(state, user_id) {
   const { events, users, users_events } = state;
 
   // ++ NEED TO ADD RANGE PREFERENCE
-  // ++ NEED TO FILTER EVENTS FOR REJECTIONS
   // ++ NEED TO FILTER EVENTS FOR CAPACITY
   // ++ NEED TO FILTER FOR USERS SPORTS
 
   // Grab user object for signed in user
   const user = users[0] ? users.find(user => user.id == user_id) : null
+
+  const responedCheck = (event) => {
+
+    const userUsersEvents = users_events.filter(user_event => user_event.user_id == user_id)
+    const eventIdsOfUserUsersEvents = userUsersEvents.map( user_event => user_event.event_id)
+
+    if (eventIdsOfUserUsersEvents.includes(event.id)) {
+      return false
+    }
+
+    return true
+  }
 
   // returns false when a user should not see an event due to gender prefrences
   const sameGenderCheck = (event) => {
@@ -91,7 +102,7 @@ export function getPotentialEventsForUser(state, user_id) {
   
 
   // Filter out events that don't match a users preferences
-  const potentialEvents = users[0] ? events.filter( event => sameGenderCheck(event) && similarAgeCheck(event)) : [] //
+  const potentialEvents = users[0] ? events.filter( event => responedCheck(event) && sameGenderCheck(event) && similarAgeCheck(event)) : [] //
 
 
 
