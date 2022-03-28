@@ -34,6 +34,7 @@ import ImageSliderCustom from './carousel/ImageSlider'
 import { SlideData } from "./carousel/SlideData";
 import Attendees from "./Attendees";
 import { getFormattedDateTime } from "../helpers/formatters";
+import useApplicationData from "../hooks/useApplicationData";
 
 function SportEvent(props) {
   const [show, setShow] = React.useState(true);
@@ -43,6 +44,7 @@ function SportEvent(props) {
   const showAttendeesFunction = function (tf) {
     showAttendees = tf
   }
+  const { createUserEvent } = useApplicationData()
 
   return (
     <>
@@ -112,6 +114,7 @@ function SportEvent(props) {
               <Box display="flex" alignItems="center" justifyContent="flex-end">
                 <Button
                   onClick={() => {
+                    createUserEvent(props.event.id, 1, false); // Set 1 to logged in user value
                     setShow(false);
                   }}
                   variant={'outline'}
@@ -123,6 +126,7 @@ function SportEvent(props) {
                 </Button>
                 <Button
                   onClick={() => {
+                    createUserEvent(props.event.id, 1, true); // Set 1 to logged in user value
                     setShow(false);
                   }}
                   variant={'outline'}

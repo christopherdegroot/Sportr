@@ -16,7 +16,7 @@ import { getEventsForUser, getPotentialEventsForUser } from "../helpers/selector
 export default function EventFeed(props) {
 
   const { state } = useApplicationData()
-  const myEvents = getEventsForUser(state, 4) // User ID as seconds arg
+  const myEvents = getEventsForUser(state, 1) // User ID as seconds arg
   const potentialEvents = getPotentialEventsForUser(state, 7)
 
 
