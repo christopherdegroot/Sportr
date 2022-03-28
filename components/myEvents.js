@@ -69,7 +69,7 @@ export default function EventFeed(props) {
             spacing={10}
           >
             <SportEvent onClose={onClose} event={event1}></SportEvent>
-
+            
             <SportEvent onClose={onClose} event={event2}></SportEvent>
 
             <SportEvent onClose={onClose} event={event3}></SportEvent>
