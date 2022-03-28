@@ -26,7 +26,7 @@ export default function Home() {
   const { isOpen, onClose, onToggle } = useDisclosure();
   return (
     <>
-    <div class="home-page-stack" >
+    <div className="home-page-stack" >
       <VStack
         justifyContent={"space-between"}
         minH={"844"}
