@@ -31,34 +31,29 @@ export default function Home() {
   
   useEffect(() => socketInitializer(), [])
   
-  const socketInitializer = async () => {
-    await fetch('/api/socket');
-    socket = io()
+  // const socketInitializer = async () => {
+  //   await fetch('/api/socket');
+  //   socket = io()
 
-    socket.on('connect', () => {
-      console.log('connected')
-    })
+  //   socket.on('connect', () => {
+  //     console.log('connected')
+  //   })
 
-    socket.on('update-input', msg => {
-      setInput(msg)
-    })
-  }
+  //   socket.on('update-input', msg => {
+  //     console.log('logging msg in global index', msg)
+  //     setInput(msg)
+  //   })
+  // }
 
-  const onChangeHandler = (e) => {
-    setInput(e.target.value)
-    socket.emit('input-change', e.target.value)
-  }
-  
-
+  // const onChangeHandler = (e) => {
+  //   setInput(e.target.value)
+  //   socket.emit('input-change', e.target.value)
+  // }
 
   return (
     <>
     <div className="home-page-stack" >
-    <input
-      placeholder="Type something"
-      value={input}
-      onChange={onChangeHandler}
-    />
+    
       <VStack
         justifyContent={"space-between"}
         minH={"844"}
