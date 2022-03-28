@@ -52,13 +52,10 @@ export function getPotentialEventsForUser(state, user_id) {
   // ++ NEED TO SAME GENDER FOR CREATORS GENDER
   // ++ NEED TO FILTER EVENTS FOR REJECTIONS
   // ++ NEED TO FILTER EVENTS FOR CAPACITY
+  // ++ NEED TO FILTER FOR USERS SPORTS
 
   // Grab user object for signed in user
   const user = users[0] ? users.find(user => user.id == user_id) : null
-
-  // Grab users preferences if users are present
-  const same_gender = users[0] ? user.same_gender_preference : false
-  const similar_age = users[0] ? user.similar_age_preference : false
 
   // returns false when a user should not see an event due to gender prefrences
   const sameGenderCheck = (event) => {
@@ -70,16 +67,6 @@ export function getPotentialEventsForUser(state, user_id) {
       return false
     }
 
-    // filter out events when a user has not selected
-    if (event.same_gender && same_gender == false) {
-      return false
-    }
-
-    // filter out events that aren't same gender if that is your preference
-    if (same_gender && !event.same_gender) {
-      return false
-    }
-
     // return true in all other cases
     return true
   }
@@ -87,17 +74,16 @@ export function getPotentialEventsForUser(state, user_id) {
   // returns false when a user is outside a +/- 5 year age gap
   const similarAgeCheck = (event) => {
 
-    const getUsersAge = (user) => Math.floor((Date.now() - Date.parse(user.birthdate))/3.154e+10)
-    const plusMinusFive = (x , y) => { (x - y) < 5 && (y - x)  > -5 && (x - y) > -5 && (y - x)  < 5 ? true : false}
+    const getUsersAge = (user) => Math.floor((Date.now() - Date.parse(user.birth_date))/3.154e+10)
+    const plusMinusFive = (x , y) => (x - y) < 5 && (y - x)  > -5 && (x - y) > -5 && (y - x)  < 5 ? true : false
+
     const eventOwner = users.find(user => user.id == event.user_owner)
+
     const userAge = getUsersAge(user)
     const eventOwnerAge = getUsersAge(eventOwner)
 
+    // Filter out events the require a similar age that a user does not meet
     if (event.similar_age && !plusMinusFive(userAge, eventOwnerAge)) {
-      return false
-    }
-
-    if (similar_age && !event.similar_age) {
       return false
     }
 
