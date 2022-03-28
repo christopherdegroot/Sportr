@@ -49,7 +49,6 @@ export function getPotentialEventsForUser(state, user_id) {
   const { events, users, users_events } = state;
 
   // ++ NEED TO ADD RANGE PREFERENCE
-  // ++ NEED TO SAME GENDER FOR CREATORS GENDER
   // ++ NEED TO FILTER EVENTS FOR REJECTIONS
   // ++ NEED TO FILTER EVENTS FOR CAPACITY
   // ++ NEED TO FILTER FOR USERS SPORTS
