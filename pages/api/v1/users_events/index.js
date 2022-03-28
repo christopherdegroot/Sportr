@@ -16,11 +16,11 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       // req.body object destructuring
-      const {user_id, event_id} = req.body;
+      const {user_id, event_id, value} = req.body;
   
       const query = {
-        text: 'INSERT INTO users_events (user_id, event_id) VALUES ($1, $2) RETURNING *;',
-        values: [user_id, event_id],
+        text: 'INSERT INTO users_events (user_id, event_id, value) VALUES ($1, $2, $3) RETURNING *;',
+        values: [user_id, event_id, value],
       };
       const dbResponse = await db.query(query);
       res.json(dbResponse.rows)

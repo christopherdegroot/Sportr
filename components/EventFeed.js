@@ -16,8 +16,8 @@ import { getEventsForUser, getPotentialEventsForUser } from "../helpers/selector
 export default function EventFeed(props) {
 
   const { state } = useApplicationData()
-  const myEvents = getEventsForUser(state, 4) // User ID as seconds arg
-  const potentialEvents = getPotentialEventsForUser(state, 7)
+  const myEvents = getEventsForUser(state, 1) // User ID as seconds arg
+  const potentialEvents = getPotentialEventsForUser(state, 1)
 
 
   console.log('state:', potentialEvents, state.events)
@@ -25,7 +25,7 @@ export default function EventFeed(props) {
   const myEventsReact = myEvents.map(event => (
     <SportEvent key={event.id} onClose={onClose} event={event} profileEvents={true}/>
   ));
-  const allEventsReact = state.events.map(event => (
+  const allEventsReact = potentialEvents.map(event => (
     <SportEvent key={event.id} onClose={onClose} event={event} findEvents={true}/>
   ));
 
