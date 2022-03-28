@@ -16,6 +16,9 @@
       .integer('event_id')
       .references('id').inTable('events')
       .onDelete('CASCADE');
+    table
+      .boolean('value')
+      .notNullable();
   });
 };
 

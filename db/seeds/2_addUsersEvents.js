@@ -13,6 +13,7 @@
   return {
    user_id: Math.floor(Math.random() * 10) + 1,
    event_id: Math.floor(Math.random() * 25) + 1,
+   value: true, // Uses true value to only seed accepts
   }
  };
  
