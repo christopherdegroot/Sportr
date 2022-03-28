@@ -1,5 +1,6 @@
 const db = require('../../../../db/db')
 const chalk = require('chalk')
+const sockets = require('../../socket.js')
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
@@ -25,6 +26,8 @@ export default async function handler(req, res) {
         values: [user_owner, datetime, title, description, sport, same_gender, similar_age, capacity_limit, latitude, longitude],
       };
       const dbResponse = await db.query(query);
+      console.log('logging sockets at events index', res.socket)
+      res.socket.server.io.emit('update-input', dbResponse.rows)
       res.status(200).json(dbResponse.rows)
     } catch (error) {
       console.log(chalk.redBright('ERROR in events.js @ ADD:', chalk.whiteBright(error)));
