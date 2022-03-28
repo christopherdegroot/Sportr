@@ -34,7 +34,6 @@ import ImageSliderCustom from './carousel/ImageSlider'
 import { SlideData } from "./carousel/SlideData";
 import Attendees from "./Attendees";
 import { getFormattedDateTime } from "../helpers/formatters";
-import useApplicationData from "../hooks/useApplicationData";
 
 function SportEvent(props) {
   const [show, setShow] = React.useState(true);
@@ -44,7 +43,7 @@ function SportEvent(props) {
   const showAttendeesFunction = function (tf) {
     showAttendees = tf
   }
-  const { createUserEvent } = useApplicationData()
+  // const { createUserEvent } = useApplicationData()
 
   return (
     <>

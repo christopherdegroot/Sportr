@@ -4,13 +4,11 @@ import React from "react";
 import InterviewerListItem from "./AttendeeListItem";
 import {Box, Divider, Text} from "@chakra-ui/react";
 
-import useApplicationData from "../hooks/useApplicationData";
 import { getUsersForEvent } from "../helpers/selectors";
 
 // InterviewerList component
 function AttendeeList(props) {
 
-  const { state } = useApplicationData()
   const attendees = getUsersForEvent(state, props.event.id)
 
   const ownerid = props.event.user_owner

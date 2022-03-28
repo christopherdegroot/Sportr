@@ -47,11 +47,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { icons } from "react-icons";
 import { FcInfo } from "react-icons/fc";
 
-import useApplicationData from '../hooks/useApplicationData'
 
 const Details = () => {
 
-  const { state, createEvent } = useApplicationData()
+  // const { state, createEvent } = useApplicationData()
 
   const { isOpen, onOpen, onToggle, onClose } = useDisclosure();
   const [sliderValue, setSliderValue] = useState(50);

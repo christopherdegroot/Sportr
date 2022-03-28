@@ -3,13 +3,11 @@
 import { Collapse, Box, Button, VStack, Heading, useDisclosure } from "@chakra-ui/react";
 import AttendeeList from "./AttendeeList";
 
-import useApplicationData from "../hooks/useApplicationData";
 import { getSignedUpUserCountForEvent } from "../helpers/selectors";
 
 const Attendees = (props) => {
 
   const { event } = props
-  const { state } = useApplicationData()
 
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
 

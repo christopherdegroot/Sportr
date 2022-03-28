@@ -10,12 +10,11 @@ import SportEvent from "./SportEvent";
 import styles from "./layout.module.css";
 import Link from 'next/link';
 
-import useApplicationData from "../hooks/useApplicationData";
 import { getEventsForUser, getPotentialEventsForUser } from "../helpers/selectors";
 
 export default function EventFeed(props) {
 
-  const { state } = useApplicationData()
+  // const { state } = useApplicationData()
   const myEvents = getEventsForUser(state, 1) // User ID as seconds arg
   const potentialEvents = getPotentialEventsForUser(state, 1)
 
