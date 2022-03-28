@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
@@ -21,12 +22,43 @@ import {
 import LoginModule from "../components/LoginModule";
 import { MdSportsTennis, MdOutlineSportsHandball } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
+const io = require("socket.io-client");
+const socket = io();
 
 export default function Home() {
   const { isOpen, onClose, onToggle } = useDisclosure();
+  const [input, setInput] = useState('')
+  
+  useEffect(() => socketInitializer(), [])
+  
+  const socketInitializer = async () => {
+    await fetch('/api/socket');
+    socket = io()
+
+    socket.on('connect', () => {
+      console.log('connected')
+    })
+
+    socket.on('update-input', msg => {
+      setInput(msg)
+    })
+  }
+
+  const onChangeHandler = (e) => {
+    setInput(e.target.value)
+    socket.emit('input-change', e.target.value)
+  }
+  
+
+
   return (
     <>
     <div className="home-page-stack" >
+    <input
+      placeholder="Type something"
+      value={input}
+      onChange={onChangeHandler}
+    />
       <VStack
         justifyContent={"space-between"}
         minH={"844"}
