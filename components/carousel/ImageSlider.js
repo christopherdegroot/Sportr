@@ -4,6 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useState, useRef } from "react";
 import {Loader} from '@googlemaps/js-api-loader';
+require("dotenv").config('./.env');
 
 const imageLoader = ({ src, width, quality }) => {
   return `${src}?w=${width}&q=${quality || 75}`
@@ -26,7 +27,7 @@ const ImageSlider = (props) => {
 
   useEffect(() => {
     const loader = new Loader({
-      apiKey: 'AIzaSyD1t86TICVLA6EdBxwgbiBMVFefoW6UMYM',
+      apiKey: process.env.MAPS_API,
       version: 'weekly',
     });
     let map;

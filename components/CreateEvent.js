@@ -49,6 +49,8 @@ import { FcInfo } from "react-icons/fc";
 import script from "next/script";
 import { BsGoogle } from "react-icons/bs";
 import {Loader} from '@googlemaps/js-api-loader';
+require("dotenv").config('./.env');
+
 
 const Details = (props) => {
   const { state, createEvent } = props;
@@ -73,7 +75,7 @@ const Details = (props) => {
 
   useEffect(() => {
     const loader = new Loader({
-      apiKey: 'AIzaSyD1t86TICVLA6EdBxwgbiBMVFefoW6UMYM',
+      apiKey: process.env.MAPS_API,
       version: 'weekly',
     });
     let map;
