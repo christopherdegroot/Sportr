@@ -108,3 +108,12 @@ export function getPotentialEventsForUser(state, user_id) {
 
   return potentialEvents
 }
+
+export function getUserDataForProfile(state,user_id) {
+
+  const { users, events, users_events } = state
+
+  const userData = users[0] ? users.filter( user => user.id === user_id) : []
+
+  return userData[0]
+}
