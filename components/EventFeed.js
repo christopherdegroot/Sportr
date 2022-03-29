@@ -18,7 +18,7 @@ export default function EventFeed(props) {
   const potentialEvents = getPotentialEventsForUser(state, 1)
 
 
-  console.log('state:', potentialEvents, state.events)
+  console.log('state (in eventFeed):', potentialEvents, state.events)
 
   const myEventsReact = myEvents.map(event => (
     <SportEvent state={state} createUserEvent={createUserEvent} key={event.id} onClose={onClose} event={event} profileEvents={true}/>

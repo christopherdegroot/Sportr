@@ -48,9 +48,9 @@ import { icons } from "react-icons";
 import { FcInfo } from "react-icons/fc";
 
 
-const Details = () => {
+const Details = (props) => {
 
-  // const { state, createEvent } = useApplicationData()
+   const { state, createEvent } = props
 
   const { isOpen, onOpen, onToggle, onClose } = useDisclosure();
   const [sliderValue, setSliderValue] = useState(50);

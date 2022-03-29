@@ -51,6 +51,8 @@ const Details = (props) => {
   const { isOpen, onToggle } = useDisclosure();
   const [sliderValue, setSliderValue] = useState(50);
 
+  const { state } = props
+
   return (
     <Container maxW="container.md">
       <VStack w="full" h="full" p={2} spacing={10}>

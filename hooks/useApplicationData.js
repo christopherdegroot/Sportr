@@ -29,7 +29,7 @@ export default function useApplicationData() {
     })
   }, [])
 
-  // useEffect(() => socketInitializer(), [])
+  useEffect(() => socketInitializer(), [])
   
   const socketInitializer = async () => {
     console.log('socket intializer')
@@ -42,7 +42,7 @@ export default function useApplicationData() {
 
     socket.on('update-input', msg => {
       // setInput(msg)
-      console.log(msg)
+      console.log('logging message from socket update input', msg)
     })
   }
 
