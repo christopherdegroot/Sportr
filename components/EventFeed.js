@@ -36,7 +36,7 @@ export default function EventFeed(props) {
       <Container maxW="container.md">
         <Box pt={10}>
           <VStack
-            flexDirection="column"
+            flexDirection="column-reverse"
             justifyContent="center"
             alignItems="center"
             w="full"

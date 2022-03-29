@@ -59,7 +59,7 @@ function SportEvent(props) {
         >
           <ImageSliderCustom slides={SlideData} />
           <Box pt='3' pl="2">
-            <Box pl="1" display="flex" alignItems="baseline">
+          <Box pl="1" display="flex" alignItems="baseline">
               {props.event.new === true && props.findEvents === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="teal">
                   New
@@ -78,6 +78,18 @@ function SportEvent(props) {
               {props.event.startsToday === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="yellow">
                   Today
+                </Badge>
+              )}
+              </Box>
+              <Box pt='1' pl="1">
+              {props.eventsData === true && (
+                <Badge mr={1} borderRadius="full" px="2" colorScheme="blue">
+                  Age Restricted
+                </Badge>
+              )}
+              {props.eventsData === true && (
+                <Badge mr={1} borderRadius="full" px="2" colorScheme="orange">
+                  Gender Restricted
                 </Badge>
               )}
             </Box>

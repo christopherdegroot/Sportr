@@ -47,7 +47,7 @@ export default function Userhome(props) {
 
   return (
     <>
-      <Container backgroundColor={'rgb(247, 247, 247)'} pt='5' maxW="container.md">
+      <Container pb={20} backgroundColor={'rgb(247, 247, 247)'} pt='5' maxW="container.md">
       <Box>
       </Box>
         <VStack justifyContent={'space-between'} minH={'730'} backgroundColor={'white'} rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">

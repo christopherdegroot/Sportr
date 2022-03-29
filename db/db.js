@@ -15,7 +15,7 @@ if (process.env.DATABASE_URL) {
     database: process.env.DB_NAME,
     max:15,
     idleTimeoutMillis: 1000, // close idle clients after 1 second
-    connectionTimeoutMillis: 3000,
+    connectionTimeoutMillis: 10000,
   };
 }
 

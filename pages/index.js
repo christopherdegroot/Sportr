@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
@@ -21,15 +22,43 @@ import {
 import LoginModule from "../components/LoginModule";
 import { MdSportsTennis, MdOutlineSportsHandball } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
+const io = require("socket.io-client");
+const socket = io();
 
 export default function Home() {
   const { isOpen, onClose, onToggle } = useDisclosure();
+  const [input, setInput] = useState('')
+  
+  // useEffect(() => socketInitializer(), [])
+  
+  // const socketInitializer = async () => {
+  //   await fetch('/api/socket');
+  //   socket = io()
+
+  //   socket.on('connect', () => {
+  //     console.log('connected')
+  //   })
+
+  //   socket.on('update-input', msg => {
+  //     console.log('logging msg in global index', msg)
+  //     setInput(msg)
+  //   })
+  // }
+
+  // const onChangeHandler = (e) => {
+  //   setInput(e.target.value)
+  //   socket.emit('input-change', e.target.value)
+  // }
+
   return (
     <>
+    <div className="home-page-stack" >
+    
       <VStack
         justifyContent={"space-between"}
         minH={"844"}
         bgGradient={"linear-gradient( #e66465, #9198e5)"}
+        h={'100%'}
       >
         <Head>
           <link rel="icon" href="/images/template (2).png" />
@@ -68,13 +97,13 @@ export default function Home() {
             </Text>
           </VStack>
         </VStack>
-        <VStack>
+        <VStack pt={10}>
           <Link href="/register">
             <Button fontWeight={'thin'} variant={'outline'} colorScheme={'black'} color={'black'} w="15em" name={"Register"}>
               REGISTER
             </Button>
           </Link>
-          <Box p={5} pb={10}>
+          <Box p={3} pb={528}>
             <Button fontWeight={'thin'} variant={'outline'} colorScheme={'black'} color={'black'} w="15em" onClick={onToggle}>
               SIGN IN
             </Button>
@@ -93,6 +122,7 @@ export default function Home() {
           </Box>
         </VStack>
       </VStack>
+      </div>
     </>
   );
 }
