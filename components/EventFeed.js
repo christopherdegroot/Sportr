@@ -10,23 +10,19 @@ import SportEvent from "./SportEvent";
 import styles from "./layout.module.css";
 import Link from 'next/link';
 
-import useApplicationData from "../hooks/useApplicationData";
 import { getEventsForUser, getPotentialEventsForUser } from "../helpers/selectors";
 
-export default function EventFeed(props) {
 
-  const { state } = useApplicationData()
+export default function EventFeed(props) {
+   const { state, createUserEvent } = props
   const myEvents = getEventsForUser(state, 1) // User ID as seconds arg
   const potentialEvents = getPotentialEventsForUser(state, 1)
 
-
-  console.log('state:', potentialEvents, state.events)
-
   const myEventsReact = myEvents.map(event => (
-    <SportEvent key={event.id} onClose={onClose} event={event} profileEvents={true}/>
+    <SportEvent state={state} createUserEvent={createUserEvent} key={event.id} onClose={onClose} event={event} profileEvents={true}/>
   ));
   const allEventsReact = potentialEvents.map(event => (
-    <SportEvent key={event.id} onClose={onClose} event={event} findEvents={true}/>
+    <SportEvent state={state} createUserEvent={createUserEvent} key={event.id} onClose={onClose} event={event} findEvents={true}/>
   ));
 
   const { isOpen, onClose, onToggle } = useDisclosure();

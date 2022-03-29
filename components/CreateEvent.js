@@ -47,11 +47,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { icons } from "react-icons";
 import { FcInfo } from "react-icons/fc";
 
-import useApplicationData from '../hooks/useApplicationData'
 
-const Details = () => {
+const Details = (props) => {
 
-  const { state, createEvent } = useApplicationData()
+   const { state, createEvent } = props
 
   const { isOpen, onOpen, onToggle, onClose } = useDisclosure();
   const [sliderValue, setSliderValue] = useState(50);
@@ -67,7 +66,7 @@ const Details = () => {
   const [similarAgeValue, setSimilarAgeValue] = useState(false);
 
   // Planning for when we add the form components for these
-  const [capacityLimitValue, setCapacityLimitValue] = useState('10');
+  const [capacityLimitValue, setCapacityLimitValue] = useState(10);
   const [longitudeValue, setLongitudeValue] = useState(' 49.273094');
   const [latitudeValue, setLatitudeValue] = useState(' -122.63733');
 
@@ -84,12 +83,13 @@ const Details = () => {
             {/* Event Name Input */}
             <FormControl>
               <FormLabel>Event Name </FormLabel>
-              <Input placeholder="Sport @ Planned Location" value={titleValue} onChange={(e) => setTitleValue(e.target.value)}/>
+              <Input placeholder="Sport & Planned Location" value={titleValue} onChange={(e) => setTitleValue(e.target.value)}/>
             </FormControl>
             {/* Date Input */}
             <GridItem mt="6" colSpan={2}>
               <FormLabel>Date</FormLabel>
               <DatePicker
+                className={'date-time-text'}
                 showTimeSelect
                 dateFormat="Pp"
                 selected={eventDateValue}
@@ -137,6 +137,12 @@ const Details = () => {
             </FormControl>
           </GridItem>
           <GridItem colSpan={2}>
+          <FormControl>
+              <FormLabel>How many players are you looking for?</FormLabel>
+              <Input placeholder="Number of players" onChange={(e) => setCapacityLimitValue(e.target.value)}/>
+            </FormControl>
+            </GridItem>
+          <GridItem colSpan={2}>
             <FormControl>
               {/* Set Event Description */}
               <FormLabel>Event Description</FormLabel>
@@ -148,6 +154,7 @@ const Details = () => {
                         />
             </FormControl>
           </GridItem>
+        
           <GridItem colSpan={2}>
             <HStack>
               <Text pb="3" fontSize={"lg"}>

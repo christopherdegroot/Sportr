@@ -54,12 +54,6 @@ export default function useApplicationData() {
   
 
 
-  // const onChangeHandler = (e) => {
-  //   setInput(e.target.value)
-  //   socket.emit('input-change', e.target.value)
-  // }
-
-
   // draft create user
   function createEvent(user_id, event) {
 
@@ -92,7 +86,7 @@ export default function useApplicationData() {
 
         setState({ ...state, users_events })
 
-        console.log(state)
+        console.log('logging state in createUserEvent', state)
       }); 
   }
 

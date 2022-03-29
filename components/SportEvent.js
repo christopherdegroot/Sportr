@@ -33,8 +33,9 @@ import { BsCalendarEvent, BsFillCalendarPlusFill, BsFillCalendarDayFill } from '
 import ImageSliderCustom from './carousel/ImageSlider'
 import { SlideData } from "./carousel/SlideData";
 import Attendees from "./Attendees";
-import { getFormattedDateTime } from "../helpers/formatters";
-import useApplicationData from "../hooks/useApplicationData";
+import { getFormattedDateTime, isToday } from "../helpers/formatters";
+import { getSignedUpUserCountForEvent } from "../helpers/selectors";
+
 
 function SportEvent(props) {
   const [show, setShow] = React.useState(true);
@@ -44,8 +45,10 @@ function SportEvent(props) {
   const showAttendeesFunction = function (tf) {
     showAttendees = tf
   }
-  const { createUserEvent, changeUserEvent } = useApplicationData()
-
+  const { state } = props
+  const { createUserEvent } = props
+  
+  const signedUp = getSignedUpUserCountForEvent(state, props.event.id)
   return (
     <>
       {show && (
@@ -65,29 +68,29 @@ function SportEvent(props) {
                   New
                 </Badge>
               )}
-              {props.event.ownership === true && (
+              {props.event.user_owner === props.state.users[9].id && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="green">
                   Your Event
                 </Badge>
               )}
-              {props.event.spotsRemaining <= 2 && (
+              {(props.event.capacity_limit - signedUp) <= 2 && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="red">
                   Almost Full
                 </Badge>
               )}
-              {props.event.startsToday === true && (
+              {isToday(props.event.datetime) === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="yellow">
                   Today
                 </Badge>
               )}
               </Box>
               <Box pt='1' pl="1">
-              {props.eventsData === true && (
+              {props.event.similar_age === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="blue">
                   Age Restricted
                 </Badge>
               )}
-              {props.eventsData === true && (
+              {props.event.same_gender === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="orange">
                   Gender Restricted
                 </Badge>
@@ -97,7 +100,7 @@ function SportEvent(props) {
               <Heading fontWeight="semibold" fontSize={"sm"}>
               {getFormattedDateTime(props.event.datetime)}
               </Heading>
-              <Attendees event={props.event}></Attendees>
+              <Attendees state={state} event={props.event}></Attendees>
               <Box
                 mt="2"
                 fontWeight="semibold"
