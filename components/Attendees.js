@@ -6,8 +6,7 @@ import AttendeeList from "./AttendeeList";
 import { getSignedUpUserCountForEvent } from "../helpers/selectors";
 
 const Attendees = (props) => {
-
-  const { event } = props
+  const { state, event } = props
 
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
 
@@ -42,7 +41,7 @@ const Attendees = (props) => {
           mr={2}
           onClick={onToggle}
         >
-          <AttendeeList event={event}></AttendeeList>
+          <AttendeeList state={state} event={event}></AttendeeList>
         </Box>
       </Collapse>
     </>

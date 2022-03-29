@@ -9,6 +9,8 @@ import { getUsersForEvent } from "../helpers/selectors";
 // InterviewerList component
 function AttendeeList(props) {
 
+  const { state } = props
+
   const attendees = getUsersForEvent(state, props.event.id)
 
   const ownerid = props.event.user_owner

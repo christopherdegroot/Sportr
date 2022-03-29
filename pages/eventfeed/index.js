@@ -9,7 +9,7 @@ import { useState } from 'react'
 import useApplicationData from "../../hooks/useApplicationData";
 
 export default function Userhome(props) {
-  const { state } = useApplicationData();
+  const { state, createUserEvent } = useApplicationData();
   const [leftToggle, setLeftToggle] = useState(true)
   const swapToggle = function(tf) {
     setLeftToggle(tf)
@@ -31,9 +31,9 @@ export default function Userhome(props) {
           </ButtonGroup>)}
           </VStack>
         </>
-        {leftToggle && (<EventFeed state={state}  findEvents={true}>
+        {leftToggle && (<EventFeed state={state} createUserEvent={createUserEvent}  findEvents={true}>
       </EventFeed>)}
-      {!leftToggle && (<EventFeed state={state} profileEvents={true}>
+      {!leftToggle && (<EventFeed state={state} createUserEvent={createUserEvent} profileEvents={true}>
       </EventFeed>)}
 
       </Flex>

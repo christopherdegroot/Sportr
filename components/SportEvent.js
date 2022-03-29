@@ -43,8 +43,8 @@ function SportEvent(props) {
   const showAttendeesFunction = function (tf) {
     showAttendees = tf
   }
-  // const { createUserEvent } = useApplicationData()
-
+  const { state } = props
+   const { createUserEvent } = props
   return (
     <>
       {show && (
@@ -96,7 +96,7 @@ function SportEvent(props) {
               <Heading fontWeight="semibold" fontSize={"sm"}>
               {getFormattedDateTime(props.event.datetime)}
               </Heading>
-              <Attendees event={props.event}></Attendees>
+              <Attendees state={state} event={props.event}></Attendees>
               <Box
                 mt="2"
                 fontWeight="semibold"
