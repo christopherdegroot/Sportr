@@ -37,6 +37,7 @@ img {
   padding: 10px;
   text-align: center;
   border-width: 1px;
+  background-color: rgb(247, 247, 247);
 }
 
 
@@ -47,4 +48,8 @@ img {
 
 *:focus {
   box-shadow :none !important;
+}
+
+.date-time-text {
+  background-color: rgb(247, 247, 247);
 }
