@@ -139,7 +139,7 @@ const Details = (props) => {
           <GridItem colSpan={2}>
           <FormControl>
               <FormLabel>How many players are you looking for?</FormLabel>
-              <Input placeholder="Number of players" onChange={(e) => setCapacityLimitValue(e.target.value)}/>
+              <Input placeholder="Number of players" type='number' onChange={(e) => setCapacityLimitValue(e.target.value)}/>
             </FormControl>
             </GridItem>
           <GridItem colSpan={2}>
