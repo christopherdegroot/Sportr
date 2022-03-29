@@ -50,7 +50,6 @@ export default function useApplicationData() {
     return axios
       .post(URL, {event_id: event_id, user_id: user_id, value: value})
       .then((response) => {
-          console.log('eyy:', response)
 
         const users_events = {
           ...state.users_events,
@@ -63,5 +62,30 @@ export default function useApplicationData() {
       }); 
   }
 
-  return { state, createEvent, createUserEvent };
+  function changeUserEvent(event_id, user_id, value) {
+
+    const { users, events, users_events } = state;
+
+    const record = users_events.find(user_event => user_event.event_id === event_id && user_event.user_id === user_id);
+
+
+    const URL = `/api/v1/users_events/${record.id}`;
+
+    return axios
+      .put(URL, {event_id: event_id, user_id: user_id, value: value})
+      .then((response) => {
+
+        const users_events = {
+          ...state.users_events,
+          [response.data[0].id]: response.data[0],
+        };
+
+        setState({ ...state, users_events })
+
+        console.log(state)
+      }); 
+  }
+
+
+  return { state, createEvent, createUserEvent, changeUserEvent };
 }

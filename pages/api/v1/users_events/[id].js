@@ -18,11 +18,11 @@ export default async function handler(req, res) {
   if (req.method === 'PUT') {
     try {
       // req.body object destructuring
-      const {user_id, event_id} = req.body;
+      const {user_id, event_id, value} = req.body;
   
       const query = {
-        text: 'UPDATE users_events SET user_id=$1, event_id=$2 WHERE id=$3 RETURNING *;',
-        values: [user_id, event_id, req.query.id],
+        text: 'UPDATE users_events SET user_id=$1, event_id=$2, value=$3 WHERE id=$4 RETURNING *;',
+        values: [user_id, event_id, value, req.query.id],
       };
       const dbResponse = await db.query(query);
       res.json(dbResponse.rows)
@@ -43,3 +43,4 @@ export default async function handler(req, res) {
     }
   }
 }
+

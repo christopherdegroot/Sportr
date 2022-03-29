@@ -44,7 +44,7 @@ function SportEvent(props) {
   const showAttendeesFunction = function (tf) {
     showAttendees = tf
   }
-  const { createUserEvent } = useApplicationData()
+  const { createUserEvent, changeUserEvent } = useApplicationData()
 
   return (
     <>
@@ -144,7 +144,10 @@ function SportEvent(props) {
               <Box display="flex" alignItems="center" justifyContent="flex-end">
                
                 <Button
-                  onClick={onOpen}
+                  onClick={() => {
+                    changeUserEvent(props.event.id, 1, false); // Set 1 to logged in user value
+                    setShow(false);
+                  }}
                   variant={"solid"}
                   colorScheme="teal"
                   m={2}
