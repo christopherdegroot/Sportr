@@ -6,8 +6,10 @@ import styles from '../../styles/login-header.module.css'
 import NavigationBar from '../../components/NavigationBar'
 import EventToggleButton from '../../components/EventToggleButton'
 import { useState } from 'react'
+import useApplicationData from "../../hooks/useApplicationData";
 
 export default function Userhome(props) {
+  const { state } = useApplicationData();
   const [leftToggle, setLeftToggle] = useState(true)
   const swapToggle = function(tf) {
     setLeftToggle(tf)
