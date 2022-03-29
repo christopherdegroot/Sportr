@@ -36,7 +36,6 @@ export default function useApplicationData() {
         })
     
         socket.on('update-input', msg => {
-          console.log('KING KONG WEB SOCKET', msg[0], data)
           const [users, events, users_events] = all;
           setState((prev) => ({
             ...prev,
