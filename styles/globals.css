@@ -53,3 +53,11 @@ img {
 .date-time-text {
   background-color: rgb(247, 247, 247);
 }
+
+#__next {
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}
