@@ -12,3 +12,12 @@ export function getFormattedDateTime(datetime) {
 
   return `${dayOfWeek.toUpperCase()} ${month.toUpperCase()} ${dayOfMonth}, ${hour}:${minute} ${ampm}`
 }
+
+export const isToday = (datetime) => {
+  const date = new Date();
+  date.setTime(Date.parse(datetime));
+  const today = new Date()
+  return date.getDate() == today.getDate() &&
+    date.getMonth() == today.getMonth() &&
+    date.getFullYear() == today.getFullYear()
+}
