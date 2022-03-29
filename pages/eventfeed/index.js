@@ -31,9 +31,9 @@ export default function Userhome(props) {
           </ButtonGroup>)}
           </VStack>
         </>
-        {leftToggle && (<EventFeed findEvents={true}>
+        {leftToggle && (<EventFeed state={props.state}  findEvents={true}>
       </EventFeed>)}
-      {!leftToggle && (<EventFeed profileEvents={true}>
+      {!leftToggle && (<EventFeed state={props.state} profileEvents={true}>
       </EventFeed>)}
 
       </Flex>

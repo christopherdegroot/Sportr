@@ -10,7 +10,7 @@ const NewEvent = (props) => {
   const { state } = useApplicationData();
   return (
     <>
-    <CreateEvent>
+    <CreateEvent state={state} >
     </CreateEvent>
     
     <NavigationBar/>
