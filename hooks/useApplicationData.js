@@ -29,9 +29,49 @@ export default function useApplicationData() {
     })
   }, [])
 
-  useEffect(() => socketInitializer(), [])
-  
-  const socketInitializer = async () => {
+    // Get data for state then use socketInitializer
+    // useEffect(() => {
+    //   Promise.all([
+    //     axios.get('/api/v1/users'),
+    //     axios.get('/api/v1/events'),
+    //     axios.get('/api/v1/users_events')
+    //   ]).then((all) => {
+    //     const [users, events, users_events] = all;
+    //     await fetch('/api/socket');
+    //     socket = io()
+    //     socket.on('connect', () => {
+    //       console.log('connected')
+    //     })
+    //     socket.on('update-input', msg => {
+    //       const eventsData = {
+    //         ...state.events,
+    //         [msg[0].id]: msg[0],
+    //       }
+
+    //     setState((prev) => ({
+    //       ...prev,
+    //       users: users.data,
+    //       events: eventsData,
+    //       users_events: users_events.data
+    //     }));
+    //   })
+    // }, [])
+
+    useEffect(() => {
+        Promise.all([
+          axios.get('/api/v1/users'),
+          axios.get('/api/v1/events'),
+          axios.get('/api/v1/users_events')
+        ])
+        .then((all) => {
+          socketInitializer(all)
+        } )
+      }, [])
+      
+
+
+  const socketInitializer = async (data) => {
+    const [ users, events, users_events ] = data;
     console.log('socket intializer')
     await fetch('/api/socket');
     socket = io()
@@ -41,16 +81,23 @@ export default function useApplicationData() {
     })
 
     socket.on('update-input', msg => {
-      console.log('logging state before setState', state)
-      const events = {
-        ...state.events,
-        [msg[0].id]: msg[0],
-      }
-       setState({...state,events})
-       console.log('logging state after setState in useApplicationData', state)
-      console.log('logging message from socket update input', msg)
+      const eventsData = [
+        ...data[1].data,
+      ]
+      
+      eventsData.push(msg[0])
+      
+      
+      /     setState((prev) => ({
+              ...prev,
+              users: users.data,
+              events: eventsData,
+              users_events: users_events.data
+            }));
     })
   }
+
+  
 
   // const onChangeHandler = (e) => {
   //   setInput(e.target.value)
@@ -95,5 +142,5 @@ export default function useApplicationData() {
       }); 
   }
 
-  return { state, createEvent, createUserEvent };
+  return { state, createEvent, createUserEvent, socketInitializer };
 }
