@@ -87,13 +87,12 @@ export default function useApplicationData() {
       
       eventsData.push(msg[0])
       
-      
-      /     setState((prev) => ({
-              ...prev,
-              users: users.data,
-              events: eventsData,
-              users_events: users_events.data
-            }));
+        setState((prev) => ({
+           ...prev,
+           users: users.data,
+           events: eventsData,
+           users_events: users_events.data
+         }));
     })
   }
 

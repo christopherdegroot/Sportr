@@ -49,7 +49,6 @@ function SportEvent(props) {
   const { createUserEvent } = props
   
   const signedUp = getSignedUpUserCountForEvent(state, props.event.id)
-   console.log('logging props in sportEvent', props)
   return (
     <>
       {show && (
