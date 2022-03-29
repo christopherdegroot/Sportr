@@ -130,11 +130,11 @@ export default function useApplicationData() {
       .then((response) => {
           console.log('eyy:', response)
 
-        const users_events = {
+        const users_events = [
           ...state.users_events,
-          [response.data[0].id]: response.data[0],
-        };
-
+        ];
+         users_events.push({[response.data[0].id]: response.data[0]})
+        
         setState({ ...state, users_events })
 
         console.log('logging state in createUserEvent', state)
