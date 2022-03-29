@@ -64,6 +64,8 @@ export default function useApplicationData() {
       .post(URL, event)
       .then((response) => {
 
+        console.log('LOGGING RESPONSE:', response)
+
         const events = {
           ...state.events,
           [response.data[0].id]: response.data[0],

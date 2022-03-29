@@ -221,7 +221,7 @@ const Details = (props) => {
                 onClick={() => {
                   createEvent(1, 
                     {
-                      user_owner: '5', // SET AS LOGGED IN USER ID
+                      user_owner: '1', // SET AS LOGGED IN USER ID
                       datetime: eventDateValue,
                       title: titleValue,
                       description: descriptionValue,

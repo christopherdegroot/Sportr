@@ -26,7 +26,6 @@ export default async function handler(req, res) {
         values: [user_owner, datetime, title, description, sport, same_gender, similar_age, capacity_limit, latitude, longitude],
       };
       const dbResponse = await db.query(query);
-      console.log('logging sockets at events index', res.socket)
       res.socket.server.io.emit('update-input', dbResponse.rows)
       res.status(200).json(dbResponse.rows)
     } catch (error) {
