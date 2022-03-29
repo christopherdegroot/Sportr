@@ -115,5 +115,5 @@ export function getUserDataForProfile(state,user_id) {
 
   const userData = users[0] ? users.filter( user => user.id === user_id) : []
 
-  return userData[0]
+  return userData
 }

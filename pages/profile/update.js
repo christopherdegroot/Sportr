@@ -23,9 +23,7 @@ const Login = (props) => {
 
   return (
     <>
-    <UpdateProfile user={userObject}>
-      
-    </UpdateProfile>
+    <UpdateProfile user={userObject} />
     <NavigationBar/>
     </>
   )
