@@ -41,7 +41,13 @@ export default function useApplicationData() {
     })
 
     socket.on('update-input', msg => {
-      // setInput(msg)
+      console.log('logging state before setState', state)
+      const events = {
+        ...state.events,
+        [msg[0].id]: msg[0],
+      }
+       setState({...state,events})
+       console.log('logging state after setState in useApplicationData', state)
       console.log('logging message from socket update input', msg)
     })
   }
