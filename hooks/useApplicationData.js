@@ -137,7 +137,7 @@ export default function useApplicationData() {
 
         setState({ ...state, users_events })
 
-        console.log(state)
+        console.log('logging state in createUserEvent', state)
       }); 
   }
 
