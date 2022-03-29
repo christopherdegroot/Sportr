@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
@@ -24,10 +24,14 @@ import { MdSportsTennis, MdOutlineSportsHandball } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 const io = require("socket.io-client");
 const socket = io();
+import {Loader} from '@googlemaps/js-api-loader';
+
 
 export default function Home() {
   const { isOpen, onClose, onToggle } = useDisclosure();
   const [input, setInput] = useState('')
+  const googlemap = useRef(null);
+
   
   // useEffect(() => socketInitializer(), [])
   
@@ -50,8 +54,11 @@ export default function Home() {
   //   socket.emit('input-change', e.target.value)
   // }
 
+
+
   return (
     <>
+
     <div className="home-page-stack" >
     
       <VStack
