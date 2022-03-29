@@ -14,7 +14,7 @@ if (process.env.DATABASE_URL) {
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     max:15,
-    idleTimeoutMillis: 1000, // close idle clients after 1 second
+    idleTimeoutMillis: 3000, // close idle clients after 1 second
     connectionTimeoutMillis: 10000,
   };
 }

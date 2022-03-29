@@ -47,7 +47,7 @@ export default function Userhome(props) {
 
   return (
     <>
-      <Container pb={20} backgroundColor={'rgb(247, 247, 247)'} pt='5' maxW="container.md">
+      <Container state={state} pb={20} backgroundColor={'rgb(247, 247, 247)'} pt='5' maxW="container.md">
       <Box>
       </Box>
         <VStack justifyContent={'space-between'} minH={'730'} backgroundColor={'white'} rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
@@ -92,7 +92,7 @@ export default function Userhome(props) {
                   rounded='md'
                   shadow="md"
                   >
-                  <UpdateProfile onClose={onClose} user={userObject}></UpdateProfile>
+                  <UpdateProfile state={state} onClose={onClose} user={userObject}></UpdateProfile>
                   <VStack>
                     <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>
                   </VStack>

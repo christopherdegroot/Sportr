@@ -10,7 +10,6 @@ import SportEvent from "./SportEvent";
 import styles from "./layout.module.css";
 import Link from 'next/link';
 
-import useApplicationData from "../hooks/useApplicationData";
 import { getEventsForUser } from "../helpers/selectors";
 
 
@@ -46,7 +45,6 @@ export default function EventFeed(props) {
     new: false,
   };
 
-  const { state } = useApplicationData()
   const myEvents = getEventsForUser(state, 4)
 
   const myEventsReact = myEvents.map(event => (
