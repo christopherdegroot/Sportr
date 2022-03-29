@@ -12,6 +12,7 @@ import Link from 'next/link';
 
 import { getEventsForUser, getPotentialEventsForUser } from "../helpers/selectors";
 
+
 export default function EventFeed(props) {
    const { state, createUserEvent } = props
   const myEvents = getEventsForUser(state, 1) // User ID as seconds arg
