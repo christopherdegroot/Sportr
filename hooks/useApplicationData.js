@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BsConeStriped } from "react-icons/bs";
 
 const io = require("socket.io-client");
 const socket = io();
@@ -79,10 +80,11 @@ export default function useApplicationData() {
       .post(URL, {event_id: event_id, user_id: user_id, value: value})
       .then((response) => {
 
-        const users_events = {
+
+        const users_events = [
           ...state.users_events,
-          [response.data[0].id]: response.data[0],
-        };
+          response.data[0],
+        ];
 
         setState({ ...state, users_events })
 
@@ -103,10 +105,10 @@ export default function useApplicationData() {
       .put(URL, {event_id: event_id, user_id: user_id, value: value})
       .then((response) => {
 
-        const users_events = {
+        const users_events = [
           ...state.users_events,
-          [response.data[0].id]: response.data[0],
-        };
+          response.data[0],
+        ];
 
         setState({ ...state, users_events })
 

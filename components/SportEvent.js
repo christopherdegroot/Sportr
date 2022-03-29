@@ -45,8 +45,9 @@ function SportEvent(props) {
   const showAttendeesFunction = function (tf) {
     showAttendees = tf
   }
-  const { state } = props
-  const { createUserEvent } = props
+  const { state, createUserEvent, changeUserEvent } = props
+
+  console.log('SPORTY SPICE STATE', state)
   
   const signedUp = getSignedUpUserCountForEvent(state, props.event.id)
   return (

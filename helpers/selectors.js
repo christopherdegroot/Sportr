@@ -1,7 +1,7 @@
 export function getEventsForUser(state, user_id) {
   const { events, users, users_events } = state;
 
-  // Get all users_events pertaining to the user_id
+  // Get all users_events pertaining to the user_id1
   const eventRelations = users_events.filter(relationObj => relationObj.user_id === user_id && relationObj.value === true);
 
   // Grab all the event ids from those user events
@@ -16,7 +16,7 @@ export function getEventsForUser(state, user_id) {
 export function getUsersForEvent(state, event_id) {
   const { events, users, users_events } = state;
 
-  // Get all users_events pertaining to the event_id
+  // Get all users_events pertaining to the event_id2
   const eventRelations = users_events.filter(relationObj => relationObj.event_id === event_id);
 
   // Grab all the event ids from those user events
@@ -31,7 +31,7 @@ export function getUsersForEvent(state, event_id) {
 export function getSignedUpUserCountForEvent(state, event_id) {
   const { events, users, users_events } = state;
 
-  // Get all users_events pertaining to the event_id
+  // Get all users_events pertaining to the event_id3
   const eventRelations = users_events.filter(relationObj => relationObj.event_id === event_id);
 
   // Grab all the event ids from those user events

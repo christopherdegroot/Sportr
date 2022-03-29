@@ -14,15 +14,15 @@ import { getEventsForUser, getPotentialEventsForUser } from "../helpers/selector
 
 
 export default function EventFeed(props) {
-   const { state, createUserEvent } = props
+   const { state, createUserEvent, changeUserEvent } = props
   const myEvents = getEventsForUser(state, 1) // User ID as seconds arg
   const potentialEvents = getPotentialEventsForUser(state, 1)
 
   const myEventsReact = myEvents.map(event => (
-    <SportEvent state={state} createUserEvent={createUserEvent} key={event.id} onClose={onClose} event={event} profileEvents={true}/>
+    <SportEvent state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} key={event.id} onClose={onClose} event={event} profileEvents={true}/>
   ));
   const allEventsReact = potentialEvents.map(event => (
-    <SportEvent state={state} createUserEvent={createUserEvent} key={event.id} onClose={onClose} event={event} findEvents={true}/>
+    <SportEvent state={state} createUserEvent={createUserEvent} changeUserEven={changeUserEvent} key={event.id} onClose={onClose} event={event} findEvents={true}/>
   ));
 
   const { isOpen, onClose, onToggle } = useDisclosure();
