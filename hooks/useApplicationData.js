@@ -26,25 +26,34 @@ export default function useApplicationData() {
         events: events.data,
         users_events: users_events.data
       }));
+      const socketInitializer = async (data) => {
+        console.log('socket intializer')
+        await fetch('/api/socket');
+        socket = io()
+    
+        socket.on('connect', () => {
+          console.log('connected')
+        })
+    
+        socket.on('update-input', msg => {
+          console.log('KING KONG WEB SOCKET', msg[0], data)
+          const [users, events, users_events] = all;
+          setState((prev) => ({
+            ...prev,
+            users: users.data,
+            events: [...events.data, msg[0] ],
+            users_events: users_events.data
+          }));
+        })
+      };
+      socketInitializer(all)
+
+
+
     })
   }, [])
-
-  // useEffect(() => socketInitializer(), [])
   
-  const socketInitializer = async () => {
-    console.log('socket intializer')
-    await fetch('/api/socket');
-    socket = io()
 
-    socket.on('connect', () => {
-      console.log('connected')
-    })
-
-    socket.on('update-input', msg => {
-      // setInput(msg)
-      console.log(msg)
-    })
-  }
 
   // const onChangeHandler = (e) => {
   //   setInput(e.target.value)
