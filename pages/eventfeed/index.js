@@ -5,15 +5,18 @@ import EventFeed from '../../components/EventFeed'
 import styles from '../../styles/login-header.module.css'
 import NavigationBar from '../../components/NavigationBar'
 import EventToggleButton from '../../components/EventToggleButton'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import useApplicationData from "../../hooks/useApplicationData";
 
 export default function Userhome(props) {
-  const { state, createUserEvent } = useApplicationData();
+  const { state, createUserEvent, socketInitializer } = useApplicationData();
   const [leftToggle, setLeftToggle] = useState(true)
   const swapToggle = function(tf) {
     setLeftToggle(tf)
   }
+
+  let stateObject = state;
+
   return (
     <>
     <Container backgroundColor={'rgb(247, 247, 247)'} maxW="container.xl" p={0}>
