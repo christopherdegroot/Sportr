@@ -30,11 +30,11 @@ import {
 import React from "react";
 import { HiChevronDoubleDown } from "react-icons/hi";
 import { BsCalendarEvent, BsFillCalendarPlusFill, BsFillCalendarDayFill } from 'react-icons/bs'
-import ImageSliderCustom from './carousel/ImageSlider'
-import { SlideData } from "./carousel/SlideData";
+import ImageSlider from './carousel/ImageSlider'
 import Attendees from "./Attendees";
 import { getFormattedDateTime, isToday } from "../helpers/formatters";
 import { getSignedUpUserCountForEvent } from "../helpers/selectors";
+import { SlideData } from "./carousel/SlideData";
 
 
 function SportEvent(props) {
@@ -46,8 +46,6 @@ function SportEvent(props) {
     showAttendees = tf
   }
   const { state, createUserEvent, changeUserEvent } = props
-
-  console.log('SPORTY SPICE STATE', state)
   
   const signedUp = getSignedUpUserCountForEvent(state, props.event.id)
   return (
@@ -61,7 +59,7 @@ function SportEvent(props) {
           borderRadius="lg"
           overflow="hidden"
         >
-          <ImageSliderCustom slides={SlideData} />
+          <ImageSlider data={SlideData} sport={props.event.sport} />
           <Box pt='3' pl="2">
           <Box pl="1" display="flex" alignItems="baseline">
               {props.event.new === true && props.findEvents === true && (

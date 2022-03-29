@@ -2,13 +2,11 @@
 export const SlideData = [
   {
     key: "badminton",
-    image:
-      "https://i.imgur.com/GYUWJGb.jpg",
+    image: "https://i.imgur.com/GYUWJGb.jpg",
   },
   {
     key: "baseball",
-    image:
-      "https://i.imgur.com/Z4cXLIo.jpg"
+    image: "https://i.imgur.com/Z4cXLIo.jpg"
   },
   {
     key: "basketball",
