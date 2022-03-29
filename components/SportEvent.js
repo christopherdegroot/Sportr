@@ -158,10 +158,7 @@ function SportEvent(props) {
               <Box display="flex" alignItems="center" justifyContent="flex-end">
                
                 <Button
-                  onClick={() => {
-                    changeUserEvent(props.event.id, 1, false); // Set 1 to logged in user value
-                    setShow(false);
-                  }}
+                  onClick={onOpen}
                   variant={"solid"}
                   colorScheme="teal"
                   m={2}
@@ -189,6 +186,7 @@ function SportEvent(props) {
                     <AlertDialogFooter>
                       <Button colorScheme='red'   onClick={() => {
                     setShow(false);
+                    changeUserEvent(props.event.id, 1, false); // Set 1 to logged in user value
                   }}>
                         Yes
                       </Button>
