@@ -10,7 +10,7 @@
  
  // Create fake event
  const createFakeEvent = () => {
-   const sport = faker.random.arrayElement(['badminton', 'baseball', 'basketball', 'beach volleyball', 'disc golf', 'canoeing/kayaking', 'curling', 'cycling', 'football', 'golf', 'hiking', 'ice climbing', 'lacrosse', 'pickleball', 'racquetball', 'rock climbing', 'rowing', 'rugby', 'running', 'sailing', 'skiing', 'soccer', 'spike ball', 'squash', 'swimming', 'table tennis', 'tennis', 'trail running', 'ultimate frisbee', 'volleyball', 'yoga']);
+   const sport = faker.random.arrayElement(['Badminton', 'Baseball', 'Basketball', 'Beach Volleyball', 'Disc Golf', 'Kayaking', 'Curling', 'Cycling', 'Football', 'Golf', 'Hiking', 'Ice Climbing', 'Lacrosse', 'Pickleball', 'Racquetball', 'Rock Climbing', 'Rowing', 'Rugby', 'Running', 'Sailing', 'Skiing', 'Soccer', 'Spike Ball', 'Squash', 'Swimming', 'Table Tennis', 'Tennis', 'Trail Running', 'Ultimate Frisbee', 'Volleyball', 'Yoga']);
 
    const placeType = faker.random.arrayElement(['Park', 'Beach', 'Mountain', 'Point', 'Street', 'Trail', 'Dog Park', 'School', 'Parking Lot', 'Playground', 'Arena', 'Dike']);
 

@@ -1,123 +1,127 @@
 
 export const SlideData = [
   {
-    key: "badminton",
+    key: "Badminton",
     image: "https://i.imgur.com/GYUWJGb.jpg",
   },
   {
-    key: "baseball",
+    key: "Baseball",
     image: "https://i.imgur.com/Z4cXLIo.jpg"
   },
   {
-    key: "basketball",
+    key: "Basketball",
     image: "https://i.imgur.com/1XCQOiD.jpg"
   },
   {
-    key: "beachvolleyball",
+    key: "Beach Volleyball",
     image: "https://i.imgur.com/ZII0KKz.jpg"
   },
   {
-    key: "curling",
+    key: "Curling",
     image: "https://i.imgur.com/5VW4y12.jpg"
   },
   {
-    key: "cycling",
+    key: "Cycling",
     image: "https://i.imgur.com/TMpqW6g.jpg"
   },
   {
-    key: "discgolf",
+    key: "Disc Golf",
     image: "https://i.imgur.com/Xj0iLJ4.jpg"
   },
   {
-    key: "football",
+    key: "Football",
     image: "https://i.imgur.com/E2y7Q3P.jpg"
   },
   {
-    key: "golf",
+    key: "Golf",
     image: "https://i.imgur.com/yIcDokm.jpg"
   },
   {
-    key: "hiking",
+    key: "Hiking",
     image: "https://i.imgur.com/7cHYjrI.jpg"
   },
   {
-    key: "iceclimbing",
+    key: "Ice Climbing",
     image: "https://i.imgur.com/2EDOBWg.jpg"
   },
   {
-    key: "canoeingkayaking",
+    key: "Kayaking",
     image: "https://i.imgur.com/4jjeLI7.jpg"
   },
   {
-    key: "lacrosse",
+    key: "Lacrosse",
     image: "https://i.imgur.com/l3JfMwF.jpg"
   },
   {
-    key: "pickleball",
+    key: "Pickleball",
     image: "https://i.imgur.com/QvlKNBy.jpg"
   },
   {
-    key: "racquetball",
+    key: "Racquetball",
     image: "https://i.imgur.com/NCUluyX.jpg"
   },
   {
-    key: "rockclimbing",
+    key: "Rock Climbing",
     image: "https://i.imgur.com/pcN4pFV.jpg"
   },
   {
-    key: "rowing",
+    key: "Rowing",
     image: "https://i.imgur.com/ZcfG8ip.jpg"
   },
   {
-    key: "rugby",
+    key: "Rugby",
     image: "https://i.imgur.com/KDeZo1w.jpg"
   },
   {
-    key: "running",
+    key: "Running",
     image: "https://i.imgur.com/nv9SxES.jpg"
   },
   {
-    key: "sailing",
+    key: "Sailing",
     image: "https://i.imgur.com/13aoDxn.jpg"
   },
   {
-    key: "soccer",
-    image: "https://i.imgur.com/MQ204wW.jpg"
+    key: "Skiing",
+    image: "https://i.imgur.com/PGWfrAy.jpg"
   },
   {
-    key: "spikeball",
+    key: "Soccer",
+    image: "https://i.imgur.com/PGWfrAy.jpg"
+  },
+  {
+    key: "Spike Ball",
     image: "https://i.imgur.com/pjBwOqt.jpg"
   },
   {
-    key: "squash",
+    key: "Squash",
     image: "https://i.imgur.com/afRLUdQ.jpg"
   },
   {
-    key: "swimming",
+    key: "Swimming",
     image: "https://i.imgur.com/AInP5zg.jpeg"
   },
   {
-    key: "tabletennis",
+    key: "Table Tennis",
     image: "https://i.imgur.com/OKjC75z.jpg"
   },
   {
-    key: "tennis",
+    key: "Tennis",
     image: "https://i.imgur.com/kkZr2Ii.jpg"
   },
   {
-    key: "trailrunning",
+    key: "Trail Running",
     image: "https://i.imgur.com/fTKejGU.jpg"
   },
   {
-    key: "ultimatefrisbee",
+    key: "Ultimate Frisbee",
     image: "https://i.imgur.com/OFJ7Vyh.jpg"
   },
   {
-    key: "volleyball",
+    key: "Volleyball",
     image: "https://i.imgur.com/6IY0loX.jpg"
   },
   {
-    key: "yoga",
+    key: "Yoga",
     image: "https://i.imgur.com/QJsI8As.jpg"
   },
 ];
