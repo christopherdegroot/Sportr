@@ -48,6 +48,7 @@ function SportEvent(props) {
   const { state, createUserEvent, changeUserEvent } = props
   
   const signedUp = getSignedUpUserCountForEvent(state, props.event.id)
+  console.log('logging key assignment in SportEvent', props.event.sport)
   return (
     <>
       {show && (
@@ -59,7 +60,7 @@ function SportEvent(props) {
           borderRadius="lg"
           overflow="hidden"
         >
-          <ImageSlider data={SlideData} sport={props.event.sport} />
+          <ImageSlider key={props.event.sport} data={SlideData} sport={props.event.sport} />
           <Box pt='3' pl="2">
           <Box pl="1" display="flex" alignItems="baseline">
               {props.event.new === true && props.findEvents === true && (

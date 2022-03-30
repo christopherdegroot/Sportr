@@ -46,11 +46,9 @@ const ImageSlider = (props) => {
     });
     let map;
     loader.load().then(() => {
-      console.log('logging lat in map', props)
-      console.log('logging long in map', props.data)
       map = new google.maps.Map(googlemap.current, {
-        center: {lat: 49.249, lng: -123.111},
-        zoom: 10,
+        center: {lat: props.data.filter((sport)=> sport.key == props.sport)[0].lat, lng: props.data.filter((sport)=> sport.key == props.sport)[0].long},
+        zoom: 14,
         fullscreenControl: false, // remove the top-right button
         mapTypeControl: false, // remove the top-left buttons
         streetViewControl: false, // remove the pegman
@@ -58,7 +56,7 @@ const ImageSlider = (props) => {
         draggable: true
       });
       const marker = new google.maps.Marker({
-        position: {lat: 49.249, lng: -123.111},
+        position: {lat: props.data.filter((sport)=> sport.key == props.sport)[0].lat, lng: props.data.filter((sport)=> sport.key == props.sport)[0].long},
         map: map,
       });
 
