@@ -6,6 +6,7 @@ import {
   VStack,
   Heading,
   Stack,
+  Button
 } from "@chakra-ui/react";
 import SportEvent from "./SportEvent";
 import styles from "./layout.module.css";
@@ -47,15 +48,7 @@ export default function EventFeed(props) {
             </>)}
           </VStack>
         </Box>
-        <Box>
-          {!props.home && (
-            <Box className={styles.backToHome}>
-              <Link  href="/">
-                ← Back to home
-              </Link>
-            </Box>
-          )}
-        </Box>
+        
       </Container>
     </>
   );

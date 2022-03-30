@@ -74,15 +74,7 @@ export default function EventFeed(props) {
             {/* {myEventsReact} */}
           </VStack>
         </Box>
-        <Box>
-          {!props.home && (
-            <Box className={styles.backToHome}>
-              <Link href="/">
-                ← Back to home
-              </Link>
-            </Box>
-          )}
-        </Box>
+       
       </Container>
     </>
   );

@@ -12,13 +12,7 @@ const Login = (props) => {
       
     </Register>
     <VStack flexDirection='row' paddingBottom='3em'>
-      {!props.home && (
-        <div className={styles.backToHome}>
-         <Link href="/">
-            ← Back to home
-          </Link>
-        </div>
-      )}
+     
     </VStack>
     </>
   )
