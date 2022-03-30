@@ -28,7 +28,7 @@ export default function EventFeed(props) {
   ));
   const allEventsReact = potentialEvents.map(event => (
     <Box py={2} key={event.id}>
-      <SportEvent state={state} user_id={props.user_id} createUserEvent={createUserEvent} changeUserEven={changeUserEvent} onClose={onClose} event={event} findEvents={true}/>
+      <SportEvent state={state} user_id={props.user_id} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} onClose={onClose} event={event} findEvents={true}/>
     </Box>
   ));
 
