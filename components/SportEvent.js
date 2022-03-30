@@ -67,7 +67,7 @@ function SportEvent(props) {
                   New
                 </Badge>
               )}
-              {props.event.user_owner === props.state.users[9].id && (
+              {props.event.user_owner === props.state.users[0].id && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="green">
                   Your Event
                 </Badge>
