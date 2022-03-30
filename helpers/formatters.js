@@ -7,7 +7,7 @@ export function getFormattedDateTime(datetime) {
   const dayOfMonth = date.getDate()
   const month = new Intl.DateTimeFormat('en-US', {month: 'short'}).format(date)
   const hour = date.getHours() <= 12 ? date.getHours() : date.getHours() - 12
-  const minute = date.getMinutes()
+  const minute = date.getMinutes() > 10 ? date.getMinutes() : `0${date.getMinutes()}`
   const ampm = date.getHours() <= 12 ? 'AM' : 'PM'
 
   return `${dayOfWeek.toUpperCase()} ${month.toUpperCase()} ${dayOfMonth}, ${hour}:${minute} ${ampm}`
