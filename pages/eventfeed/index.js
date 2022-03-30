@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import { ButtonGroup, Button, Box, Container, Flex, VStack } from '@chakra-ui/react'
+import { Stack, ButtonGroup, Button, Box, Container, Flex, VStack } from '@chakra-ui/react'
 import EventFeed from '../../components/EventFeed'
 import styles from '../../styles/login-header.module.css'
 import NavigationBar from '../../components/NavigationBar'
@@ -20,11 +20,7 @@ export default function Userhome(props) {
 
   return (
     <>
-    <Container  backgroundColor={'rgb(247,247,247)'} w={'fit-content'}  justifyContent={'center'}  >
-      <Flex flexDirection={'column'} pb={20}>
-
-      <>
-          <VStack mt='10' flexDirection={'row'}  justifyContent={'center'}>
+        <VStack pt={7}>
           {leftToggle && (<ButtonGroup size='sm' isAttached variant='outline'>
             <Button size={'md'} onClick={()=>{swapToggle(true)}} variant={'solid'} colorScheme={'teal'}  mr='-px'>Find Events</Button>
             <Button size={'md'} onClick={()=>{swapToggle(false)}} variant={'outline'} colorScheme={'teal'} mr='-px'>My Events</Button>
@@ -33,18 +29,15 @@ export default function Userhome(props) {
             <Button size={'md'} onClick={()=>{swapToggle(true)}} variant={'outline'} colorScheme={'teal'}  mr='-px'>Find Events</Button>
             <Button size={'md'} onClick={()=>{swapToggle(false)}} variant={'solid'} colorScheme={'teal'} mr='-px'>My Events</Button>
           </ButtonGroup>)}
-          </VStack>
-        </>
-        <VStack flexDirection={'column-reverse'} justifyContent={'center'}>
+        </VStack>
+
+      <Stack flexDirection={'column-reverse'} p={3} pb={20}>
         {leftToggle && (<EventFeed user_id={getCookie('user_id')} state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} findEvents={true}>
       </EventFeed>)}
       {!leftToggle && (<EventFeed user_id={getCookie('user_id')} state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} profileEvents={true}>
       </EventFeed>)}
-      </VStack>
-      </Flex>
-    </Container>
+    </Stack>
     <NavigationBar/>
-   
     </>
   )
 }

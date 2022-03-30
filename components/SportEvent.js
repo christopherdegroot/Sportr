@@ -25,29 +25,32 @@ import {
   AlertDialogOverlay,
   useDisclosure,
   AlertDialogCloseButton,
-  Collapse
+  Collapse,
 } from "@chakra-ui/react";
 import React from "react";
 import { HiChevronDoubleDown } from "react-icons/hi";
-import { BsCalendarEvent, BsFillCalendarPlusFill, BsFillCalendarDayFill } from 'react-icons/bs'
-import ImageSlider from './carousel/ImageSlider'
+import {
+  BsCalendarEvent,
+  BsFillCalendarPlusFill,
+  BsFillCalendarDayFill,
+} from "react-icons/bs";
+import ImageSlider from "./carousel/ImageSlider";
 import Attendees from "./Attendees";
 import { getFormattedDateTime, isToday } from "../helpers/formatters";
 import { getSignedUpUserCountForEvent } from "../helpers/selectors";
 import { SlideData } from "./carousel/SlideData";
 
-
 function SportEvent(props) {
   const [show, setShow] = React.useState(true);
-  const { isOpenCancel, isOpen, onOpen, onClose, onToggle } = useDisclosure()
-  const cancelRef = React.useRef()
+  const { isOpenCancel, isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const cancelRef = React.useRef();
   let showAttendees = false;
   const showAttendeesFunction = function (tf) {
-    showAttendees = tf
-  }
-  const { state, createUserEvent, changeUserEvent } = props
-  
-  const signedUp = getSignedUpUserCountForEvent(state, props.event.id)
+    showAttendees = tf;
+  };
+  const { state, createUserEvent, changeUserEvent } = props;
+
+  const signedUp = getSignedUpUserCountForEvent(state, props.event.id);
   return (
     <>
       {show && (
@@ -57,11 +60,15 @@ function SportEvent(props) {
           bg="white"
           borderWidth="2px"
           borderRadius="lg"
-          overflow={'hidden'}
+          overflow={"hidden"}
         >
-          <ImageSlider key={props.event.id} data={SlideData} sport={props.event.sport} />
-          <Box pt='3' pl="2">
-          <Box pl="1" display="flex" alignItems="baseline">
+          <ImageSlider
+            key={props.event.id}
+            data={SlideData}
+            sport={props.event.sport}
+          />
+          <Box pt="3" pl="2">
+            <Box pl="1" display="flex" alignItems="baseline">
               {props.event.new === true && props.findEvents === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="teal">
                   New
@@ -72,7 +79,7 @@ function SportEvent(props) {
                   Your Event
                 </Badge>
               )}
-              {(props.event.capacity_limit - signedUp) <= 2 && (
+              {props.event.capacity_limit - signedUp <= 2 && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="red">
                   Almost Full
                 </Badge>
@@ -82,8 +89,8 @@ function SportEvent(props) {
                   Today
                 </Badge>
               )}
-              </Box>
-              <Box pt='1' pl="1">
+            </Box>
+            <Box pt="1" pl="1">
               {props.event.similar_age === true && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="blue">
                   Age Restricted
@@ -97,7 +104,7 @@ function SportEvent(props) {
             </Box>
             <Box p="2">
               <Heading fontWeight="semibold" fontSize={"sm"}>
-              {getFormattedDateTime(props.event.datetime)}
+                {getFormattedDateTime(props.event.datetime)}
               </Heading>
               <Attendees state={state} event={props.event}></Attendees>
               <Box
@@ -108,7 +115,14 @@ function SportEvent(props) {
                 lineHeight="tight"
                 isTruncated
               >
-                <Text>{props.event.title}</Text>
+                <Text
+                  style={{
+                    whiteSpace: "normal",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  {props.event.title}
+                </Text>
               </Box>
               <Box
                 fontSize={"md"}
@@ -120,19 +134,24 @@ function SportEvent(props) {
               >
                 {props.event.description}
               </Box>
-              <VStack flexDirection={"row"} justifyContent={"flex-start"}>
-              
-              </VStack>
+              <VStack
+                flexDirection={"row"}
+                justifyContent={"flex-start"}
+              ></VStack>
             </Box>
             {props.findEvents === true && (
               <Box display="flex" alignItems="center" justifyContent="flex-end">
                 <Button
                   onClick={() => {
-                    console.log('REJECTION')
-                    createUserEvent(props.event.id, Number(props.user_id), false); // Set 1 to logged in user value
+                    console.log("REJECTION");
+                    createUserEvent(
+                      props.event.id,
+                      Number(props.user_id),
+                      false
+                    ); // Set 1 to logged in user value
                     setShow(false);
                   }}
-                  variant={'outline'}
+                  variant={"outline"}
                   colorScheme="red"
                   m={2}
                   marginBottom="4"
@@ -141,11 +160,15 @@ function SportEvent(props) {
                 </Button>
                 <Button
                   onClick={() => {
-                    console.log('ACCEPTION')
-                    createUserEvent(props.event.id, Number(props.user_id), true); // Set 1 to logged in user value
+                    console.log("ACCEPTION");
+                    createUserEvent(
+                      props.event.id,
+                      Number(props.user_id),
+                      true
+                    ); // Set 1 to logged in user value
                     setShow(false);
                   }}
-                  variant={'outline'}
+                  variant={"outline"}
                   colorScheme="teal"
                   m={2}
                   marginRight="4"
@@ -158,7 +181,6 @@ function SportEvent(props) {
 
             {props.profileEvents === true && (
               <Box display="flex" alignItems="center" justifyContent="flex-end">
-               
                 <Button
                   onClick={onOpen}
                   variant={"solid"}
@@ -170,26 +192,33 @@ function SportEvent(props) {
                   Cancel
                 </Button>
                 <AlertDialog
-                  motionPreset='slideInBottom'
+                  motionPreset="slideInBottom"
                   leastDestructiveRef={cancelRef}
                   onClose={onClose}
                   isOpen={isOpen}
                   isCentered
-                  w='80%'
+                  w="80%"
                 >
                   <AlertDialogOverlay />
 
-                  <AlertDialogContent w='80%'>
+                  <AlertDialogContent w="80%">
                     <AlertDialogHeader>Discard Event?</AlertDialogHeader>
                     <AlertDialogCloseButton />
                     <AlertDialogBody>
                       Are you sure you want to delete this event?
                     </AlertDialogBody>
                     <AlertDialogFooter>
-                      <Button colorScheme='red'   onClick={() => {
-                    setShow(false);
-                    changeUserEvent(props.event.id, Number(props.user_id), false); // Set 1 to logged in user value
-                  }}>
+                      <Button
+                        colorScheme="red"
+                        onClick={() => {
+                          setShow(false);
+                          changeUserEvent(
+                            props.event.id,
+                            Number(props.user_id),
+                            false
+                          ); // Set 1 to logged in user value
+                        }}
+                      >
                         Yes
                       </Button>
                       <Button ml={3} ref={cancelRef} onClick={onClose}>
