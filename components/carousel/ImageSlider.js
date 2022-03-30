@@ -3,29 +3,42 @@ import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useState, useRef } from "react";
-import {Loader} from '@googlemaps/js-api-loader';
-
-
+import { Loader } from "@googlemaps/js-api-loader";
+import MapComponent from "./MapComponent";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `${src}?w=${width}&q=${quality || 75}`
-}
-
-
+  return `${src}?w=${width}&q=${quality || 75}`;
+};
 
 // If you want to use your own Selectors look up the Advancaed Story book examples
 const ImageSlider = (props) => {
+  const { data, sport } = props;
 
-  const { data, sport } = props
+  // const findMap = function(data){
+  //   data.filter((map) => console.log( map))
+  //   console.log('logging sport inside function', sport)
+  // }
 
-  const filteredData = data.filter(image => image.key == sport)
+  // console.log(findMap(props.data))
 
-  const images = filteredData.map( image => {
-    return <Image loader={imageLoader} src={image.image} key={image.key} width='800px' height='500px' alt={`${image.sport} image`} />;
-  })
+  const filteredData = data.filter((image) => image.key == sport);
+
+  const images = filteredData.map((image) => {
+    return (
+      <>
+        <Image
+          loader={imageLoader}
+          src={image.image}
+          key={image.key}
+          width="800px"
+          height="500px"
+          alt={`${image.sport} image`}
+        />
+      </>
+    );
+  });
 
   const googlemap = useRef(null);
-
   useEffect(() => {
     const loader = new Loader({
       apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -33,6 +46,8 @@ const ImageSlider = (props) => {
     });
     let map;
     loader.load().then(() => {
+      console.log('logging lat in map', props)
+      console.log('logging long in map', props.data)
       map = new google.maps.Map(googlemap.current, {
         center: {lat: 49.249, lng: -123.111},
         zoom: 10,
@@ -45,14 +60,22 @@ const ImageSlider = (props) => {
       const marker = new google.maps.Marker({
         position: {lat: 49.249, lng: -123.111},
         map: map,
-      });    
+      });
 
     });
   }, []);
-
+  console.log("logging images", images);
 
   return (
-    <Carousel swipeable={false} showThumbs={false} autoPlay={false} dynamicHeight={false} showIndicators={false} showStatus={false} infiniteLoop>
+    <Carousel
+      swipeable={false}
+      showThumbs={false}
+      autoPlay={false}
+      dynamicHeight={false}
+      showIndicators={false}
+      showStatus={false}
+      infiniteLoop
+    >
       {images}
       <div id="map" ref={googlemap} />
     </Carousel>

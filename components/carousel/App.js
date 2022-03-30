@@ -7,7 +7,7 @@ export default function ImageSliderCustom() {
 
   return (
     <Box w="100%" p={0} m={0} color="white">
-      <ImageSlider slides={SlideData} />
+      <ImageSlider key={SlideData.key} slides={SlideData} />
     </Box>
   );
 }
