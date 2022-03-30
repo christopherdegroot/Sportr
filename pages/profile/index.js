@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import NavigationBar from "../../components/NavigationBar";
 import UpdateProfile from "../../components/UpdateProfile"
+import { getCookie } from 'cookies-next';
 
 
 import useApplicationData from "../../hooks/useApplicationData";
@@ -21,7 +22,7 @@ import { getUserDataForProfile } from "../../helpers/selectors";
 export default function Userhome(props) {
   const { state, updateUser } = useApplicationData();
 
-  const userData = getUserDataForProfile(state, 1) // set user_id with session\
+  const userData = getUserDataForProfile(state, Number(getCookie('user_id'))) // set user_id with session\
   const { name, bio, birth_date, profile_image_url } = userData[0] ? userData[0] : ''
 
   const [ bioValue, setBioValue ] = useState('')
@@ -30,10 +31,9 @@ export default function Userhome(props) {
   const [ checkedValue, setCheckedValue ] = useState([])
 
   useEffect(() => {
-    setBioValue(userData[0].bio)
-    setRangeValue(userData[0].km_range)
-    setSportsValue(userData[0].sports)
-
+    setBioValue( userData[0] ? userData[0].bio : '')
+    setRangeValue( userData[0] ? userData[0].km_range : 0 )
+    setSportsValue( userData[0] ? userData[0].sports : {} )
   }, [state])
   
   const { isOpen, onClose, onToggle } = useDisclosure()
@@ -63,7 +63,7 @@ export default function Userhome(props) {
                 borderRadius="full"
                 boxSize="150px"
                 src={profile_image_url ? profile_image_url : ''}
-                alt="Dan Abramov"
+                alt="Profile Photo"
               />
               <VStack flexDirection={'row'} alignItems='flex-end'>
                 <Text fontWeight={'semibold'} fontSize={'3xl'}>{name ? name.split(' ')[0] : ''}</Text>
@@ -81,7 +81,7 @@ export default function Userhome(props) {
                   rounded='md'
                   shadow="md"
                   >
-                  <UpdateProfile onClose={onClose} updateUser={updateUser} user={userData[0]} checked={[checkedValue, setCheckedValue]} bio={[bioValue, setBioValue]} range={[rangeValue, setRangeValue]} sports={[sportsValue, setSportsValue]} ></UpdateProfile>
+                  <UpdateProfile onClose={onClose} updateUser={updateUser} user={userData[0]} user_id={getCookie('user_id')} checked={[checkedValue, setCheckedValue]} bio={[bioValue, setBioValue]} range={[rangeValue, setRangeValue]} sports={[sportsValue, setSportsValue]} ></UpdateProfile>
                 </Box>
               </Collapse>
               <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>

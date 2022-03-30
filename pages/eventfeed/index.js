@@ -7,6 +7,7 @@ import NavigationBar from '../../components/NavigationBar'
 import EventToggleButton from '../../components/EventToggleButton'
 import { useState, useEffect } from 'react'
 import useApplicationData from "../../hooks/useApplicationData";
+import { getCookie } from 'cookies-next';
 
 export default function Userhome(props) {
   const { state, createUserEvent, changeUserEvent } = useApplicationData();
@@ -34,9 +35,9 @@ export default function Userhome(props) {
           </ButtonGroup>)}
           </VStack>
         </>
-        {leftToggle && (<EventFeed state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} findEvents={true}>
+        {leftToggle && (<EventFeed user_id={getCookie('user_id')} state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} findEvents={true}>
       </EventFeed>)}
-      {!leftToggle && (<EventFeed state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} profileEvents={true}>
+      {!leftToggle && (<EventFeed user_id={getCookie('user_id')} state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} profileEvents={true}>
       </EventFeed>)}
 
       </Flex>

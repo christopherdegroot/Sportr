@@ -17,8 +17,8 @@ import { getEventsForUser, getPotentialEventsForUser } from "../helpers/selector
 
 export default function EventFeed(props) {
    const { state, createUserEvent, changeUserEvent } = props
-  const myEvents = getEventsForUser(state, 1) // User ID as seconds arg
-  const potentialEvents = getPotentialEventsForUser(state, 1)
+  const myEvents = getEventsForUser(state, props.user_id) // User ID as seconds arg
+  const potentialEvents = getPotentialEventsForUser(state, props.user_id)
 
   const myEventsReact = myEvents.map(event => (
     <Box py={2}>

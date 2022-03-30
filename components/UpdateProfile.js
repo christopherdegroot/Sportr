@@ -72,7 +72,7 @@ const Details = (props) => {
     birth_date: props.user ? props.user.birth_date : '',
     email: props.user ? props.user.email : '',
     gender: props.user ? props.user.gender : '',
-    id: 1, // ID
+    id: props.user_id, // ID
     km_range: rangeValue,
     name: props.user ? props.user.name : '',
     password: props.user ? props.user.password : '',

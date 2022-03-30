@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { setCookies } from 'cookies-next';
 import {
   CloseButton,
   ButtonGroup,
@@ -59,7 +60,7 @@ const LoginModule = (props) => {
             </GridItem>
           </SimpleGrid>
           <Link href="/eventfeed">
-            <Button  w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha">
+            <Button  w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha" onClick={() => setCookies('user_id', 1)}>
               Submit
             </Button>
           </Link>
