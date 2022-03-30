@@ -45,7 +45,7 @@ export const SlideData = [
     image: "https://i.imgur.com/2EDOBWg.jpg"
   },
   {
-    key: "kayaking",
+    key: "canoeingkayaking",
     image: "https://i.imgur.com/4jjeLI7.jpg"
   },
   {
@@ -91,6 +91,10 @@ export const SlideData = [
   {
     key: "squash",
     image: "https://i.imgur.com/afRLUdQ.jpg"
+  },
+  {
+    key: "swimming",
+    image: "https://i.imgur.com/AInP5zg.jpeg"
   },
   {
     key: "tabletennis",
