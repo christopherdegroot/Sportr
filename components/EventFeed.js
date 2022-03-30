@@ -16,18 +16,19 @@ import { getEventsForUser, getPotentialEventsForUser } from "../helpers/selector
 
 
 export default function EventFeed(props) {
-   const { state, createUserEvent, changeUserEvent } = props
-  const myEvents = getEventsForUser(state, props.user_id) // User ID as seconds arg
-  const potentialEvents = getPotentialEventsForUser(state, props.user_id)
+  const { state, createUserEvent, changeUserEvent } = props
+  const myEvents = getEventsForUser(state, Number(props.user_id)) // User ID as seconds arg
+  const potentialEvents = getPotentialEventsForUser(state, Number(props.user_id))
+  console.log('PING', myEvents, potentialEvents)
 
   const myEventsReact = myEvents.map(event => (
-    <Box py={2}>
-      <SportEvent state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} key={event.id} onClose={onClose} event={event} profileEvents={true}/>
+    <Box py={2} key={event.id}>
+      <SportEvent state={state} user_id={props.user_id} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} onClose={onClose} event={event} profileEvents={true}/>
     </Box>
   ));
   const allEventsReact = potentialEvents.map(event => (
-    <Box py={2}>
-      <SportEvent state={state} createUserEvent={createUserEvent} changeUserEven={changeUserEvent} key={event.id} onClose={onClose} event={event} findEvents={true}/>
+    <Box py={2} key={event.id}>
+      <SportEvent state={state} user_id={props.user_id} createUserEvent={createUserEvent} changeUserEven={changeUserEvent} onClose={onClose} event={event} findEvents={true}/>
     </Box>
   ));
 

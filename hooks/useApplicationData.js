@@ -63,15 +63,20 @@ export default function useApplicationData() {
     return axios
       .post(URL, event)
       .then((response) => {
+        createUserEvent(response.data[0].id, user_id, true)
+        return response
+      })
+      .then((response) => {
 
-        console.log('LOGGING RESPONSE:', response)
-
-        const events = {
+        const events = [
           ...state.events,
-          [response.data[0].id]: response.data[0],
-        };
+          response.data[0],
+        ];
+
+        
 
         setState({ ...state, events })
+
       }); 
   }
 
@@ -90,7 +95,7 @@ export default function useApplicationData() {
 
         setState({ ...state, users_events })
 
-        console.log('logging state in createUserEvent', state)
+        console.log('PING', 'STATE AFTER CREATE A RECORD', state, response)
       }); 
   }
 

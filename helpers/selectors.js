@@ -2,7 +2,7 @@ export function getEventsForUser(state, user_id) {
   const { events, users, users_events } = state;
 
   // Get all users_events pertaining to the user_id1
-  const eventRelations = users_events.filter(relationObj => relationObj.user_id === user_id && relationObj.value === true);
+  const eventRelations = users_events.filter(relationObj => relationObj.user_id === Number(user_id) && relationObj.value === true);
 
   // Grab all the event ids from those user events
   const eventIds = eventRelations.map(relationObj => relationObj.event_id);
@@ -46,6 +46,7 @@ export function getSignedUpUserCountForEvent(state, event_id) {
 }
 
 export function getPotentialEventsForUser(state, user_id) {
+  console.log('PING','GETTING POTENTIAL EVENTS', state)
   const { events, users, users_events } = state;
 
   // ++ NEED TO ADD RANGE PREFERENCE
@@ -53,7 +54,7 @@ export function getPotentialEventsForUser(state, user_id) {
   // ++ NEED TO FILTER FOR USERS SPORTS
 
   // Grab user object for signed in user
-  const user = users[0] ? users.find(user => user.id == user_id) : null
+  const user = users[0] ? users.find(user => user.id == Number(user_id)) : null
 
   const responedCheck = (event) => {
 
@@ -103,7 +104,6 @@ export function getPotentialEventsForUser(state, user_id) {
 
   // Filter out events that don't match a users preferences
   const potentialEvents = users[0] ? events.filter( event => responedCheck(event) && sameGenderCheck(event) && similarAgeCheck(event)) : [] //
-
 
 
   return potentialEvents

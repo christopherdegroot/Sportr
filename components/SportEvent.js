@@ -128,7 +128,8 @@ function SportEvent(props) {
               <Box display="flex" alignItems="center" justifyContent="flex-end">
                 <Button
                   onClick={() => {
-                    createUserEvent(props.event.id, 1, false); // Set 1 to logged in user value
+                    console.log('REJECTION')
+                    createUserEvent(props.event.id, Number(props.user_id), false); // Set 1 to logged in user value
                     setShow(false);
                   }}
                   variant={'outline'}
@@ -140,7 +141,8 @@ function SportEvent(props) {
                 </Button>
                 <Button
                   onClick={() => {
-                    createUserEvent(props.event.id, 1, true); // Set 1 to logged in user value
+                    console.log('ACCEPTION')
+                    createUserEvent(props.event.id, Number(props.user_id), true); // Set 1 to logged in user value
                     setShow(false);
                   }}
                   variant={'outline'}
@@ -186,7 +188,7 @@ function SportEvent(props) {
                     <AlertDialogFooter>
                       <Button colorScheme='red'   onClick={() => {
                     setShow(false);
-                    changeUserEvent(props.event.id, 1, false); // Set 1 to logged in user value
+                    changeUserEvent(props.event.id, Number(props.user_id), false); // Set 1 to logged in user value
                   }}>
                         Yes
                       </Button>
