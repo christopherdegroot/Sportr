@@ -4,46 +4,39 @@ import {
   Button,
   Text,
   Image,
-  Heading,
   Box,
   Container,
-  Flex,
   VStack,
-  Slide,
   useDisclosure,
   Collapse
 } from "@chakra-ui/react";
-import EventFeed from "../../components/EventFeed";
-import styles from "../../styles/login-header.module.css";
-import LoginModule from "../../components/LoginModule";
-import RegisterModule from "../../components/RegisterModule";
 import NavigationBar from "../../components/NavigationBar";
 import UpdateProfile from "../../components/UpdateProfile"
 
 
 import useApplicationData from "../../hooks/useApplicationData";
-import { getEventsForUser } from "../../helpers/selectors";
+import { useEffect, useState } from "react";
+import { getUserDataForProfile } from "../../helpers/selectors";
 
 export default function Userhome(props) {
-  const { state } = useApplicationData();
-  console.log('useApplicationData State:',state);
+  const { state, updateUser } = useApplicationData();
+
+  const userData = getUserDataForProfile(state, 1) // set user_id with session\
+  const { name, bio, birth_date, profile_image_url } = userData[0] ? userData[0] : ''
+
+  const [ bioValue, setBioValue ] = useState('')
+  const [ rangeValue, setRangeValue ] = useState(0)
+  const [ sportsValue, setSportsValue ] = useState({})
+  const [ checkedValue, setCheckedValue ] = useState([])
+
+  useEffect(() => {
+    setBioValue(userData[0].bio)
+    setRangeValue(userData[0].km_range)
+    setSportsValue(userData[0].sports)
+
+  }, [state])
   
   const { isOpen, onClose, onToggle } = useDisclosure()
-
-  const userObject = {
-    id:4,
-    email:"noahthedev@hotmail.com",
-    name:"Noah V",
-    password:"haha",
-    bio:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris purus nisl, faucibus nec laoreet ultricies, fringilla et dolor. Pellentesque id odio vehicula, mollis nibh in, congue tortor. Etiam pellentesque sem.",
-    profile_image_url:"https://www.boredpanda.com/blog/wp-content/uploads/2021/08/funny-monkeys-56-612393fdd1081__700.jpg",
-    gender:"male",
-    birthdate:'1999-12-31',
-    sports: ['basketball', 'soccer', 'running', 'spikeball'],
-    km_range:10
-  }
-
-  console.log('getEventsForUser:', getEventsForUser(state, userObject.id));
 
   return (
     <>
@@ -69,19 +62,15 @@ export default function Userhome(props) {
                 mb={1}
                 borderRadius="full"
                 boxSize="150px"
-                src="https://bit.ly/dan-abramov"
+                src={profile_image_url ? profile_image_url : ''}
                 alt="Dan Abramov"
               />
               <VStack flexDirection={'row'} alignItems='flex-end'>
-                <Text fontWeight={'semibold'} fontSize={'3xl'}>Dan</Text>
-                <Text pl={2} pb={1}  fontSize={'lg'}>27</Text>
+                <Text fontWeight={'semibold'} fontSize={'3xl'}>{name ? name.split(' ')[0] : ''}</Text>
+                <Text pl={2} pb={1}  fontSize={'lg'}>{birth_date ? Math.floor((Date.now() - Date.parse(birth_date))/3.154e+10) : ''}</Text>
               </VStack>
             </VStack>
-            <Text textAlign={'center'} fontSize="md">
-              I am a software developer working on React. I like playing
-              spikeball, tennis, and volleyball. I am looking for new friends to
-              play these sports with in Vancouver as I just moved here.
-            </Text>
+            <Text textAlign={'center'} fontSize="md">{ bio ? bio : ''}</Text>
           </VStack>
           <VStack pt={5} justifyContent={'center'} >
             <VStack flexDirection={'column'} alignContent={'flex-end'} justifyContent={'center'} pb={5}>
@@ -92,10 +81,7 @@ export default function Userhome(props) {
                   rounded='md'
                   shadow="md"
                   >
-                  <UpdateProfile state={state} onClose={onClose} user={userObject}></UpdateProfile>
-                  <VStack>
-                    <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>
-                  </VStack>
+                  <UpdateProfile onClose={onClose} updateUser={updateUser} user={userData[0]} checked={[checkedValue, setCheckedValue]} bio={[bioValue, setBioValue]} range={[rangeValue, setRangeValue]} sports={[sportsValue, setSportsValue]} ></UpdateProfile>
                 </Box>
               </Collapse>
               <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>

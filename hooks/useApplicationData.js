@@ -118,6 +118,22 @@ export default function useApplicationData() {
       }); 
   }
 
+  function updateUser(user_id, userObj) {
+    const URL = `/api/v1/users/${user_id}`;
 
-  return { state, createEvent, createUserEvent, changeUserEvent };
+    return axios
+      .put(URL, userObj)
+      .then((response) => {
+
+        const users = [
+          ...state.users,
+          response.data[0],
+        ];
+
+        setState({ ...state, users })
+      }); 
+  }
+
+
+  return { state, createEvent, createUserEvent, changeUserEvent, updateUser };
 }
