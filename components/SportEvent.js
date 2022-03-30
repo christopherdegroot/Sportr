@@ -61,6 +61,7 @@ function SportEvent(props) {
           borderWidth="2px"
           borderRadius="lg"
           overflow={"hidden"}
+          maxW={'800px'}
         >
           <ImageSlider
             key={props.event.id}
