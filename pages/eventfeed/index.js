@@ -20,7 +20,7 @@ export default function Userhome(props) {
 
   return (
     <>
-    <Container  backgroundColor={'rgb(247,247,247)'} w={'fit-content'} justifyContent={'center'}  p={0}>
+    <Container  backgroundColor={'rgb(247,247,247)'} w={'fit-content'}  justifyContent={'center'}  >
       <Flex flexDirection={'column'} pb={20}>
 
       <>
@@ -35,11 +35,12 @@ export default function Userhome(props) {
           </ButtonGroup>)}
           </VStack>
         </>
+        <VStack flexDirection={'column-reverse'} justifyContent={'center'}>
         {leftToggle && (<EventFeed user_id={getCookie('user_id')} state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} findEvents={true}>
       </EventFeed>)}
       {!leftToggle && (<EventFeed user_id={getCookie('user_id')} state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} profileEvents={true}>
       </EventFeed>)}
-
+      </VStack>
       </Flex>
     </Container>
     <NavigationBar/>

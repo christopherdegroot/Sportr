@@ -35,22 +35,13 @@ export default function EventFeed(props) {
   const { isOpen, onClose, onToggle } = useDisclosure();
 
   return (
-    <>
-      <Container maxW="container.md">
-        <Box px={2} pt={5}>
-          <VStack
-            flexDir={'column-reverse'}
-          >
+        <>
             {props.findEvents && (<>
               {allEventsReact}
             </>)}
             {props.profileEvents && (<>
               {myEventsReact}
             </>)}
-          </VStack>
-        </Box>
-        
-      </Container>
-    </>
+            </>
   );
 }
