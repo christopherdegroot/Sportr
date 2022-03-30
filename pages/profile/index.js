@@ -74,6 +74,7 @@ export default function Userhome(props) {
             </VStack>
           </VStack>
           <VStack pt={5} justifyContent={'center'} >
+          <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>
             <VStack flexDirection={'column'} alignContent={'flex-end'} justifyContent={'center'} pb={5}>
               <Collapse in={isOpen} animateOpacity>
                 <Box justifyContent={'center'}
@@ -82,10 +83,10 @@ export default function Userhome(props) {
                   rounded='md'
                   shadow="md"
                   >
-                  <UpdateProfile onClose={onClose} updateUser={updateUser} user={userData[0]} user_id={getCookie('user_id')} checked={[checkedValue, setCheckedValue]} bio={[bioValue, setBioValue]} range={[rangeValue, setRangeValue]} sports={[sportsValue, setSportsValue]} ></UpdateProfile>
+                  <UpdateProfile onToggle={onToggle} onClose={onClose} updateUser={updateUser} user={userData[0]} user_id={getCookie('user_id')} checked={[checkedValue, setCheckedValue]} bio={[bioValue, setBioValue]} range={[rangeValue, setRangeValue]} sports={[sportsValue, setSportsValue]} ></UpdateProfile>
                 </Box>
               </Collapse>
-              <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>
+              
             </VStack>
           </VStack>
         </VStack>
