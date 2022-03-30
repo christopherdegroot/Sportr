@@ -69,8 +69,9 @@ export default function Userhome(props) {
                 <Text fontWeight={'semibold'} fontSize={'3xl'}>{name ? name.split(' ')[0] : ''}</Text>
                 <Text pl={2} pb={1}  fontSize={'lg'}>{birth_date ? Math.floor((Date.now() - Date.parse(birth_date))/3.154e+10) : ''}</Text>
               </VStack>
+              <Text align={'center'} width={'50%'} fontSize="md">{ bioValue }</Text>
+              <Text align={'center'} width={'50%'} fontSize="md">Range: { rangeValue }km</Text>
             </VStack>
-            <Text textAlign={'center'} fontSize="md">{ bio ? bio : ''}</Text>
           </VStack>
           <VStack pt={5} justifyContent={'center'} >
             <VStack flexDirection={'column'} alignContent={'flex-end'} justifyContent={'center'} pb={5}>
