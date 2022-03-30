@@ -5,7 +5,9 @@ import {Loader} from '@googlemaps/js-api-loader';
 
 
 export default function MapComponent(props) {
-  const googlemap = useRef(null);
+
+
+    const googlemap = useRef(null);
 
     const loader = new Loader({
       apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -14,7 +16,7 @@ export default function MapComponent(props) {
     let map;
     loader.load().then(() => {
       map = new google.maps.Map(googlemap.current, {
-        center: {lat: 49.249, lng: -123.111},
+        center: {lat: props.lat, lng: props.lng},
         zoom: 10,
         fullscreenControl: false, // remove the top-right button
         mapTypeControl: false, // remove the top-left buttons
@@ -23,9 +25,9 @@ export default function MapComponent(props) {
         draggable: true
       });
       const marker = new google.maps.Marker({
-        position: {lat: 49.249, lng: -123.111},
+        position: {lat: props.lat, lng: props.lng},
         map: map,
-      });
+      });    
 
     });
     return <div id="map" ref={googlemap} />
