@@ -40,17 +40,19 @@ const ImageSlider = (props) => {
         mapTypeControl: false, // remove the top-left buttons
         streetViewControl: false, // remove the pegman
         zoomControl: true, // remove the bottom-right buttons
+        draggable: true
       });
       const marker = new google.maps.Marker({
         position: {lat: 49.249, lng: -123.111},
         map: map,
       });    
+
     });
   }, []);
 
 
   return (
-    <Carousel showThumbs={false} preventMovementUntilSwipeScrollTolerance={true} autoPlay={false} dynamicHeight={false} showIndicators={false} showStatus={false} infiniteLoop>
+    <Carousel swipeable={false} showThumbs={false} autoPlay={false} dynamicHeight={false} showIndicators={false} showStatus={false} infiniteLoop>
       {images}
       <div id="map" ref={googlemap} />
     </Carousel>
