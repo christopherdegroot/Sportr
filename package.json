@@ -24,6 +24,7 @@
     "@googlemaps/react-wrapper": "^1.1.29",
     "axios": "^0.26.1",
     "chalk": "^4.1.2",
+    "cookies-next": "^2.0.4",
     "dotenv": "^8.6.0",
     "framer-motion": "^6.2.8",
     "knex": "^1.0.4",
