@@ -57,6 +57,7 @@ function SportEvent(props) {
           bg="white"
           borderWidth="2px"
           borderRadius="lg"
+          overflow={'hidden'}
         >
           <ImageSlider key={props.event.id} data={SlideData} sport={props.event.sport} />
           <Box pt='3' pl="2">
@@ -107,7 +108,7 @@ function SportEvent(props) {
                 lineHeight="tight"
                 isTruncated
               >
-                <Text textOverflow={'ellipsis'}>{props.event.title}</Text>
+                <Text>{props.event.title}</Text>
               </Box>
               <Box
                 fontSize={"md"}
