@@ -39,7 +39,7 @@ const ImageSlider = (props) => {
         fullscreenControl: false, // remove the top-right button
         mapTypeControl: false, // remove the top-left buttons
         streetViewControl: false, // remove the pegman
-        zoomControl: false, // remove the bottom-right buttons
+        zoomControl: true, // remove the bottom-right buttons
       });
       const marker = new google.maps.Marker({
         position: {lat: 49.249, lng: -123.111},
