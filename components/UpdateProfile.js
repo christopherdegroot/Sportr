@@ -55,7 +55,7 @@ const Details = (props) => {
     events.forEach(event => {
       setSportsValue({...sportsValue, [event]: sportsValue[event] ? false : true})
     });
-    console.log('LOGGING SPORTS VALUE',sportsValue)
+    // console.log('LOGGING SPORTS VALUE',sportsValue)
   }
 
 
@@ -63,7 +63,7 @@ const Details = (props) => {
   useEffect(() => {
     setCheckedValue(sportsValue ? Object.keys(sportsValue).filter( sport => sportsValue[sport]) : [])
   }, [sportsValue])
-  console.log('THESE SPORTS SHOULD BE CHECKED', checkedValue)
+  // console.log('THESE SPORTS SHOULD BE CHECKED', checkedValue)
 
   const listOfSports= ["badminton", "baseball", "basketball", "beach volleyball", "disc golf", "canoeing / kayaking", "curling", "cycling", "football",  "golf",  "hiking",  "ice climbing", "lacrosse", "pickleball", "racquetball", "rock climbing", "rowing", "rugby", "running", "sailing", "skiing", "soccer", "spikeball", "squash", "swimming", "table tennis",  "tennis", "trail running",  "ultimate frisbee",  "volleyball", "yoga" ];
   
@@ -136,7 +136,7 @@ const Details = (props) => {
           </GridItem>
           {/* Confirm (Would like replace with saving as you change it) */}
           <GridItem colSpan={2}>
-            <Button justifyContent={'center'} w={300} onClick={() => updateUser(1, updatedUser)} colorScheme="teal" variant={'solid'}>Update</Button>
+            <Button justifyContent={'center'} w={300} onClick={() => updateUser(Number(props.user_id), updatedUser)} colorScheme="teal" variant={'solid'}>Update</Button>
           </GridItem>
         </SimpleGrid>
       </VStack>

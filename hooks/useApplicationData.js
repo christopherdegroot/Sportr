@@ -124,6 +124,7 @@ export default function useApplicationData() {
   }
 
   function updateUser(user_id, userObj) {
+    
     const URL = `/api/v1/users/${user_id}`;
 
     return axios
@@ -136,6 +137,7 @@ export default function useApplicationData() {
         ];
 
         setState({ ...state, users })
+
       }); 
   }
 
