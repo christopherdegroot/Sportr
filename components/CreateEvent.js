@@ -277,7 +277,7 @@ const Details = (props) => {
               </Stack>
             </GridItem>
             <GridItem colSpan={2}>
-              <Link href="/eventfeed" passHref>
+              <Link href="/create-event" passHref>
                 <Button
                   colorScheme="teal"
                   w="full"
