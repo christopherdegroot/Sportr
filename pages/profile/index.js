@@ -4,37 +4,39 @@ import {
   Button,
   Text,
   Image,
-  Heading,
   Box,
   Container,
-  Flex,
   VStack,
-  Slide,
   useDisclosure,
   Collapse
 } from "@chakra-ui/react";
-import EventFeed from "../../components/EventFeed";
-import styles from "../../styles/login-header.module.css";
-import LoginModule from "../../components/LoginModule";
-import RegisterModule from "../../components/RegisterModule";
 import NavigationBar from "../../components/NavigationBar";
 import UpdateProfile from "../../components/UpdateProfile"
 
 
 import useApplicationData from "../../hooks/useApplicationData";
+import { useEffect, useState } from "react";
 import { getUserDataForProfile } from "../../helpers/selectors";
 
 export default function Userhome(props) {
-  const { state } = useApplicationData();
-  console.log('State: ',state);
+  const { state, updateUser } = useApplicationData();
 
   const userData = getUserDataForProfile(state, 1) // set user_id with session\
-  console.log('userData', userData)
-  const { name, bio, birth_date } = userData[0] ? userData[0] : ''
+  const { name, bio, birth_date, profile_image_url } = userData[0] ? userData[0] : ''
+
+  const [ bioValue, setBioValue ] = useState('')
+  const [ rangeValue, setRangeValue ] = useState(0)
+  const [ sportsValue, setSportsValue ] = useState({})
+  const [ checkedValue, setCheckedValue ] = useState([])
+
+  useEffect(() => {
+    setBioValue(userData[0].bio)
+    setRangeValue(userData[0].km_range)
+    setSportsValue(userData[0].sports)
+
+  }, [state])
   
   const { isOpen, onClose, onToggle } = useDisclosure()
-
-
 
   return (
     <>
@@ -60,7 +62,7 @@ export default function Userhome(props) {
                 mb={1}
                 borderRadius="full"
                 boxSize="150px"
-                src="https://bit.ly/dan-abramov"
+                src={profile_image_url ? profile_image_url : ''}
                 alt="Dan Abramov"
               />
               <VStack flexDirection={'row'} alignItems='flex-end'>
@@ -79,10 +81,7 @@ export default function Userhome(props) {
                   rounded='md'
                   shadow="md"
                   >
-                  <UpdateProfile state={state} onClose={onClose} user={userData}></UpdateProfile>
-                  <VStack>
-                    <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>
-                  </VStack>
+                  <UpdateProfile onClose={onClose} updateUser={updateUser} user={userData[0]} checked={[checkedValue, setCheckedValue]} bio={[bioValue, setBioValue]} range={[rangeValue, setRangeValue]} sports={[sportsValue, setSportsValue]} ></UpdateProfile>
                 </Box>
               </Collapse>
               <Button justifyContent={'center'} w={300} onClick={onToggle} colorScheme="teal" variant={'solid'}>Update</Button>

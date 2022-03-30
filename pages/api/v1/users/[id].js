@@ -19,6 +19,8 @@ export default async function handler(req, res) {
     try {
       // req.body object destructuring
       const {email, name, password, bio, profile_image_url, gender, birth_date, sports, km_range} = req.body;
+
+      console.log('STRAIGHT FROM THE API MR.REQ.BODY:', req.body)
       
       const query = {
         text: 'UPDATE users SET email=$1, name=$2, password=$3, bio=$4, profile_image_url=$5, gender=$6, birth_date=$7, sports=$8, km_range=$9 WHERE id=$10 RETURNING *;',
