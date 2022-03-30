@@ -19,18 +19,18 @@ export default function Userhome(props) {
 
   return (
     <>
-    <Container backgroundColor={'rgb(247, 247, 247)'} maxW="container.xl" p={0}>
+    <Container  backgroundColor={'rgb(247, 247, 247)'} w={'fit-content'} p={0}>
       <Flex flexDirection={'column'} pb={20}>
 
       <>
           <VStack mt='10' flexDirection={'row'}  justifyContent={'center'}>
           {leftToggle && (<ButtonGroup size='sm' isAttached variant='outline'>
-            <Button onClick={()=>{swapToggle(true)}} variant={'solid'} colorScheme={'teal'}  mr='-px'>Find Events</Button>
-            <Button onClick={()=>{swapToggle(false)}} variant={'outline'} colorScheme={'teal'} mr='-px'>My Events</Button>
+            <Button size={'md'} onClick={()=>{swapToggle(true)}} variant={'solid'} colorScheme={'teal'}  mr='-px'>Find Events</Button>
+            <Button size={'md'} onClick={()=>{swapToggle(false)}} variant={'outline'} colorScheme={'teal'} mr='-px'>My Events</Button>
           </ButtonGroup>)}
           {!leftToggle && (<ButtonGroup size='sm' isAttached variant='outline'>
-            <Button onClick={()=>{swapToggle(true)}} variant={'outline'} colorScheme={'teal'}  mr='-px'>Find Events</Button>
-            <Button onClick={()=>{swapToggle(false)}} variant={'solid'} colorScheme={'teal'} mr='-px'>My Events</Button>
+            <Button size={'md'} onClick={()=>{swapToggle(true)}} variant={'outline'} colorScheme={'teal'}  mr='-px'>Find Events</Button>
+            <Button size={'md'} onClick={()=>{swapToggle(false)}} variant={'solid'} colorScheme={'teal'} mr='-px'>My Events</Button>
           </ButtonGroup>)}
           </VStack>
         </>

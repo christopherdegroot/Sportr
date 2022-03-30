@@ -5,6 +5,7 @@ import {
   Container,
   VStack,
   Heading,
+  Stack,
 } from "@chakra-ui/react";
 import SportEvent from "./SportEvent";
 import styles from "./layout.module.css";
@@ -19,10 +20,14 @@ export default function EventFeed(props) {
   const potentialEvents = getPotentialEventsForUser(state, 1)
 
   const myEventsReact = myEvents.map(event => (
-    <SportEvent state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} key={event.id} onClose={onClose} event={event} profileEvents={true}/>
+    <Box py={2}>
+      <SportEvent state={state} createUserEvent={createUserEvent} changeUserEvent={changeUserEvent} key={event.id} onClose={onClose} event={event} profileEvents={true}/>
+    </Box>
   ));
   const allEventsReact = potentialEvents.map(event => (
-    <SportEvent state={state} createUserEvent={createUserEvent} changeUserEven={changeUserEvent} key={event.id} onClose={onClose} event={event} findEvents={true}/>
+    <Box py={2}>
+      <SportEvent state={state} createUserEvent={createUserEvent} changeUserEven={changeUserEvent} key={event.id} onClose={onClose} event={event} findEvents={true}/>
+    </Box>
   ));
 
   const { isOpen, onClose, onToggle } = useDisclosure();
@@ -30,14 +35,9 @@ export default function EventFeed(props) {
   return (
     <>
       <Container maxW="container.md">
-        <Box pt={10}>
+        <Box px={2} pt={5}>
           <VStack
-            flexDirection="column-reverse"
-            justifyContent="center"
-            alignItems="center"
-            w="full"
-            h="full"
-            spacing={5}
+            flexDir={'column-reverse'}
           >
             {props.findEvents && (<>
               {allEventsReact}
