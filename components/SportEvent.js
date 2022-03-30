@@ -136,7 +136,7 @@ function SportEvent(props) {
                   m={2}
                   marginBottom="4"
                 >
-                  Reject
+                  Decline
                 </Button>
                 <Button
                   onClick={() => {

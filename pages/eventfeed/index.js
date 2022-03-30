@@ -19,7 +19,7 @@ export default function Userhome(props) {
 
   return (
     <>
-    <Container  backgroundColor={'rgb(247, 247, 247)'} w={'fit-content'} p={0}>
+    <Container  backgroundColor={'rgb(247,247,247)'} w={'fit-content'} justifyContent={'center'}  p={0}>
       <Flex flexDirection={'column'} pb={20}>
 
       <>
