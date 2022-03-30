@@ -52,7 +52,6 @@ export default function EventFeed(props) {
   ));
 
   const { isOpen, onClose, onToggle } = useDisclosure();
-  console.log('myEvents is being used')
   return (
     <>
       <Container maxW="container.md">

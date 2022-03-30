@@ -14,13 +14,6 @@ const imageLoader = ({ src, width, quality }) => {
 const ImageSlider = (props) => {
   const { data, sport } = props;
 
-  // const findMap = function(data){
-  //   data.filter((map) => console.log( map))
-  //   console.log('logging sport inside function', sport)
-  // }
-
-  // console.log(findMap(props.data))
-
   const filteredData = data.filter((image) => image.key == sport);
 
   const images = filteredData.map((image) => {
@@ -62,7 +55,6 @@ const ImageSlider = (props) => {
 
     });
   }, []);
-  console.log("logging images", images);
 
   return (
     <Carousel

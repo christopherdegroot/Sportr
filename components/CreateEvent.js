@@ -99,7 +99,6 @@ const Details = (props) => {
           map: map,
           latlong: JSON.stringify(event.latLng.toJSON(), null, 2)
         });    
-        console.log(newMarker.latlong)
         return newMarker
       });
     });

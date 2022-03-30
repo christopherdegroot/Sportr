@@ -5,7 +5,6 @@ import {Loader} from '@googlemaps/js-api-loader';
 
 
 export default function MapComponent(props) {
-  console.log('i am being reached')
   const googlemap = useRef(null);
 
     const loader = new Loader({
