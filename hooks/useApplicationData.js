@@ -62,11 +62,9 @@ export default function useApplicationData() {
 
     return axios
       .post(URL, event)
-      .then((response) => {
-        createUserEvent(response.data[0].id, user_id, true)
-        return response
-      })
-      .then((response) => {
+      .then(async (response) => {
+
+        await createUserEvent(response.data[0].id, user_id, true)
 
         const events = [
           ...state.events,
