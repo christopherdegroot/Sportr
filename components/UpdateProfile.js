@@ -40,47 +40,83 @@ import useApplicationData from "../hooks/useApplicationData";
 import { AiOutlineConsoleSql } from "react-icons/ai";
 import { useEffect } from "react";
 
-
-
 const Details = (props) => {
+  const [bioValue, setBioValue] = props.bio;
+  const [rangeValue, setRangeValue] = props.range;
+  const [sportsValue, setSportsValue] = props.sports;
+  const [checkedValue, setCheckedValue] = props.checked;
+  const updateUser = props.updateUser;
 
-  const [ bioValue, setBioValue ] = props.bio
-  const [ rangeValue, setRangeValue ] = props.range
-  const [ sportsValue, setSportsValue ] = props.sports
-  const [ checkedValue, setCheckedValue ] = props.checked
-  const updateUser = props.updateUser
+  console.log('logging props', props)
 
   const flickSport = (events) => {
-    setCheckedValue(events)
-    events.forEach(event => {
-      setSportsValue({...sportsValue, [event]: sportsValue[event] ? false : true})
+    setCheckedValue(events);
+    events.forEach((event) => {
+      setSportsValue({
+        ...sportsValue,
+        [event]: sportsValue[event] ? false : true,
+      });
     });
     // console.log('LOGGING SPORTS VALUE',sportsValue)
-  }
+  };
 
-
-  
   useEffect(() => {
-    setCheckedValue(sportsValue ? Object.keys(sportsValue).filter( sport => sportsValue[sport]) : [])
-  }, [sportsValue])
+    setCheckedValue(
+      sportsValue
+        ? Object.keys(sportsValue).filter((sport) => sportsValue[sport])
+        : []
+    );
+  }, [sportsValue]);
   // console.log('THESE SPORTS SHOULD BE CHECKED', checkedValue)
 
-  const listOfSports= ["badminton", "baseball", "basketball", "beach volleyball", "disc golf", "canoeing / kayaking", "curling", "cycling", "football",  "golf",  "hiking",  "ice climbing", "lacrosse", "pickleball", "racquetball", "rock climbing", "rowing", "rugby", "running", "sailing", "skiing", "soccer", "spikeball", "squash", "swimming", "table tennis",  "tennis", "trail running",  "ultimate frisbee",  "volleyball", "yoga" ];
-  
+  const listOfSports = [
+    "badminton",
+    "baseball",
+    "basketball",
+    "beach volleyball",
+    "disc golf",
+    "canoeing / kayaking",
+    "curling",
+    "cycling",
+    "football",
+    "golf",
+    "hiking",
+    "ice climbing",
+    "lacrosse",
+    "pickleball",
+    "racquetball",
+    "rock climbing",
+    "rowing",
+    "rugby",
+    "running",
+    "sailing",
+    "skiing",
+    "soccer",
+    "spikeball",
+    "squash",
+    "swimming",
+    "table tennis",
+    "tennis",
+    "trail running",
+    "ultimate frisbee",
+    "volleyball",
+    "yoga",
+  ];
+
   const updatedUser = {
     bio: bioValue,
-    birth_date: props.user ? props.user.birth_date : '',
-    email: props.user ? props.user.email : '',
-    gender: props.user ? props.user.gender : '',
+    birth_date: props.user ? props.user.birth_date : "",
+    email: props.user ? props.user.email : "",
+    gender: props.user ? props.user.gender : "",
     id: props.user_id, // ID
     km_range: rangeValue,
-    name: props.user ? props.user.name : '',
-    password: props.user ? props.user.password : '',
-    profile_image_url: props.user ? props.user.profile_image_url : '',
+    name: props.user ? props.user.name : "",
+    password: props.user ? props.user.password : "",
+    profile_image_url: props.user ? props.user.profile_image_url : "",
     same_gender_preference: false,
     similar_age_preference: false,
     sports: sportsValue,
-  }
+  };
 
   return (
     <Container maxW="container.md">
@@ -95,7 +131,13 @@ const Details = (props) => {
           <GridItem colSpan={2}>
             <FormControl>
               <FormLabel>About Me</FormLabel>
-              <Textarea resize="none" h="7em" placeholder="Bio" value={bioValue} onChange={(e) => setBioValue(e.target.value)} />
+              <Textarea
+                resize="none"
+                h="7em"
+                placeholder="Bio"
+                value={bioValue}
+                onChange={(e) => setBioValue(e.target.value)}
+              />
             </FormControl>
           </GridItem>
           {/* Range */}
@@ -112,7 +154,9 @@ const Details = (props) => {
                   <SliderFilledTrack bg="teal.500" />
                 </SliderTrack>
                 <SliderThumb boxSize={6}>
-                  <Box color='teal' borderColor='teal'>{rangeValue}</Box>
+                  <Box color="teal" borderColor="teal">
+                    {rangeValue}
+                  </Box>
                 </SliderThumb>
               </Slider>
             </VStack>
@@ -123,20 +167,42 @@ const Details = (props) => {
             <FormLabel>Sports</FormLabel>
 
             <VStack alignItems="flex-start">
-              <CheckboxGroup colSpan={2} defaultValue={checkedValue} onChange={(val) => flickSport(val)}>
+              <CheckboxGroup
+                colSpan={2}
+                defaultValue={checkedValue}
+                onChange={(val) => flickSport(val)}
+              >
                 <SimpleGrid columns={1} rowGap={3} w="full">
-                  {sportsValue ? listOfSports.map(sport => 
-                    <Checkbox key={sport} value={sport} >
-                      {sport ? `${sport.split('')[0].toUpperCase()}${sport.split('').slice(1).join('')}` : ''}
-                    </Checkbox>
-                  ) : ''}
+                  {sportsValue
+                    ? listOfSports.map((sport) => (
+                        <Checkbox key={sport} value={sport}>
+                          {sport
+                            ? `${sport.split("")[0].toUpperCase()}${sport
+                                .split("")
+                                .slice(1)
+                                .join("")}`
+                            : ""}
+                        </Checkbox>
+                      ))
+                    : ""}
                 </SimpleGrid>
               </CheckboxGroup>
             </VStack>
           </GridItem>
           {/* Confirm (Would like replace with saving as you change it) */}
           <GridItem colSpan={2}>
-            <Button justifyContent={'center'} w={300} onClick={() => updateUser(Number(props.user_id), updatedUser)} colorScheme="teal" variant={'solid'}>Update</Button>
+            <Button
+              justifyContent={"center"}
+              w={300}
+              onClick={() => {
+                updateUser(Number(props.user_id), updatedUser)
+                props.onToggle();
+              }}
+              colorScheme="teal"
+              variant={"solid"}
+            >
+              Confirm
+            </Button>
           </GridItem>
         </SimpleGrid>
       </VStack>
