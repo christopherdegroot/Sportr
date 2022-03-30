@@ -60,7 +60,7 @@ const LoginModule = (props) => {
             </GridItem>
           </SimpleGrid>
           <Link href="/eventfeed">
-            <Button  w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha" onClick={() => setCookies('user_id', 1)}>
+            <Button  w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha" onClick={() => setCookies('user_id', Math.floor(Math.random() * 5) + 1)}>
               Submit
             </Button>
           </Link>
