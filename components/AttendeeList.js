@@ -11,10 +11,10 @@ function AttendeeList(props) {
 
   const { state } = props
 
-  const attendees = getUsersForEvent(state, props.event.id)
-
   const ownerid = props.event.user_owner
-  const owner = state.users[ownerid]
+  const owner = state.users.find( user => user.id === ownerid) // array not object
+
+  const attendees = getUsersForEvent(state, props.event.id).filter( attendee => attendee.id !== ownerid)
 
   const parsedAttendeeList = attendees.map((attendee) => (
     <InterviewerListItem
