@@ -100,10 +100,34 @@ export function getPotentialEventsForUser(state, user_id) {
 
     return true
   }
+
+  const sportCheck = (event) => {
+
+    const user = users.find(user => user.id == user_id)
+
+    const userSportsArray = Object.keys(user.sports).filter(sport => user.sports[sport] === true)
+
+    // console.log(' POTENTIAL', userSportsArray.includes(event.sport))
+
+
+    return userSportsArray.includes(event.sport) ? true : false
+    
+  }
+
+  const capacityCheck = (event) => {
+
+    const userEventsForEvent = users_events.filter(user_event => user_event.event_id === event.id).length
+
+    const eventCapacity = event.capacity_limit;
+
+    console.log(' POTENTIAL', userEventsForEvent)
+
+    return userEventsForEvent < eventCapacity ? true : false
+  }
   
 
   // Filter out events that don't match a users preferences
-  const potentialEvents = users[0] ? events.filter( event => responedCheck(event) && sameGenderCheck(event) && similarAgeCheck(event)) : [] //
+  const potentialEvents = users[0] ? events.filter( event => capacityCheck(event) && sportCheck(event) && responedCheck(event) && sameGenderCheck(event) && similarAgeCheck(event)) : [] //
 
 
   return potentialEvents
