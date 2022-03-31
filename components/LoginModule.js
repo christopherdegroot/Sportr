@@ -19,12 +19,16 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
-import React from "react";
+import React, {useState} from "react";
 
 const LoginModule = (props) => {
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
   const onClose = props.onClose;
+  const [input, setInput] = useState('')
+
+  console.log('KATY PERRY', input)
+
   return (
     <>
     <VStack flexDirection='row-reverse'>
@@ -49,6 +53,8 @@ const LoginModule = (props) => {
                   pr='4.5rem'
                   type={show ? 'text' : 'password'}
                   placeholder='Enter password'
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
                 />
                 <InputRightElement width='4.5rem'>
                   <Button focusBorderColor="teal.300" variant="link" color="white" colorScheme={'blackAlpha'} h='1.5rem' w='1rem' fontSize='12px' onClick={handleClick}>
@@ -58,9 +64,10 @@ const LoginModule = (props) => {
               </InputGroup>
               </FormControl>
             </GridItem>
+            
           </SimpleGrid>
           <Link href="/eventfeed">
-            <Button  w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha" onClick={() => setCookies('user_id', Math.floor(Math.random() * 5) + 1)}>
+            <Button  w="9em" type="submit" name={"Submit"} variant="outline" color='white' colorScheme="blackAlpha" onClick={setCookies('user_id', input)}>
               Submit
             </Button>
           </Link>
