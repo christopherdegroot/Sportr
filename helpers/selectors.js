@@ -10,7 +10,11 @@ export function getEventsForUser(state, user_id) {
   // Grab all events that match event ids in eventIds
   const usersEvents = events.filter(event => eventIds.includes(event.id))
 
-  return usersEvents
+  const sortedUsersEvents = usersEvents.sort( ( a, b ) => a.datetime > b.datetime ? -1 : 1)
+
+  const gtgUsersEvents = sortedUsersEvents.filter(event =>  Date.now() < Date.parse(event.datetime) + (8.64e+7/2) )
+
+  return gtgUsersEvents
 }
 
 export function getUsersForEvent(state, event_id) {
@@ -46,7 +50,7 @@ export function getSignedUpUserCountForEvent(state, event_id) {
 }
 
 export function getPotentialEventsForUser(state, user_id) {
-  console.log('PING','GETTING POTENTIAL EVENTS', state)
+  // console.log('PING','GETTING POTENTIAL EVENTS', state)
   const { events, users, users_events } = state;
 
   // ++ NEED TO ADD RANGE PREFERENCE
@@ -120,17 +124,27 @@ export function getPotentialEventsForUser(state, user_id) {
 
     const eventCapacity = event.capacity_limit;
 
-    console.log(' POTENTIAL', userEventsForEvent)
+    // console.log(' POTENTIAL', userEventsForEvent)
 
     return userEventsForEvent < eventCapacity ? true : false
+  }
+
+  const oldEventCheck = (event) => {
+    
+    // console.log('DATE', Date.parse(event.datetime), Date.now(), Date.now() < Date.parse(event.datetime))
+
+    return Date.now() < Date.parse(event.datetime) ? true : false
   }
   
 
   // Filter out events that don't match a users preferences
-  const potentialEvents = users[0] ? events.filter( event => capacityCheck(event) && sportCheck(event) && responedCheck(event) && sameGenderCheck(event) && similarAgeCheck(event)) : [] //
+  const potentialEvents = users[0] ? events.filter( event => oldEventCheck(event) && capacityCheck(event) && sportCheck(event) && responedCheck(event) && sameGenderCheck(event) && similarAgeCheck(event)) : [] //
 
+  const sortedPotentialEvents = potentialEvents.sort(( a, b ) => a.datetime > b.datetime ? -1 : 1 )
 
-  return potentialEvents
+  // console.log('SORTED', sortedPotentialEvents)
+
+  return sortedPotentialEvents
 }
 
 export function getUserDataForProfile(state, user_id) {
