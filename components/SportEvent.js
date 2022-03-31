@@ -80,9 +80,14 @@ function SportEvent(props) {
                   Your Event
                 </Badge>
               )}
-              {props.event.capacity_limit - signedUp <= 2 && (
+              {props.event.capacity_limit - signedUp <= 2 && props.event.capacity_limit - signedUp > 0 && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="red">
                   Almost Full
+                </Badge>
+              )}
+              {props.event.capacity_limit - signedUp == 0 && (
+                <Badge mr={1} borderRadius="full" px="2" colorScheme="red">
+                  Full
                 </Badge>
               )}
               {isToday(props.event.datetime) === true && (
