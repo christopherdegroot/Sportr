@@ -87,7 +87,7 @@ export default function Home() {
           <title>{siteTitle}</title>
         </Head>
         <VStack>
-          <HStack pt={230} pb={200}>
+          <HStack pt={'15vh'} pb={'10vh'}>
             <Image
               src="https://i.imgur.com/2brO7zk.png"
               width={30}
@@ -104,13 +104,13 @@ export default function Home() {
             </Text>
           </VStack>
         </VStack>
-        <VStack pt={10}>
+        <VStack pt={'5vh'}>
           <Link href="/register">
             <Button fontWeight={'thin'} variant={'outline'} colorScheme={'black'} color={'black'} w="15em" name={"Register"}>
               REGISTER
             </Button>
           </Link>
-          <Box p={3} pb={528}>
+          <Box p={3} pb={'50vh'}>
             <Button fontWeight={'thin'} variant={'outline'} colorScheme={'black'} color={'black'} w="15em" onClick={onToggle}>
               SIGN IN
             </Button>
