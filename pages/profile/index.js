@@ -37,10 +37,11 @@ export default function Userhome(props) {
   }, [state])
   
   const { isOpen, onClose, onToggle } = useDisclosure()
+  const newCheckBoxValues = Object.keys(sportsValue).filter( sport => sportsValue[sport])
 
   return (
     <>
-      <Container state={state} pb={20} backgroundColor={'rgb(247, 247, 247)'} pt='5' maxW="container.md">
+      { Object.keys(sportsValue).filter( sport => sportsValue[sport]).length >= 1 && newCheckBoxValues.length >= 1 && <Container state={state} pb={20} backgroundColor={'rgb(247, 247, 247)'} pt='5' maxW="container.md">
       <Box>
       </Box>
         <VStack justifyContent={'space-between'} minH={'730'} backgroundColor={'white'} rounded="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
@@ -83,14 +84,14 @@ export default function Userhome(props) {
                   rounded='md'
                   shadow="md"
                   >
-                  <UpdateProfile onToggle={onToggle} onClose={onClose} updateUser={updateUser} user={userData[0]} user_id={getCookie('user_id')} checked={[checkedValue, setCheckedValue]} bio={[bioValue, setBioValue]} range={[rangeValue, setRangeValue]} sports={[sportsValue, setSportsValue]} ></UpdateProfile>
+                  <UpdateProfile newCheckBoxValues={newCheckBoxValues} onToggle={onToggle} onClose={onClose} updateUser={updateUser} user={userData[0]} user_id={getCookie('user_id')} checked={[checkedValue, setCheckedValue]} bio={[bioValue, setBioValue]} range={[rangeValue, setRangeValue]} sports={[sportsValue, setSportsValue]} ></UpdateProfile>
                 </Box>
               </Collapse>
               
             </VStack>
           </VStack>
         </VStack>
-      </Container>
+      </Container>}
       
       <NavigationBar/>
     </>

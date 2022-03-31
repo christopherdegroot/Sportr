@@ -169,7 +169,7 @@ const Details = (props) => {
             <VStack alignItems="flex-start">
               <CheckboxGroup
                 colSpan={2}
-                defaultValue={checkedValue}
+                defaultValue={props.newCheckBoxValues}
                 onChange={(val) => flickSport(val)}
               >
                 <SimpleGrid columns={1} rowGap={3} w="full">
