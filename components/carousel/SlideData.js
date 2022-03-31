@@ -128,7 +128,7 @@ export const SlideData = [
   },
   {
     key: "soccer",
-    image: "https://i.imgur.com/PGWfrAy.jpg",
+    image: "https://i.imgur.com/MYAJEL2.jpg",
     lat: 49.259865,
     long:  -123.050459
   },
