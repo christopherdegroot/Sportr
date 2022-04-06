@@ -7,7 +7,7 @@ Sportr is an app designed to be a 'Tinder style app', but for sports. Sportr all
 
 Full demo of all React component functions: 
 
-!["Two browsers running Sportr updating one another"](https://i.imgur.com/AAvPvHU.mp4)
+!["Two browsers running Sportr updating one another"](https://github.com/christopherdegroot/Sportr/blob/main/public/images/ezgif.com-gif-maker%20(5).gif?raw=true)
 
 ## Setup
 
