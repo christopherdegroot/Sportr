@@ -1,5 +1,18 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Sportr
+Sportr is an app designed to be a 'Tinder style app', but for sports. Sportr allows users to create sport events that are shared to the larger community to be swiped on to find others to play a variety of pick-up style sports with. Building Sportr in less than two weeks was a great example of a real-world environment working with a team harmoniously while also teaching ourselves new tech stacks not covered in our bootcamp and meeting our set deadline.
+
+## Final Product
+
+Full demo of all React component functions: 
+
+!["Two browsers running Sportr updating one another"](https://i.imgur.com/AAvPvHU.mp4)
+
+## Setup
+
+Install dependencies with `npm install`.
+
 ## Getting Started
 
 First, run the development server:
@@ -10,25 +23,52 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Features
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- A host of different components successfully compiled to create the functional UI required for the Interview Scheduler App to be not only functional, but intuitive.
+- Interview Scheduler is a well-tested project. Storybook was used to ensure all components are individually functioning as desired. Unit and integration tests via Jest, and End-to-End tests for full user journeys via Cypress.
+- Seamless Single Page Application design with interactive UI achieved through  through encapsualted components that manage their own state via custom hooks.
+- Integration of an API via axios to manage realtime data update via state and custom hooks.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Install dependencies with `npm install`.
 
-## Deploy on Vercel
+Fork and clone the [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) into a new directory, then follow the README.md instructions within.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Dependencies
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- axios
+- @testing-library/react-hooks
+- react-test-renderer
+
+## Running Webpack Development Server
+
+```sh
+npm start
+```
+
+## Running Storybook Visual Testbed
+
+```sh
+npm run storybook
+```
+
+## Running Jest Test Framework
+
+```sh
+npm test
+```
+
+## Running Cypress Test Framework
+
+```sh
+npm run cypress
+```
+
+
