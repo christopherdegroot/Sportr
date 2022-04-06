@@ -12,7 +12,7 @@ Full demo of all component functions: logging in, browsing event feed and my eve
 
 - A host of different components built with Chakra UI fully custom-made to create a functional, intuitive UI that is highly optiimized and beautifully designed. 
 - WebSockets are used to create a seamless user experience: no refreshes are required for automatic updates to a users feed of new events.
-- Sportr uses NextJS and React for the framework, and uses Chakra ui to help design the frontend with feature-rich components, all together ensuring it’s highly functional, intuitive, and useful
+- Sportr uses NextJS and React for the framework, and uses Chakra UI to help design the frontend with feature-rich components, all together ensuring it’s highly functional, intuitive, and useful
 - Full tech stack: React, NextJS, Chakra UI, Javascript, Knex.js, postgreSQL, Google Maps API and WebSockets.
 
 ## Setup
