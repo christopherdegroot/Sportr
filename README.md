@@ -1,15 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Sportr
 Sportr is an app designed to be a 'Tinder style app', but for sports. Sportr allows users to create sport events that are shared to the larger community to be swiped on to find others to play a variety of pick-up style sports with. Building Sportr in less than two weeks was a great example of a real-world environment working with a team harmoniously while also teaching ourselves new tech stacks not covered in our bootcamp and meeting our set deadline.
 
 ## Final Product
 
-Full demo of all React component functions: 
+Full demo of all component functions: logging in, browsing event feed and my events, creating events, viewing profiles, updating profiles (selecting events changes event feed contents based on events and preferences).
 
 !["Two browsers running Sportr updating one another"](https://github.com/christopherdegroot/Sportr/blob/main/public/images/ezgif.com-gif-maker%20(5).gif?raw=true)
 
+## Features
+
+- A host of different components built with Chakra UI fully custom-made to create a functional, intuitive UI that is highly optiimized and beautifully designed. 
+- WebSockets are used to create a seamless user experience: no refreshes are required for automatic updates to a users feed of new events.
+- Sportr uses NextJS and React for the framework, and uses Chakra ui to help design the frontend with feature-rich components, all together ensuring it’s highly functional, intuitive, and useful
+- Full tech stack: React, NextJS, Chakra UI, Javascript, Knex.js, postgreSQL, Google Maps API and WebSockets.
+
 ## Setup
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 Install dependencies with `npm install`.
 
@@ -26,12 +34,6 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 
-## Features
-
-- A host of different components successfully compiled to create the functional UI required for the Interview Scheduler App to be not only functional, but intuitive.
-- Interview Scheduler is a well-tested project. Storybook was used to ensure all components are individually functioning as desired. Unit and integration tests via Jest, and End-to-End tests for full user journeys via Cypress.
-- Seamless Single Page Application design with interactive UI achieved through  through encapsualted components that manage their own state via custom hooks.
-- Integration of an API via axios to manage realtime data update via state and custom hooks.
 
 
 
@@ -39,36 +41,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 Install dependencies with `npm install`.
 
-Fork and clone the [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) into a new directory, then follow the README.md instructions within.
-
-## Dependencies
-
-- axios
-- @testing-library/react-hooks
-- react-test-renderer
-
-## Running Webpack Development Server
-
-```sh
-npm start
-```
-
-## Running Storybook Visual Testbed
-
-```sh
-npm run storybook
-```
-
-## Running Jest Test Framework
-
-```sh
-npm test
-```
-
-## Running Cypress Test Framework
-
-```sh
-npm run cypress
-```
 
 
