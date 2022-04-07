@@ -32,29 +32,6 @@ export default function Home() {
   const [input, setInput] = useState('')
   const googlemap = useRef(null);
 
-  
-  // useEffect(() => socketInitializer(), [])
-  
-  // const socketInitializer = async () => {
-  //   await fetch('/api/socket');
-  //   socket = io()
-
-  //   socket.on('connect', () => {
-  //     console.log('connected')
-  //   })
-
-  //   socket.on('update-input', msg => {
-  //     console.log('logging msg in global index', msg)
-  //     setInput(msg)
-  //   })
-  // }
-
-  // const onChangeHandler = (e) => {
-  //   setInput(e.target.value)
-  //   socket.emit('input-change', e.target.value)
-  // }
-
-
 
   return (
     <>
