@@ -24,88 +24,111 @@ import { MdSportsTennis, MdOutlineSportsHandball } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 const io = require("socket.io-client");
 const socket = io();
-import {Loader} from '@googlemaps/js-api-loader';
-
+import { Loader } from "@googlemaps/js-api-loader";
 
 export default function Home() {
   const { isOpen, onClose, onToggle } = useDisclosure();
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState("");
   const googlemap = useRef(null);
-
 
   return (
     <>
-
-    <div className="home-page-stack" >
-    
-      <VStack
-        justifyContent={"space-between"}
-        minH={"844"}
-        bgGradient={"linear-gradient( #e66465, #9198e5)"}
-        h={'100%'}
-      >
-        <Head>
-          <link rel="icon" href="/images/template (2).png" />
-          <meta
-            name="description"
-            content="Learn how to build a personal website using Next.js"
-          />
-          <meta
-            property="og:image"
-            content={`https://og-image.vercel.app/${encodeURI(
-              siteTitle
-            )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-          />
-          <meta name="og:title" content={siteTitle} />
-          <meta name="twitter:card" content="summary_large_image" />
-        </Head>
-
-        <Head>
-          <title>{siteTitle}</title>
-        </Head>
-        <VStack>
-          <HStack pt={'15vh'} pb={'10vh'}>
-            <Image
-              src="https://i.imgur.com/2brO7zk.png"
-              width={30}
-              height={60}
+      <div className="home-page-stack">
+        <VStack
+          justifyContent={"space-between"}
+          minH={"844"}
+          bgGradient={"linear-gradient( #e66465, #9198e5)"}
+          h={"100%"}
+        >
+          <Head>
+            <link rel="icon" href="/images/template (2).png" />
+            <meta
+              name="description"
+              content="Learn how to build a personal website using Next.js"
             />
-            <Heading color={'black'} pb={1}>Sportr</Heading>
-          </HStack>
+            <meta
+              property="og:image"
+              content={`https://og-image.vercel.app/${encodeURI(
+                siteTitle
+              )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+            />
+            <meta name="og:title" content={siteTitle} />
+            <meta name="twitter:card" content="summary_large_image" />
+          </Head>
+
+          <Head>
+            <title>{siteTitle}</title>
+          </Head>
           <VStack>
-            <Text color={'black'} mb={3} fontWeight={"bold"} px={7} textAlign={"center"}>
-              Sportr is an app to find pick-up <br></br> style sports games{" "}
-            </Text>
-            <Text color={'black'} fontWeight={"semibold"} px={7} textAlign={"center"}>
-              Find the sports you want to play happening near you
-            </Text>
+            <HStack pt={"15vh"} pb={"10vh"}>
+              <Image
+                src="https://i.imgur.com/2brO7zk.png"
+                width={30}
+                height={60}
+              />
+              <Heading color={"black"} pb={1}>
+                Sportr
+              </Heading>
+            </HStack>
+            <VStack>
+              <Text
+                color={"black"}
+                mb={3}
+                fontWeight={"bold"}
+                px={7}
+                textAlign={"center"}
+              >
+                Sportr is an app to find pick-up <br></br> style sports games{" "}
+              </Text>
+              <Text
+                color={"black"}
+                fontWeight={"semibold"}
+                px={7}
+                textAlign={"center"}
+              >
+                Find the sports you want to play happening near you
+              </Text>
+            </VStack>
+          </VStack>
+          <VStack pt={"5vh"}>
+            <Link href="/register">
+              <Button
+                fontWeight={"thin"}
+                variant={"outline"}
+                colorScheme={"black"}
+                color={"black"}
+                w="15em"
+                name={"Register"}
+              >
+                REGISTER
+              </Button>
+            </Link>
+            <Box p={3} pb={"50vh"}>
+              <Button
+                fontWeight={"thin"}
+                variant={"outline"}
+                colorScheme={"black"}
+                color={"black"}
+                w="15em"
+                onClick={onToggle}
+              >
+                SIGN IN
+              </Button>
+              <Slide direction="bottom" in={isOpen}>
+                <Box
+                  p="40px"
+                  color="white"
+                  mt="4"
+                  bg="teal.500"
+                  rounded="md"
+                  shadow="md"
+                >
+                  <LoginModule onClose={onClose}></LoginModule>
+                </Box>
+              </Slide>
+            </Box>
           </VStack>
         </VStack>
-        <VStack pt={'5vh'}>
-          <Link href="/register">
-            <Button fontWeight={'thin'} variant={'outline'} colorScheme={'black'} color={'black'} w="15em" name={"Register"}>
-              REGISTER
-            </Button>
-          </Link>
-          <Box p={3} pb={'50vh'}>
-            <Button fontWeight={'thin'} variant={'outline'} colorScheme={'black'} color={'black'} w="15em" onClick={onToggle}>
-              SIGN IN
-            </Button>
-            <Slide direction="bottom" in={isOpen}>
-              <Box
-                p="40px"
-                color="white"
-                mt="4"
-                bg="teal.500"
-                rounded="md"
-                shadow="md"
-              >
-                <LoginModule onClose={onClose}></LoginModule>
-              </Box>
-            </Slide>
-          </Box>
-        </VStack>
-      </VStack>
       </div>
     </>
   );
