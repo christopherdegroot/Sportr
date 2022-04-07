@@ -1,30 +1,21 @@
-import Link from "next/link";
-import Head from "next/head";
 import {
   Stack,
   ButtonGroup,
   Button,
-  Box,
-  Container,
-  Flex,
   VStack,
 } from "@chakra-ui/react";
 import EventFeed from "../../components/EventFeed";
-import styles from "../../styles/login-header.module.css";
 import NavigationBar from "../../components/NavigationBar";
-import EventToggleButton from "../../components/EventToggleButton";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useApplicationData from "../../hooks/useApplicationData";
 import { getCookie } from "cookies-next";
 
 export default function Userhome(props) {
   const { state, createUserEvent, changeUserEvent } = useApplicationData();
   const [leftToggle, setLeftToggle] = useState(true);
-  const swapToggle = function (tf) {
+  const swapToggle = function(tf) {
     setLeftToggle(tf);
   };
-
-  let stateObject = state;
 
   return (
     <>
