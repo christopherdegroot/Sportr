@@ -27,13 +27,13 @@ import {
   AlertDialogOverlay,
   useDisclosure,
   AlertDialogCloseButton,
-  Collapse
+  Collapse,
 } from "@chakra-ui/react";
 import React from "react";
 
 const CancelButtonSportEvent = (props) => {
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
-  const cancelRef = React.useRef()
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const cancelRef = React.useRef();
   const [show, setShow] = React.useState(true);
 
   return (
