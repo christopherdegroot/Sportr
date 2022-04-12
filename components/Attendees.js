@@ -1,17 +1,24 @@
 // test doc for chakra
 
-import { Collapse, Box, Button, VStack, Heading, useDisclosure } from "@chakra-ui/react";
+import {
+  Collapse,
+  Box,
+  Button,
+  VStack,
+  Heading,
+  useDisclosure,
+} from "@chakra-ui/react";
 import AttendeeList from "./AttendeeList";
 
 import { getSignedUpUserCountForEvent } from "../helpers/selectors";
 
 const Attendees = (props) => {
-  const { state, event } = props
+  const { state, event } = props;
 
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
-  const signedUp = getSignedUpUserCountForEvent(state, event.id)
-  const spotsRemaining = event.capacity_limit - signedUp
+  const signedUp = getSignedUpUserCountForEvent(state, event.id);
+  const spotsRemaining = event.capacity_limit - signedUp;
 
   return (
     <>
@@ -24,8 +31,7 @@ const Attendees = (props) => {
         variant={"link"}
         onClick={onToggle}
       >
-        {signedUp} signed up &bull; {spotsRemaining}{" "}
-        spots remaining
+        {signedUp} signed up &bull; {spotsRemaining} spots remaining
       </Button>
       <Collapse in={isOpen} animateOpacity>
         <Box
