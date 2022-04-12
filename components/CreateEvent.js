@@ -48,9 +48,7 @@ import { icons } from "react-icons";
 import { FcInfo } from "react-icons/fc";
 import script from "next/script";
 import { BsGoogle } from "react-icons/bs";
-import {Loader} from '@googlemaps/js-api-loader';
-
-
+import { Loader } from "@googlemaps/js-api-loader";
 
 const Details = (props) => {
   const { state, createEvent } = props;
@@ -76,12 +74,12 @@ const Details = (props) => {
   useEffect(() => {
     const loader = new Loader({
       apiKey: process.env.NEXT_PUBLIC_API_KEY,
-      version: 'weekly',
+      version: "weekly",
     });
     let map;
     loader.load().then(() => {
       map = new google.maps.Map(googlemap.current, {
-        center: {lat: 49.249, lng: -123.111},
+        center: { lat: 49.249, lng: -123.111 },
         zoom: 10,
         fullscreenControl: false, // remove the top-right button
         mapTypeControl: false, // remove the top-left buttons
@@ -91,22 +89,20 @@ const Details = (props) => {
       // const marker = new google.maps.Marker({
       //   position: {lat: 49.249, lng: -123.111},
       //   map: map,
-      // });    
+      // });
       google.maps.event.addListener(map, "click", (event) => {
-         
-       const newMarker = new google.maps.Marker({
+        const newMarker = new google.maps.Marker({
           position: event.latLng,
           map: map,
-          latlong: JSON.stringify(event.latLng.toJSON(), null, 2)
-        });    
-        return newMarker
+          latlong: JSON.stringify(event.latLng.toJSON(), null, 2),
+        });
+        return newMarker;
       });
     });
   }, []);
 
-  
   return (
-    <> 
+    <>
       <Container pb={20} maxW="container.md">
         <VStack w="full" h="full" p={10} spacing={10}>
           <VStack spacing={3} alignItems="flex-start">
@@ -180,7 +176,9 @@ const Details = (props) => {
             </GridItem>
             <GridItem colSpan={2}>
               <FormControl>
-                <FormLabel>How many participants are you looking for?</FormLabel>
+                <FormLabel>
+                  How many participants are you looking for?
+                </FormLabel>
                 <Input
                   placeholder="Number of participants"
                   type="number"
@@ -190,9 +188,9 @@ const Details = (props) => {
             </GridItem>
             <GridItem colSpan={2}>
               <FormLabel>Location</FormLabel>
-              <Box w={'100%'} h="300px">
-            <div id="map" ref={googlemap} />
-            </Box>
+              <Box w={"100%"} h="300px">
+                <div id="map" ref={googlemap} />
+              </Box>
             </GridItem>
             <GridItem colSpan={2}>
               <FormControl>
