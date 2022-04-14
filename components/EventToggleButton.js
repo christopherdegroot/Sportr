@@ -25,7 +25,7 @@ import EventFeed from "./EventFeed";
 
 const EventToggleButton = () => {
   const [leftToggle, setLeftToggle] = useState(true);
-  const swapToggle = function (tf) {
+  const swapToggle = function(tf) {
     setLeftToggle(tf);
   };
 
