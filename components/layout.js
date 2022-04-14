@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
+import Link from "next/link";
 
-const name = 'Welcome to Sportr'
-export const siteTitle = 'Sportr'
+const name = "Welcome to Sportr";
+export const siteTitle = "Sportr";
 
 export default function Layout({ children, home }) {
   return (
@@ -41,16 +41,14 @@ export default function Layout({ children, home }) {
         ) : (
           <>
             <Link href="/">
-              
-                <Image
-                  priority
-                  src="/images/Sportr-Logo.jpg"
-                  className={utilStyles.banner}
-                  height={400}
-                  width={800}
-                  alt={name}
-                />
-              
+              <Image
+                priority
+                src="/images/Sportr-Logo.jpg"
+                className={utilStyles.banner}
+                height={400}
+                width={800}
+                alt={name}
+              />
             </Link>
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
@@ -61,7 +59,6 @@ export default function Layout({ children, home }) {
         )}
       </header>
       <main>{children}</main>
-     
     </div>
-  )
+  );
 }
