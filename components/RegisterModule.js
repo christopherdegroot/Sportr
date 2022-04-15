@@ -22,12 +22,12 @@ import React from "react";
 import Register from "./Register";
 
 const RegisterModule = (props) => {
-  const [show, setShow] = React.useState(false)
-  const handleClick = () => setShow(!show)
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
   const onClose = props.onClose;
   return (
     <>
-     <Register></Register>
+      <Register></Register>
     </>
   );
 };
