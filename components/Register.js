@@ -142,7 +142,7 @@ const Details = (props) => {
             </Collapse>
           </GridItem>
           <GridItem colSpan={2}></GridItem>
-         
+
           {props.registerPage && (
             <GridItem colSpan={2}>
               <Link href="/profile">
