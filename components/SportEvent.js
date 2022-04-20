@@ -45,7 +45,7 @@ function SportEvent(props) {
   const { isOpenCancel, isOpen, onOpen, onClose, onToggle } = useDisclosure();
   const cancelRef = React.useRef();
   let showAttendees = false;
-  const showAttendeesFunction = function(tf) {
+  const showAttendeesFunction = function (tf) {
     showAttendees = tf;
   };
   const { state, createUserEvent, changeUserEvent } = props;
@@ -61,7 +61,7 @@ function SportEvent(props) {
           borderWidth="2px"
           borderRadius="lg"
           overflow={"hidden"}
-          maxW={'800px'}
+          maxW={"800px"}
         >
           <ImageSlider
             key={props.event.id}
@@ -80,11 +80,12 @@ function SportEvent(props) {
                   Your Event
                 </Badge>
               )}
-              {props.event.capacity_limit - signedUp <= 2 && props.event.capacity_limit - signedUp > 0 && (
-                <Badge mr={1} borderRadius="full" px="2" colorScheme="red">
-                  Almost Full
-                </Badge>
-              )}
+              {props.event.capacity_limit - signedUp <= 2 &&
+                props.event.capacity_limit - signedUp > 0 && (
+                  <Badge mr={1} borderRadius="full" px="2" colorScheme="red">
+                    Almost Full
+                  </Badge>
+                )}
               {props.event.capacity_limit - signedUp == 0 && (
                 <Badge mr={1} borderRadius="full" px="2" colorScheme="red">
                   Full
