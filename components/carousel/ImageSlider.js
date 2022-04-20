@@ -35,24 +35,29 @@ const ImageSlider = (props) => {
   useEffect(() => {
     const loader = new Loader({
       apiKey: process.env.NEXT_PUBLIC_API_KEY,
-      version: 'weekly',
+      version: "weekly",
     });
     let map;
     loader.load().then(() => {
       map = new google.maps.Map(googlemap.current, {
-        center: {lat: props.data.filter((sport)=> sport.key == props.sport)[0].lat, lng: props.data.filter((sport)=> sport.key == props.sport)[0].long},
+        center: {
+          lat: props.data.filter((sport) => sport.key == props.sport)[0].lat,
+          lng: props.data.filter((sport) => sport.key == props.sport)[0].long,
+        },
         zoom: 14,
         fullscreenControl: false, // remove the top-right button
         mapTypeControl: false, // remove the top-left buttons
         streetViewControl: false, // remove the pegman
         zoomControl: true, // remove the bottom-right buttons
-        draggable: true
+        draggable: true,
       });
       const marker = new google.maps.Marker({
-        position: {lat: props.data.filter((sport)=> sport.key == props.sport)[0].lat, lng: props.data.filter((sport)=> sport.key == props.sport)[0].long},
+        position: {
+          lat: props.data.filter((sport) => sport.key == props.sport)[0].lat,
+          lng: props.data.filter((sport) => sport.key == props.sport)[0].long,
+        },
         map: map,
       });
-
     });
   }, []);
 
