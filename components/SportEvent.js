@@ -45,7 +45,7 @@ function SportEvent(props) {
   const { isOpenCancel, isOpen, onOpen, onClose, onToggle } = useDisclosure();
   const cancelRef = React.useRef();
   let showAttendees = false;
-  const showAttendeesFunction = function (tf) {
+  const showAttendeesFunction = function(tf) {
     showAttendees = tf;
   };
   const { state, createUserEvent, changeUserEvent } = props;
