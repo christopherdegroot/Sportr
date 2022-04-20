@@ -175,15 +175,15 @@ const Details = (props) => {
                 <SimpleGrid columns={1} rowGap={3} w="full">
                   {sportsValue
                     ? listOfSports.map((sport) => (
-                        <Checkbox key={sport} value={sport}>
-                          {sport
-                            ? `${sport.split("")[0].toUpperCase()}${sport
-                                .split("")
-                                .slice(1)
-                                .join("")}`
-                            : ""}
-                        </Checkbox>
-                      ))
+                      <Checkbox key={sport} value={sport}>
+                        {sport
+                          ? `${sport.split("")[0].toUpperCase()}${sport
+                            .split("")
+                            .slice(1)
+                            .join("")}`
+                          : ""}
+                      </Checkbox>
+                    ))
                     : ""}
                 </SimpleGrid>
               </CheckboxGroup>
