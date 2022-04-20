@@ -47,7 +47,7 @@ const Details = (props) => {
   const [checkedValue, setCheckedValue] = props.checked;
   const updateUser = props.updateUser;
 
-  console.log('logging props', props)
+  console.log("logging props", props);
 
   const flickSport = (events) => {
     setCheckedValue(events);
@@ -195,7 +195,7 @@ const Details = (props) => {
               justifyContent={"center"}
               w={300}
               onClick={() => {
-                updateUser(Number(props.user_id), updatedUser)
+                updateUser(Number(props.user_id), updatedUser);
                 props.onToggle();
               }}
               colorScheme="teal"
