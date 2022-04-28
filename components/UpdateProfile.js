@@ -165,7 +165,6 @@ const Details = (props) => {
           <GridItem colSpan={2}>
             {/* checkbox component has an on user changed event that we can use to reflect on the users choice */}
             <FormLabel>Sports</FormLabel>
-
             <VStack alignItems="flex-start">
               <CheckboxGroup
                 colSpan={2}
